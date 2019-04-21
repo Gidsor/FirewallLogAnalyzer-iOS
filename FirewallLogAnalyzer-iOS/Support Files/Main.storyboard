@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--View Controller-->
         <scene sceneID="E4j-pL-c6h">
             <objects>
                 <viewController id="HEo-Wb-M4d" sceneMemberID="viewController">
@@ -20,13 +20,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="R5g-Ph-Jx5"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="O37-gY-9ys"/>
+                    <tabBarItem key="tabBarItem" tag="1" systemItem="mostViewed" id="O37-gY-9ys"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYD-E3-gNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-28" y="123"/>
         </scene>
-        <!--Item 1-->
+        <!--View Controller-->
         <scene sceneID="A6l-X5-NDr">
             <objects>
                 <viewController id="vIp-63-Xqu" sceneMemberID="viewController">
@@ -36,16 +36,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8iZ-tY-Jfw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="YT2-La-f8G"/>
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="YT2-La-f8G"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCg-2a-yK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-28" y="-526"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="rwX-PG-VyY">
             <objects>
-                <tabBarController id="lpR-jr-T85" sceneMemberID="viewController">
+                <tabBarController id="lpR-jr-T85" customClass="MainTabBarController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZFr-X4-xyy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

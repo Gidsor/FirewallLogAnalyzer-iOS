@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C08CABE0226CFFE3009B276B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08CABDF226CFFE3009B276B /* Main.storyboard */; };
+		C08CABE2226D013E009B276B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08CABE1226D013E009B276B /* MainTabBarController.swift */; };
 		C0991DAF2249499400DF1CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0991DAE2249499400DF1CAE /* AppDelegate.swift */; };
 		C0991DB62249499600DF1CAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0991DB52249499600DF1CAE /* Assets.xcassets */; };
 		C0991DB92249499600DF1CAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0991DB72249499600DF1CAE /* LaunchScreen.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		12C32560CE9BA5CD41D35C40 /* Pods-FirewallLogAnalyzer-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirewallLogAnalyzer-iOS.release.xcconfig"; path = "Target Support Files/Pods-FirewallLogAnalyzer-iOS/Pods-FirewallLogAnalyzer-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		C08CABDF226CFFE3009B276B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C08CABE1226D013E009B276B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C0991DAB2249499400DF1CAE /* FirewallLogAnalyzer-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FirewallLogAnalyzer-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0991DAE2249499400DF1CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0991DB52249499600DF1CAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		C0C09E11226CF3B000C69B36 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C08CABE1226D013E009B276B /* MainTabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			files = (
 				C0C09E15226CF3E500C69B36 /* UserDefaults.swift in Sources */,
 				C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */,
+				C08CABE2226D013E009B276B /* MainTabBarController.swift in Sources */,
 				C0991DAF2249499400DF1CAE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
