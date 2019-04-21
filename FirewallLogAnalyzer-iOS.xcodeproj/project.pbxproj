@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C08CABE0226CFFE3009B276B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08CABDF226CFFE3009B276B /* Main.storyboard */; };
 		C0991DAF2249499400DF1CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0991DAE2249499400DF1CAE /* AppDelegate.swift */; };
 		C0991DB62249499600DF1CAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0991DB52249499600DF1CAE /* Assets.xcassets */; };
 		C0991DB92249499600DF1CAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0991DB72249499600DF1CAE /* LaunchScreen.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		12C32560CE9BA5CD41D35C40 /* Pods-FirewallLogAnalyzer-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirewallLogAnalyzer-iOS.release.xcconfig"; path = "Target Support Files/Pods-FirewallLogAnalyzer-iOS/Pods-FirewallLogAnalyzer-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		C08CABDF226CFFE3009B276B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C0991DAB2249499400DF1CAE /* FirewallLogAnalyzer-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FirewallLogAnalyzer-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0991DAE2249499400DF1CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0991DB52249499600DF1CAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,7 +56,6 @@
 				DE8304FDA26CF97881413ED0 /* Pods-FirewallLogAnalyzer-iOS.debug.xcconfig */,
 				12C32560CE9BA5CD41D35C40 /* Pods-FirewallLogAnalyzer-iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -98,6 +99,7 @@
 			children = (
 				C0991DB52249499600DF1CAE /* Assets.xcassets */,
 				C0991DB72249499600DF1CAE /* LaunchScreen.storyboard */,
+				C08CABDF226CFFE3009B276B /* Main.storyboard */,
 				C0991DBA2249499600DF1CAE /* Info.plist */,
 			);
 			path = "Support Files";
@@ -214,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08CABE0226CFFE3009B276B /* Main.storyboard in Resources */,
 				C0991DB92249499600DF1CAE /* LaunchScreen.storyboard in Resources */,
 				C0991DB62249499600DF1CAE /* Assets.xcassets in Resources */,
 			);
