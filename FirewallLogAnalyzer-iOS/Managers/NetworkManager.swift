@@ -10,7 +10,7 @@ import Alamofire
 
 enum Server: String {
     case development = "http://localhost:8000"
-    case production = "http://api.comixon.com"
+//    case production = "http://localhost:8000"
 }
 
 enum StatusCode: Int, Error {
@@ -36,8 +36,14 @@ enum StatusCode: Int, Error {
 }
 
 enum Path: String {
-    // account
-    case registration = "/account/registration"
+    case update = "/api/logfiles/update"
+    case updateKaspersky = "/api/logfiles/kaspersky/update"
+    case updateTPLink = "/api/logfiles/tplink/update"
+    case updateDLink = "/api/logfiles/dlink/update"
+    
+    case logfilesKaspersky = "/api/logfiles/kaspersky"
+    case logfilesTPLink = "/api/logfiles/tplink"
+    case logfilesDLink = "/api/logfiles/dlink"
 }
 
 typealias JSON = [String : Any]
@@ -51,12 +57,10 @@ class NetworkManager {
     #if DEBUG
     let hostname = Server.development.rawValue
     #else
-    let hostname = Server.production.rawValue
+    let hostname = Server.development.rawValue
     #endif
     
     private init() {}
-    
-    // MARK: - Initail calls
     
     @discardableResult
     private func makeCall(path: Path, method: HTTPMethod, parameters: Parameters? = nil, encoding: ParameterEncoding = JSONEncoding.default, headers: HTTPHeaders? = nil, response: @escaping Response) -> DataRequest {
@@ -69,15 +73,12 @@ class NetworkManager {
     private func makeCall(path: String, method: HTTPMethod, parameters: Parameters? = nil, encoding: ParameterEncoding = JSONEncoding.default, headers: HTTPHeaders? = nil, response: @escaping Response) -> DataRequest {
         let urlString = (hostname + path).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         return Alamofire.request(urlString, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseData(queue: queue, completionHandler: { (responseData) in
-            
-            //            print("\nSHORTLOG (Call: \(path), Method: \(method), Parameters: \(parameters ?? [:]), Headers: \(headers ?? [:]), Result: \(responseData.result.description))")
-            
             DispatchQueue.main.async {
+                print("\nSHORTLOG (Call: \(path), Method: \(method), Parameters: \(parameters ?? [:]), Headers: \(headers ?? [:]), Result: \(responseData.result.description))")
                 let statusCode = StatusCode(unsafeRawValue: responseData.response?.statusCode)
                 switch responseData.result {
                 case .success:
                     if let data = responseData.data, let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-                        // From backend some requests just array
                         if json is NSArray {
                             let json = ["results" : json]
                             response(statusCode, json)
@@ -125,17 +126,52 @@ class NetworkManager {
         })
     }
     
-    @discardableResult
-    func updateLogFiles(parameters: [String : Any], response: Response? = nil) -> DataRequest {
-        return makeCall(path: .registration, method: .post, parameters: parameters) { (statusCode, json) in
+    func updateLogFiles(response: Response? = nil) {
+        makeCall(path: .update, method: .get) { (statusCode, json) in
             if let response = response {
                 response(statusCode, json)
             }
         }
     }
     
-    func getLogFiles(response: @escaping Response) {
-        makeCall(path: .registration, method: .get) { (statusCode, json) in
+    func updateKasperskyLogFiles(response: Response? = nil) {
+        makeCall(path: .updateKaspersky, method: .get) { (statusCode, json) in
+            if let response = response {
+                response(statusCode, json)
+            }
+        }
+    }
+    
+    func updateTPLinkLogFiles(response: Response? = nil) {
+        makeCall(path: .updateKaspersky, method: .get) { (statusCode, json) in
+            if let response = response {
+                response(statusCode, json)
+            }
+        }
+    }
+    
+    func updateDLinkLogFiles(response: Response? = nil) {
+        makeCall(path: .updateKaspersky, method: .get) { (statusCode, json) in
+            if let response = response {
+                response(statusCode, json)
+            }
+        }
+    }
+    
+    func getKasperskyLogFiles(response: @escaping Response) {
+        makeCall(path: .logfilesKaspersky, method: .get) { (statusCode, json) in
+            response(statusCode, json)
+        }
+    }
+    
+    func getTPLinkLogFiles(response: @escaping Response) {
+        makeCall(path: .logfilesTPLink, method: .get) { (statusCode, json) in
+            response(statusCode, json)
+        }
+    }
+    
+    func getDLinkLogFiles(response: @escaping Response) {
+        makeCall(path: .logfilesDLink, method: .get) { (statusCode, json) in
             response(statusCode, json)
         }
     }
