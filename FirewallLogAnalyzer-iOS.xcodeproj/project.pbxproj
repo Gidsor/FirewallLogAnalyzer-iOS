@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C00B4663226F36AB0030DE5A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00B4662226F36AB0030DE5A /* NetworkManager.swift */; };
-		C029B124227A235F00383533 /* LogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B123227A235F00383533 /* LogFile.swift */; };
 		C029B126227A236C00383533 /* TPLinkLogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B125227A236C00383533 /* TPLinkLogFile.swift */; };
 		C029B128227A237600383533 /* KasperskyLogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B127227A237600383533 /* KasperskyLogFile.swift */; };
 		C029B12A227A238200383533 /* DLinkLogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B129227A238200383533 /* DLinkLogFile.swift */; };
+		C029B12C227A349C00383533 /* LogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B12B227A349C00383533 /* LogFile.swift */; };
 		C08CABE0226CFFE3009B276B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08CABDF226CFFE3009B276B /* Main.storyboard */; };
 		C08CABE2226D013E009B276B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08CABE1226D013E009B276B /* MainTabBarController.swift */; };
 		C0991DAF2249499400DF1CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0991DAE2249499400DF1CAE /* AppDelegate.swift */; };
@@ -25,10 +25,10 @@
 /* Begin PBXFileReference section */
 		12C32560CE9BA5CD41D35C40 /* Pods-FirewallLogAnalyzer-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirewallLogAnalyzer-iOS.release.xcconfig"; path = "Target Support Files/Pods-FirewallLogAnalyzer-iOS/Pods-FirewallLogAnalyzer-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		C00B4662226F36AB0030DE5A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		C029B123227A235F00383533 /* LogFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFile.swift; sourceTree = "<group>"; };
 		C029B125227A236C00383533 /* TPLinkLogFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPLinkLogFile.swift; sourceTree = "<group>"; };
 		C029B127227A237600383533 /* KasperskyLogFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KasperskyLogFile.swift; sourceTree = "<group>"; };
 		C029B129227A238200383533 /* DLinkLogFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLinkLogFile.swift; sourceTree = "<group>"; };
+		C029B12B227A349C00383533 /* LogFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFile.swift; sourceTree = "<group>"; };
 		C08CABDF226CFFE3009B276B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C08CABE1226D013E009B276B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C0991DAB2249499400DF1CAE /* FirewallLogAnalyzer-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FirewallLogAnalyzer-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,9 +165,9 @@
 		C0C09E13226CF3C700C69B36 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C029B123227A235F00383533 /* LogFile.swift */,
-				C029B125227A236C00383533 /* TPLinkLogFile.swift */,
+				C029B12B227A349C00383533 /* LogFile.swift */,
 				C029B127227A237600383533 /* KasperskyLogFile.swift */,
+				C029B125227A236C00383533 /* TPLinkLogFile.swift */,
 				C029B129227A238200383533 /* DLinkLogFile.swift */,
 			);
 			path = Model;
@@ -297,9 +297,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C029B128227A237600383533 /* KasperskyLogFile.swift in Sources */,
-				C029B124227A235F00383533 /* LogFile.swift in Sources */,
 				C029B12A227A238200383533 /* DLinkLogFile.swift in Sources */,
 				C0C09E15226CF3E500C69B36 /* UserDefaults.swift in Sources */,
+				C029B12C227A349C00383533 /* LogFile.swift in Sources */,
 				C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */,
 				C00B4663226F36AB0030DE5A /* NetworkManager.swift in Sources */,
 				C08CABE2226D013E009B276B /* MainTabBarController.swift in Sources */,

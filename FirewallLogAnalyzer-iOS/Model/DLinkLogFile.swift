@@ -9,5 +9,35 @@
 import Foundation
 
 class DLinkLogFile: LogFile {
+    var severity: String
+    var category: String
+    var categoryID: String
+    var rule: String
+    var protocolNetwork: String
+    var srcIf: String
+    var dstIf: String
+    var srcIP: String
+    var dstIP: String
+    var srcPort: String
+    var dstPort: String
+    var event: String
+    var action: String
     
+    override init(json: JSON) {
+        severity = json["severity"] as? String ?? ""
+        category = json["category"] as? String ?? ""
+        categoryID = json["categoryID"] as? String ?? ""
+        rule = json["rule"] as? String ?? ""
+        protocolNetwork = json["proto"] as? String ?? ""
+        srcIf = json["srcIf"] as? String ?? ""
+        dstIf = json["dstIf"] as? String ?? ""
+        srcIP = json["srcIP"] as? String ?? ""
+        dstIP = json["dstIP"] as? String ?? ""
+        srcPort = json["srcPort"] as? String ?? ""
+        dstPort = json["dstPort"] as? String ?? ""
+        event = json["event"] as? String ?? ""
+        action = json["action"] as? String ?? ""
+        
+        super.init(json: json)
+    }
 }
