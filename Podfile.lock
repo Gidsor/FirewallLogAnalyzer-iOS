@@ -3,20 +3,24 @@ PODS:
   - Charts (3.2.2):
     - Charts/Core (= 3.2.2)
   - Charts/Core (3.2.2)
+  - SpreadsheetView (0.8.4)
 
 DEPENDENCIES:
   - Alamofire
   - Charts
+  - SpreadsheetView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Charts
+    - SpreadsheetView
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
+  SpreadsheetView: 17c55b6dc82099993cc2ceb818248d19f3220998
 
-PODFILE CHECKSUM: 3f654514221a001e8f85051dc91e95bc28f85cb3
+PODFILE CHECKSUM: c465cee578f02f450990ecdd83f22b213eba3826
 
 COCOAPODS: 1.6.1
