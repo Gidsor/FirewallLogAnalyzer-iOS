@@ -143,7 +143,7 @@ class NetworkManager {
     }
     
     func updateTPLinkLogFiles(response: Response? = nil) {
-        makeCall(path: .updateKaspersky, method: .get) { (statusCode, json) in
+        makeCall(path: .updateTPLink, method: .get) { (statusCode, json) in
             if let response = response {
                 response(statusCode, json)
             }
@@ -151,7 +151,7 @@ class NetworkManager {
     }
     
     func updateDLinkLogFiles(response: Response? = nil) {
-        makeCall(path: .updateKaspersky, method: .get) { (statusCode, json) in
+        makeCall(path: .updateDLink, method: .get) { (statusCode, json) in
             if let response = response {
                 response(statusCode, json)
             }

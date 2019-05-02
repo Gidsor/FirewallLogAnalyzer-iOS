@@ -1,5 +1,5 @@
 //
-//  TPLinkLogFile.swift
+//  TPLinkLog.swift
 //  FirewallLogAnalyzer-iOS
 //
 //  Created by Vadim Denisov on 01/05/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TPLinkLogFile: LogFile {
+class TPLinkLog: Log {
     var typeEvent: String
     var levelSignificance: String
     var logContent: String
@@ -25,5 +25,16 @@ class TPLinkLogFile: LogFile {
         protocolNetwork = json["protocol"] as? String ?? ""
         
         super.init(json: json)
+    }
+    
+    static func getLogs(json: JSON) -> [TPLinkLog] {
+        guard let results = json["results"] as? [JSON] else { return [] }
+        
+        var logs: [TPLinkLog] = []
+        for json in results {
+            logs.append(TPLinkLog(json: json))
+        }
+        
+        return logs
     }
 }

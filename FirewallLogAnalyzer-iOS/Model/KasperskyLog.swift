@@ -1,5 +1,5 @@
 //
-//  KasperskyLogFile.swift
+//  KasperskyLog.swift
 //  FirewallLogAnalyzer-iOS
 //
 //  Created by Vadim Denisov on 01/05/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class KasperskyLogFile: LogFile {
+class KasperskyLog: Log {
     var description: String
     var protectType: String
     var application: String
@@ -29,5 +29,16 @@ class KasperskyLogFile: LogFile {
         ipAddress = json["ipAddress"] as? String ?? ""
         
         super.init(json: json)
+    }
+    
+    static func getLogs(json: JSON) -> [KasperskyLog] {
+        guard let results = json["results"] as? [JSON] else { return [] }
+        
+        var logs: [KasperskyLog] = []
+        for json in results {
+            logs.append(KasperskyLog(json: json))
+        }
+        
+        return logs
     }
 }

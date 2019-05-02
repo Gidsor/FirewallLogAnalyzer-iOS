@@ -1,5 +1,5 @@
 //
-//  LogFile.swift
+//  Log.swift
 //  FirewallLogAnalyzer-iOS
 //
 //  Created by Vadim Denisov on 02/05/2019.
@@ -15,14 +15,14 @@ enum FirewallType: String {
     case unknown
 }
 
-class LogFile {
-    var id: String
+class Log {
+    var id: Int
     var time: String
     var date: String
     var firewallType: FirewallType
     
     init(json: JSON) {
-        id = json["id"] as? String ?? ""
+        id = json["id"] as? Int ?? 0
         time = json["time"] as? String ?? ""
         date = json["date"] as? String ?? ""
         

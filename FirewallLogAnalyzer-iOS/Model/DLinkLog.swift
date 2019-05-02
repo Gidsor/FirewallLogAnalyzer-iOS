@@ -1,5 +1,5 @@
 //
-//  DLinkLogFile.swift
+//  DLinkLog.swift
 //  FirewallLogAnalyzer-iOS
 //
 //  Created by Vadim Denisov on 01/05/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DLinkLogFile: LogFile {
+class DLinkLog: Log {
     var severity: String
     var category: String
     var categoryID: String
@@ -39,5 +39,16 @@ class DLinkLogFile: LogFile {
         action = json["action"] as? String ?? ""
         
         super.init(json: json)
+    }
+    
+    static func getLogs(json: JSON) -> [DLinkLog] {
+        guard let results = json["results"] as? [JSON] else { return [] }
+        
+        var logs: [DLinkLog] = []
+        for json in results {
+            logs.append(DLinkLog(json: json))
+        }
+        
+        return logs
     }
 }

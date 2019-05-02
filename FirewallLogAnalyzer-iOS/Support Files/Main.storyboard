@@ -13,7 +13,7 @@
         <!--Logs-->
         <scene sceneID="A6l-X5-NDr">
             <objects>
-                <viewController id="vIp-63-Xqu" sceneMemberID="viewController">
+                <viewController id="vIp-63-Xqu" customClass="LogsViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZQ1-Oz-pZ5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
