@@ -9,10 +9,16 @@
 import UIKit
 
 class DashboardTableViewController: UITableViewController {
-
+    @IBOutlet weak var kasperskyCell: UITableViewCell!
+    @IBOutlet weak var tplinkCell: UITableViewCell!
+    @IBOutlet weak var dlinkCell: UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
+    }
+    
+    func updateDashboard() {
     }
 }

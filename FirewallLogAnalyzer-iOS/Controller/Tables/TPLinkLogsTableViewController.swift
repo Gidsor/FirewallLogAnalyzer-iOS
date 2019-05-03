@@ -30,9 +30,8 @@ class TPLinkLogsTableViewController: UIViewController {
         spreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
         
         showActivityIndicator(in: view)
-        NetworkManager.shared.updateTPLinkLogFiles { (status, json) in
-            guard let json = json else { return }
-            self.logs = TPLinkLog.getLogs(json: json)
+        NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
+            self.logs = logs
             self.spreadsheetView.reloadData()
             self.countLabel.text = "Logs count: \(self.logs.count)"
             self.hideActivityIndicator(in: self.view)

@@ -43,6 +43,9 @@ enum Path: String {
 
 typealias JSON = [String : Any]
 typealias Response = (StatusCode, JSON?) -> Void
+typealias KasperskyResponse = (StatusCode, [KasperskyLog]) -> Void
+typealias TPLinkResponse = (StatusCode, [TPLinkLog]) -> Void
+typealias DLinkResponse = (StatusCode, [DLinkLog]) -> Void
 
 class NetworkManager {
     let queue = DispatchQueue(label: "Network Manger Queue", qos: .utility)
@@ -123,45 +126,69 @@ class NetworkManager {
         }
     }
     
-    func updateKasperskyLogFiles(response: Response? = nil) {
+    func updateKasperskyLogFiles(response: KasperskyResponse? = nil) {
         makeCall(path: .updateKaspersky, method: .get) { (statusCode, json) in
             if let response = response {
-                response(statusCode, json)
+                guard let json = json else {
+                    response(statusCode, [])
+                    return
+                }
+                response(statusCode, KasperskyLog.getLogs(json: json))
             }
         }
     }
     
-    func updateTPLinkLogFiles(response: Response? = nil) {
+    func updateTPLinkLogFiles(response: TPLinkResponse? = nil) {
         makeCall(path: .updateTPLink, method: .get) { (statusCode, json) in
             if let response = response {
-                response(statusCode, json)
+                guard let json = json else {
+                    response(statusCode, [])
+                    return
+                }
+                response(statusCode, TPLinkLog.getLogs(json: json))
             }
         }
     }
     
-    func updateDLinkLogFiles(response: Response? = nil) {
+    func updateDLinkLogFiles(response: DLinkResponse? = nil) {
         makeCall(path: .updateDLink, method: .get) { (statusCode, json) in
             if let response = response {
-                response(statusCode, json)
+                guard let json = json else {
+                    response(statusCode, [])
+                    return
+                }
+                response(statusCode, DLinkLog.getLogs(json: json))
             }
         }
     }
     
-    func getKasperskyLogFiles(response: @escaping Response) {
+    func getKasperskyLogFiles(response: @escaping KasperskyResponse) {
         makeCall(path: .logfilesKaspersky, method: .get) { (statusCode, json) in
-            response(statusCode, json)
+            guard let json = json else {
+                response(statusCode, [])
+                return
+            }
+            response(statusCode, KasperskyLog.getLogs(json: json))
         }
     }
     
-    func getTPLinkLogFiles(response: @escaping Response) {
+    func getTPLinkLogFiles(response: @escaping TPLinkResponse) {
         makeCall(path: .logfilesTPLink, method: .get) { (statusCode, json) in
-            response(statusCode, json)
+            guard let json = json else {
+                response(statusCode, [])
+                return
+            }
+            response(statusCode, TPLinkLog.getLogs(json: json))
         }
     }
     
-    func getDLinkLogFiles(response: @escaping Response) {
+    func getDLinkLogFiles(response: @escaping DLinkResponse) {
         makeCall(path: .logfilesDLink, method: .get) { (statusCode, json) in
-            response(statusCode, json)
+            guard let json = json else {
+                response(statusCode, [])
+                return
+            }
+            response(statusCode, DLinkLog.getLogs(json: json))
         }
     }
 }

@@ -174,6 +174,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Logs" id="6Eu-na-2D1"/>
+                    <connections>
+                        <outlet property="dlinkCell" destination="OKu-1w-Icg" id="sYN-1i-z3m"/>
+                        <outlet property="kasperskyCell" destination="6G5-wD-G7f" id="OuM-r1-347"/>
+                        <outlet property="tplinkCell" destination="mJX-By-BBD" id="u6e-GN-CtV"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1129" y="-2138"/>

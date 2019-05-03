@@ -28,9 +28,8 @@ class DLinkLogsTableViewController: UIViewController {
         
         spreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
         showActivityIndicator(in: view)
-        NetworkManager.shared.updateDLinkLogFiles { (status, json) in
-            guard let json = json else { return }
-            self.logs = DLinkLog.getLogs(json: json)
+        NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
+            self.logs = logs
             self.spreadsheetView.reloadData()
             self.countLabel.text = "Logs count: \(self.logs.count)"
             self.hideActivityIndicator(in: self.view)
