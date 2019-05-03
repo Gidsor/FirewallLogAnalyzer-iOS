@@ -1,5 +1,5 @@
 //
-//  LogsViewController.swift
+//  FirewallSelectViewController.swift
 //  FirewallLogAnalyzer-iOS
 //
 //  Created by Vadim Denisov on 03/05/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LogsViewController: UIPageViewController {
+class FirewallSelectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

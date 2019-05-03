@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lpR-jr-T85">
-    <device id="retina5_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eUM-P4-LLd">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,55 +10,116 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Logs-->
-        <scene sceneID="A6l-X5-NDr">
-            <objects>
-                <viewController id="vIp-63-Xqu" customClass="LogsViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZQ1-Oz-pZ5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRc-fR-PWd">
-                                <rect key="frame" x="171" y="141" width="72" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Kaspersky"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qZ-SP-Z7f">
-                                <rect key="frame" x="184" y="224" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="TPLink"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUJ-Tt-iD0">
-                                <rect key="frame" x="188" y="314" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="DLink"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="8iZ-tY-Jfw"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Logs" id="YT2-La-f8G"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TCg-2a-yK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-28" y="-526"/>
-        </scene>
         <!--Main Tab Bar Controller-->
-        <scene sceneID="rwX-PG-VyY">
+        <scene sceneID="OYw-Kv-CaD">
             <objects>
-                <tabBarController id="lpR-jr-T85" customClass="MainTabBarController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZFr-X4-xyy">
+                <tabBarController id="eUM-P4-LLd" customClass="MainTabBarController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bV4-JE-V3w">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="vIp-63-Xqu" kind="relationship" relationship="viewControllers" id="GQo-SI-ZVL"/>
+                        <segue destination="gcg-E7-zbd" kind="relationship" relationship="viewControllers" id="7T7-5T-g7e"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B6l-aU-SRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5pb-zQ-u4n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-946" y="-202"/>
+            <point key="canvasLocation" x="-639" y="-1118"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Nb2-fK-MBY">
+            <objects>
+                <navigationController id="gcg-E7-zbd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Clo-uA-Vgu"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2W6-zk-mPl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5LU-9l-acH" kind="relationship" relationship="rootViewController" id="zKF-r8-ot5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zVA-cm-dbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="278" y="-1406"/>
+        </scene>
+        <!--Firewall Select View Controller-->
+        <scene sceneID="uf2-Va-lSY">
+            <objects>
+                <viewController id="5LU-9l-acH" customClass="FirewallSelectViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hQY-7K-3fD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ4-AN-GBQ">
+                                <rect key="frame" x="135" y="278" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Kaspersky"/>
+                                <connections>
+                                    <segue destination="JgN-e8-aad" kind="show" id="b3c-ve-QSp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="KWi-sY-juh"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UCT-MN-bHT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CUt-5e-l0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1250" y="-1421"/>
+        </scene>
+        <!--Kaspersky Logs View Controller-->
+        <scene sceneID="YfE-pQ-Xtq">
+            <objects>
+                <viewController id="JgN-e8-aad" customClass="KasperskyLogsViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jIz-hk-k16">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11K-c2-fHQ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8Z-M4-L0r">
+                                        <rect key="frame" x="186" y="14.5" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Jmn-qa-7Yv"/>
+                                    <constraint firstItem="u8Z-M4-L0r" firstAttribute="centerY" secondItem="11K-c2-fHQ" secondAttribute="centerY" id="ab2-6E-GhI"/>
+                                    <constraint firstItem="u8Z-M4-L0r" firstAttribute="centerX" secondItem="11K-c2-fHQ" secondAttribute="centerX" id="fog-29-2re"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8S-Mb-4SM" customClass="SpreadsheetView" customModule="SpreadsheetView">
+                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tNR-pk-3pF" firstAttribute="trailing" secondItem="M8S-Mb-4SM" secondAttribute="trailing" id="70y-a4-bmd"/>
+                            <constraint firstItem="11K-c2-fHQ" firstAttribute="top" secondItem="tNR-pk-3pF" secondAttribute="top" id="CrA-Rf-pIz"/>
+                            <constraint firstItem="tNR-pk-3pF" firstAttribute="bottom" secondItem="M8S-Mb-4SM" secondAttribute="bottom" id="Jw9-hY-gcG"/>
+                            <constraint firstItem="M8S-Mb-4SM" firstAttribute="leading" secondItem="tNR-pk-3pF" secondAttribute="leading" id="R4u-Wv-2gO"/>
+                            <constraint firstItem="M8S-Mb-4SM" firstAttribute="top" secondItem="11K-c2-fHQ" secondAttribute="bottom" id="SrF-tD-EEf"/>
+                            <constraint firstItem="tNR-pk-3pF" firstAttribute="trailing" secondItem="11K-c2-fHQ" secondAttribute="trailing" id="jMR-RZ-MsZ"/>
+                            <constraint firstItem="11K-c2-fHQ" firstAttribute="leading" secondItem="tNR-pk-3pF" secondAttribute="leading" id="o4q-Zh-EwT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tNR-pk-3pF"/>
+                    </view>
+                    <connections>
+                        <outlet property="countLabel" destination="u8Z-M4-L0r" id="gkX-Fb-rg7"/>
+                        <outlet property="spreadsheetView" destination="M8S-Mb-4SM" id="5D7-Bd-vne"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ezt-Z2-S3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2165" y="-1393"/>
         </scene>
     </scenes>
 </document>

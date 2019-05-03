@@ -12,6 +12,6 @@ target 'FirewallLogAnalyzer-iOS' do
     use_frameworks!
 
     pod 'Alamofire'
-    pod 'Charts' 
+    pod 'Charts'
     pod 'SpreadsheetView'
 end

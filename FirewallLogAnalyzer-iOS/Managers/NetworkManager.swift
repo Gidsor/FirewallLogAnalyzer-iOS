@@ -37,9 +37,9 @@ enum StatusCode: Int, Error {
 
 enum Path: String {
     case update = "/api/logfiles/update"
-    case updateKaspersky = "/api/logfiles/kaspersky/update"
-    case updateTPLink = "/api/logfiles/tplink/update"
-    case updateDLink = "/api/logfiles/dlink/update"
+    case updateKaspersky = "/api/logfiles/update/kaspersky"
+    case updateTPLink = "/api/logfiles/update/tplink"
+    case updateDLink = "/api/logfiles/update/dlink"
     
     case logfilesKaspersky = "/api/logfiles/kaspersky"
     case logfilesTPLink = "/api/logfiles/tplink"
