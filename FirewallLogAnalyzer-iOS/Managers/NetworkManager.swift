@@ -9,7 +9,8 @@
 import Alamofire
 
 enum Server: String {
-    case development = "http://localhost:8000"
+//    case development = "http://localhost:8000"
+    case development = "http://192.168.0.105:8000"
 //    case production = "http://localhost:8000"
 }
 

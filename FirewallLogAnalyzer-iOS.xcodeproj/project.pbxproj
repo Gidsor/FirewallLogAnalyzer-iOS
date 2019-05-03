@@ -10,6 +10,8 @@
 		C00B4663226F36AB0030DE5A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00B4662226F36AB0030DE5A /* NetworkManager.swift */; };
 		C00E8850227C525E00896ED8 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00E884F227C525E00896ED8 /* TextCell.swift */; };
 		C00E8853227C848D00896ED8 /* TPLinkLogsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00E8852227C848D00896ED8 /* TPLinkLogsTableViewController.swift */; };
+		C00E8855227CA41A00896ED8 /* DLinkLogsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00E8854227CA41A00896ED8 /* DLinkLogsTableViewController.swift */; };
+		C00E8858227CA6CD00896ED8 /* UIViewController+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00E8857227CA6CD00896ED8 /* UIViewController+ActivityIndicator.swift */; };
 		C029B126227A236C00383533 /* TPLinkLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B125227A236C00383533 /* TPLinkLog.swift */; };
 		C029B128227A237600383533 /* KasperskyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B127227A237600383533 /* KasperskyLog.swift */; };
 		C029B12A227A238200383533 /* DLinkLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B129227A238200383533 /* DLinkLog.swift */; };
@@ -31,6 +33,8 @@
 		C00B4662226F36AB0030DE5A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C00E884F227C525E00896ED8 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		C00E8852227C848D00896ED8 /* TPLinkLogsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPLinkLogsTableViewController.swift; sourceTree = "<group>"; };
+		C00E8854227CA41A00896ED8 /* DLinkLogsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLinkLogsTableViewController.swift; sourceTree = "<group>"; };
+		C00E8857227CA6CD00896ED8 /* UIViewController+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		C029B125227A236C00383533 /* TPLinkLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPLinkLog.swift; sourceTree = "<group>"; };
 		C029B127227A237600383533 /* KasperskyLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KasperskyLog.swift; sourceTree = "<group>"; };
 		C029B129227A238200383533 /* DLinkLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLinkLog.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 			children = (
 				C029B130227B8AEC00383533 /* KasperskyLogsTableViewController.swift */,
 				C00E8852227C848D00896ED8 /* TPLinkLogsTableViewController.swift */,
+				C00E8854227CA41A00896ED8 /* DLinkLogsTableViewController.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 		C0C09E0E226CF39A00C69B36 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C00E8857227CA6CD00896ED8 /* UIViewController+ActivityIndicator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -318,11 +324,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C00E8858227CA6CD00896ED8 /* UIViewController+ActivityIndicator.swift in Sources */,
 				C029B128227A237600383533 /* KasperskyLog.swift in Sources */,
 				C029B12A227A238200383533 /* DLinkLog.swift in Sources */,
 				C0C09E15226CF3E500C69B36 /* UserDefaults.swift in Sources */,
 				C029B12C227A349C00383533 /* Log.swift in Sources */,
 				C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */,
+				C00E8855227CA41A00896ED8 /* DLinkLogsTableViewController.swift in Sources */,
 				C029B12E227B7E7A00383533 /* FirewallSelectViewController.swift in Sources */,
 				C00E8853227C848D00896ED8 /* TPLinkLogsTableViewController.swift in Sources */,
 				C00B4663226F36AB0030DE5A /* NetworkManager.swift in Sources */,

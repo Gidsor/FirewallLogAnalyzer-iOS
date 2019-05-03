@@ -1,5 +1,5 @@
 //
-//  TPLinkLogsTableViewController.swift
+//  DLinkLogsTableViewController.swift
 //  FirewallLogAnalyzer-iOS
 //
 //  Created by Vadim Denisov on 03/05/2019.
@@ -9,14 +9,13 @@
 import UIKit
 import SpreadsheetView
 
-class TPLinkLogsTableViewController: UIViewController {
-
+class DLinkLogsTableViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var spreadsheetView: SpreadsheetView!
     
     // TODO: set max width for each column after get cell if width more old
     
-    var logs: [TPLinkLog] = []
+    var logs: [DLinkLog] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +28,10 @@ class TPLinkLogsTableViewController: UIViewController {
         spreadsheetView.intercellSpacing = CGSize(width: 4, height: 1)
         
         spreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
-        
         showActivityIndicator(in: view)
-        NetworkManager.shared.updateTPLinkLogFiles { (status, json) in
+        NetworkManager.shared.updateDLinkLogFiles { (status, json) in
             guard let json = json else { return }
-            self.logs = TPLinkLog.getLogs(json: json)
+            self.logs = DLinkLog.getLogs(json: json)
             self.spreadsheetView.reloadData()
             self.countLabel.text = "Logs count: \(self.logs.count)"
             self.hideActivityIndicator(in: self.view)
@@ -47,9 +45,9 @@ class TPLinkLogsTableViewController: UIViewController {
     
 }
 
-extension TPLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetViewDelegate {
+extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetViewDelegate {
     func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
-        return 9
+        return 11
     }
     
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
@@ -78,22 +76,28 @@ extension TPLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetV
                 cell.label.text = "Time"
             }
             if indexPath.column == 3 {
-                cell.label.text = "Type of event"
+                cell.label.text = "Description"
             }
             if indexPath.column == 4 {
-                cell.label.text = "Level significance"
+                cell.label.text = "Type of protect"
             }
             if indexPath.column == 5 {
-                cell.label.text = "Log content"
+                cell.label.text = "Application"
             }
             if indexPath.column == 6 {
-                cell.label.text = "MAC address"
+                cell.label.text = "Result"
             }
             if indexPath.column == 7 {
-                cell.label.text = "IP address"
+                cell.label.text = "Object of attack"
             }
             if indexPath.column == 8 {
+                cell.label.text = "Port"
+            }
+            if indexPath.column == 9 {
                 cell.label.text = "Protocol"
+            }
+            if indexPath.column == 10 {
+                cell.label.text = "IP Address"
             }
             return cell
         }
@@ -110,22 +114,43 @@ extension TPLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetV
             cell.label.text = log.time
         }
         if indexPath.column == 3 {
-            cell.label.text = log.typeEvent
+            cell.label.text = log.severity
         }
         if indexPath.column == 4 {
-            cell.label.text = log.levelSignificance
+            cell.label.text = log.category
         }
         if indexPath.column == 5 {
-            cell.label.text = log.logContent
+            cell.label.text = log.categoryID
         }
         if indexPath.column == 6 {
-            cell.label.text = log.macAddress
+            cell.label.text = log.rule
         }
         if indexPath.column == 7 {
-            cell.label.text = log.ipAddress
+            cell.label.text = log.protocolNetwork
         }
         if indexPath.column == 8 {
-            cell.label.text = log.protocolNetwork
+            cell.label.text = log.srcIf
+        }
+        if indexPath.column == 9 {
+            cell.label.text = log.dstIf
+        }
+        if indexPath.column == 10 {
+            cell.label.text = log.srcIP
+        }
+        if indexPath.column == 11 {
+            cell.label.text = log.dstIP
+        }
+        if indexPath.column == 13 {
+            cell.label.text = log.srcPort
+        }
+        if indexPath.column == 14 {
+            cell.label.text = log.dstPort
+        }
+        if indexPath.column == 15 {
+            cell.label.text = log.event
+        }
+        if indexPath.column == 16 {
+            cell.label.text = log.action
         }
         return cell
     }
@@ -135,17 +160,26 @@ extension TPLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetV
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
+        if column == 3 {
+            return 200
+        }
         if column == 4 {
-            return 100
+            return 200
         }
         if column == 5 {
-            return 300
+            return 200
         }
         if column == 6 {
-            return 120
+            return 300
+        }
+        if column == 7 {
+            return 300
+        }
+        if column == 10 {
+            return 100
         }
         
         return 80
     }
+    
 }
-

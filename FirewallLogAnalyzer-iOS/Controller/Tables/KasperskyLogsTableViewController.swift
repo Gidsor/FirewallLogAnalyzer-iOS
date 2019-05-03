@@ -29,11 +29,13 @@ class KasperskyLogsTableViewController: UIViewController {
         
         spreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
         
+        showActivityIndicator(in: view)
         NetworkManager.shared.updateKasperskyLogFiles { (status, json) in
             guard let json = json else { return }
             self.logs = KasperskyLog.getLogs(json: json)
             self.spreadsheetView.reloadData()
             self.countLabel.text = "Logs count: \(self.logs.count)"
+            self.hideActivityIndicator(in: self.view)
         }
     }
     
