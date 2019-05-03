@@ -1,5 +1,5 @@
 //
-//  KasperskyLogsViewController.swift
+//  TPLinkLogsTableViewController.swift
 //  FirewallLogAnalyzer-iOS
 //
 //  Created by Vadim Denisov on 03/05/2019.
@@ -9,13 +9,14 @@
 import UIKit
 import SpreadsheetView
 
-class KasperskyLogsViewController: UIViewController {
+class TPLinkLogsTableViewController: UIViewController {
+
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var spreadsheetView: SpreadsheetView!
     
     // TODO: set max width for each column after get cell if width more old
     
-    var logs: [KasperskyLog] = []
+    var logs: [TPLinkLog] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +30,9 @@ class KasperskyLogsViewController: UIViewController {
         
         spreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
         
-        NetworkManager.shared.updateKasperskyLogFiles { (status, json) in
+        NetworkManager.shared.updateTPLinkLogFiles { (status, json) in
             guard let json = json else { return }
-            self.logs = KasperskyLog.getLogs(json: json)
+            self.logs = TPLinkLog.getLogs(json: json)
             self.spreadsheetView.reloadData()
             self.countLabel.text = "Logs count: \(self.logs.count)"
         }
@@ -44,9 +45,9 @@ class KasperskyLogsViewController: UIViewController {
     
 }
 
-extension KasperskyLogsViewController: SpreadsheetViewDataSource, SpreadsheetViewDelegate {
+extension TPLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetViewDelegate {
     func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
-        return 11
+        return 9
     }
     
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
@@ -75,28 +76,22 @@ extension KasperskyLogsViewController: SpreadsheetViewDataSource, SpreadsheetVie
                 cell.label.text = "Time"
             }
             if indexPath.column == 3 {
-                cell.label.text = "Description"
+                cell.label.text = "Type of event"
             }
             if indexPath.column == 4 {
-                cell.label.text = "Type of protect"
+                cell.label.text = "Level significance"
             }
             if indexPath.column == 5 {
-                cell.label.text = "Application"
+                cell.label.text = "Log content"
             }
             if indexPath.column == 6 {
-                cell.label.text = "Result"
+                cell.label.text = "MAC address"
             }
             if indexPath.column == 7 {
-                cell.label.text = "Object of attack"
+                cell.label.text = "IP address"
             }
             if indexPath.column == 8 {
-                cell.label.text = "Port"
-            }
-            if indexPath.column == 9 {
                 cell.label.text = "Protocol"
-            }
-            if indexPath.column == 10 {
-                cell.label.text = "IP Address"
             }
             return cell
         }
@@ -113,28 +108,22 @@ extension KasperskyLogsViewController: SpreadsheetViewDataSource, SpreadsheetVie
             cell.label.text = log.time
         }
         if indexPath.column == 3 {
-            cell.label.text = log.description
+            cell.label.text = log.typeEvent
         }
         if indexPath.column == 4 {
-            cell.label.text = log.protectType
+            cell.label.text = log.levelSignificance
         }
         if indexPath.column == 5 {
-            cell.label.text = log.application
+            cell.label.text = log.logContent
         }
         if indexPath.column == 6 {
-            cell.label.text = log.result
+            cell.label.text = log.macAddress
         }
         if indexPath.column == 7 {
-            cell.label.text = log.objectAttack
+            cell.label.text = log.ipAddress
         }
         if indexPath.column == 8 {
-            cell.label.text = log.port
-        }
-        if indexPath.column == 9 {
             cell.label.text = log.protocolNetwork
-        }
-        if indexPath.column == 10 {
-            cell.label.text = log.ipAddress
         }
         return cell
     }
@@ -144,26 +133,17 @@ extension KasperskyLogsViewController: SpreadsheetViewDataSource, SpreadsheetVie
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
-        if column == 3 {
-            return 200
-        }
         if column == 4 {
-            return 200
+            return 100
         }
         if column == 5 {
-            return 200
+            return 300
         }
         if column == 6 {
-            return 300
-        }
-        if column == 7 {
-            return 300
-        }
-        if column == 10 {
-            return 100
+            return 120
         }
         
         return 80
     }
-    
 }
+
