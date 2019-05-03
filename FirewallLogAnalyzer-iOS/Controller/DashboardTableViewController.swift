@@ -1,5 +1,5 @@
 //
-//  FirewallSelectViewController.swift
+//  DashboardTableViewController.swift
 //  FirewallLogAnalyzer-iOS
 //
 //  Created by Vadim Denisov on 03/05/2019.
@@ -8,9 +8,11 @@
 
 import UIKit
 
-class FirewallSelectViewController: UIViewController {
+class DashboardTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.tableFooterView = UIView()
     }
 }

@@ -25,7 +25,6 @@ class TPLinkLogsTableViewController: UIViewController {
         spreadsheetView.delegate = self
         
         spreadsheetView.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
-        
         spreadsheetView.intercellSpacing = CGSize(width: 4, height: 1)
         
         spreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))

@@ -24,7 +24,6 @@ class KasperskyLogsTableViewController: UIViewController {
         spreadsheetView.delegate = self
         
         spreadsheetView.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
-        
         spreadsheetView.intercellSpacing = CGSize(width: 4, height: 1)
         
         spreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
@@ -166,6 +165,10 @@ extension KasperskyLogsTableViewController: SpreadsheetViewDataSource, Spreadshe
         }
         
         return 80
+    }
+    
+    func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected: (row: \(indexPath.row), column: \(indexPath.column))")
     }
     
 }

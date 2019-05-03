@@ -24,7 +24,6 @@ class DLinkLogsTableViewController: UIViewController {
         spreadsheetView.delegate = self
         
         spreadsheetView.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
-        
         spreadsheetView.intercellSpacing = CGSize(width: 4, height: 1)
         
         spreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
@@ -47,7 +46,7 @@ class DLinkLogsTableViewController: UIViewController {
 
 extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetViewDelegate {
     func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
-        return 11
+        return 17
     }
     
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
@@ -76,28 +75,43 @@ extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetVi
                 cell.label.text = "Time"
             }
             if indexPath.column == 3 {
-                cell.label.text = "Description"
+                cell.label.text = "Severity"
             }
             if indexPath.column == 4 {
-                cell.label.text = "Type of protect"
+                cell.label.text = "Category"
             }
             if indexPath.column == 5 {
-                cell.label.text = "Application"
+                cell.label.text = "ID of category"
             }
             if indexPath.column == 6 {
-                cell.label.text = "Result"
+                cell.label.text = "Rule"
             }
             if indexPath.column == 7 {
-                cell.label.text = "Object of attack"
-            }
-            if indexPath.column == 8 {
-                cell.label.text = "Port"
-            }
-            if indexPath.column == 9 {
                 cell.label.text = "Protocol"
             }
+            if indexPath.column == 8 {
+                cell.label.text = "Source If"
+            }
+            if indexPath.column == 9 {
+                cell.label.text = "Destination If"
+            }
             if indexPath.column == 10 {
-                cell.label.text = "IP Address"
+                cell.label.text = "Source IP"
+            }
+            if indexPath.column == 11 {
+                cell.label.text = "Destination IP"
+            }
+            if indexPath.column == 13 {
+                cell.label.text = "Source Port"
+            }
+            if indexPath.column == 14 {
+                cell.label.text = "Destination Port"
+            }
+            if indexPath.column == 15 {
+                cell.label.text = "Event"
+            }
+            if indexPath.column == 16 {
+                cell.label.text = "Action"
             }
             return cell
         }
@@ -160,25 +174,12 @@ extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetVi
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
-        if column == 3 {
-            return 200
-        }
-        if column == 4 {
-            return 200
-        }
-        if column == 5 {
-            return 200
-        }
         if column == 6 {
-            return 300
+            return 120
         }
-        if column == 7 {
-            return 300
+        if column == 15 {
+            return 160
         }
-        if column == 10 {
-            return 100
-        }
-        
         return 80
     }
     

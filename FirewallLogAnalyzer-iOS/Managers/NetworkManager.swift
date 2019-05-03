@@ -8,12 +8,6 @@
 
 import Alamofire
 
-enum Server: String {
-//    case development = "http://localhost:8000"
-    case development = "http://192.168.0.105:8000"
-//    case production = "http://localhost:8000"
-}
-
 enum StatusCode: Int, Error {
     case ok = 200
     case created = 201
@@ -55,12 +49,6 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
-    #if DEBUG
-    let hostname = Server.development.rawValue
-    #else
-    let hostname = Server.development.rawValue
-    #endif
-    
     private init() {}
     
     @discardableResult
@@ -72,7 +60,7 @@ class NetworkManager {
     
     @discardableResult
     private func makeCall(path: String, method: HTTPMethod, parameters: Parameters? = nil, encoding: ParameterEncoding = JSONEncoding.default, headers: HTTPHeaders? = nil, response: @escaping Response) -> DataRequest {
-        let urlString = (hostname + path).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let urlString = ((UserSettings.server ?? "http://localhost:8000") + path).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         return Alamofire.request(urlString, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseData(queue: queue, completionHandler: { (responseData) in
             DispatchQueue.main.async {
                 print("\nSHORTLOG (Call: \(path), Method: \(method), Parameters: \(parameters ?? [:]), Headers: \(headers ?? [:]), Result: \(responseData.result.description))")

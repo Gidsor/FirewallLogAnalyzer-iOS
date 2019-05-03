@@ -10,19 +10,29 @@ import Foundation
 
 enum UserDefaultsKey: String {
     
-    // User information
-    case id = "kId"
+    // IP address/URL
+    case server = "kServer"
+    // TODO: save password to private storage keychain
+    case password = "kPasswordk"
 }
 
 struct UserSettings {
     
     /// User identifier.
-    static var id: Int? {
+    static var server: String? {
         get {
-            return UserDefaultsSyncAccess.shared.getUserDefaults(key: .id) as? Int
+            return UserDefaultsSyncAccess.shared.getUserDefaults(key: .server) as? String
         }
         set {
-            UserDefaultsSyncAccess.shared.setUserDefaults(key: .id , obj: newValue as AnyObject)
+            UserDefaultsSyncAccess.shared.setUserDefaults(key: .server , obj: newValue as AnyObject)
+        }
+    }
+    static var password: String? {
+        get {
+            return UserDefaultsSyncAccess.shared.getUserDefaults(key: .password) as? String
+        }
+        set {
+            UserDefaultsSyncAccess.shared.setUserDefaults(key: .password , obj: newValue as AnyObject)
         }
     }
 }
