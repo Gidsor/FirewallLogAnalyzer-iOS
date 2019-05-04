@@ -20,6 +20,7 @@
 		C029B12C227A349C00383533 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B12B227A349C00383533 /* Log.swift */; };
 		C029B12E227B7E7A00383533 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B12D227B7E7A00383533 /* DashboardTableViewController.swift */; };
 		C029B131227B8AEC00383533 /* KasperskyLogsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B130227B8AEC00383533 /* KasperskyLogsTableViewController.swift */; };
+		C06CA30A227DF72C004C41FA /* IPAddressLocateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06CA309227DF72C004C41FA /* IPAddressLocateTableViewController.swift */; };
 		C08CABE2226D013E009B276B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08CABE1226D013E009B276B /* MainTabBarController.swift */; };
 		C0991DAF2249499400DF1CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0991DAE2249499400DF1CAE /* AppDelegate.swift */; };
 		C0991DB62249499600DF1CAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0991DB52249499600DF1CAE /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		C029B12B227A349C00383533 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C029B12D227B7E7A00383533 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		C029B130227B8AEC00383533 /* KasperskyLogsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KasperskyLogsTableViewController.swift; sourceTree = "<group>"; };
+		C06CA309227DF72C004C41FA /* IPAddressLocateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddressLocateTableViewController.swift; sourceTree = "<group>"; };
 		C08CABE1226D013E009B276B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C0991DAB2249499400DF1CAE /* FirewallLogAnalyzer-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FirewallLogAnalyzer-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0991DAE2249499400DF1CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				C029B12D227B7E7A00383533 /* DashboardTableViewController.swift */,
 				C00E8859227CAF3300896ED8 /* ConnectServerViewController.swift */,
 				C00E885E227CCD2900896ED8 /* SettingsTableViewController.swift */,
+				C06CA309227DF72C004C41FA /* IPAddressLocateTableViewController.swift */,
 				C00E8851227C528F00896ED8 /* Tables */,
 			);
 			path = Controller;
@@ -335,6 +338,7 @@
 				C029B12A227A238200383533 /* DLinkLog.swift in Sources */,
 				C0C09E15226CF3E500C69B36 /* UserDefaults.swift in Sources */,
 				C00E885A227CAF3300896ED8 /* ConnectServerViewController.swift in Sources */,
+				C06CA30A227DF72C004C41FA /* IPAddressLocateTableViewController.swift in Sources */,
 				C029B12C227A349C00383533 /* Log.swift in Sources */,
 				C00E885F227CCD2900896ED8 /* SettingsTableViewController.swift in Sources */,
 				C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */,

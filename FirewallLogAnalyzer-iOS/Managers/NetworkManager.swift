@@ -191,4 +191,13 @@ class NetworkManager {
             response(statusCode, DLinkLog.getLogs(json: json))
         }
     }
+    
+    func getLocation(ip: String, response: @escaping Response) {
+        let url = "http://api.ipstack.com/" + ip + "?access_key=fc9fcd02758b7a4291e1db0b113f93f8"
+        Alamofire.request(url).responseJSON(queue: queue) { (response) in
+            if let json = response.result.value {
+                print(json)
+            }
+        }
+    }
 }
