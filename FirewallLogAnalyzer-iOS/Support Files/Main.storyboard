@@ -67,7 +67,6 @@
         <!--Logs-->
         <scene sceneID="3sZ-cH-cd5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7HL-ry-86y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Eog-qc-grn" customClass="DashboardTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yh1-40-goW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -76,16 +75,82 @@
                         <sections>
                             <tableViewSection id="pzS-gI-vib">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="250" id="g9w-w0-WqQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="350" id="g9w-w0-WqQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g9w-w0-WqQ" id="b7A-Ac-Cy3">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="249.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="349.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most active ip address for day (Kaspersky):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOD-y6-Fdg">
+                                                    <rect key="frame" x="20" y="231.5" width="279.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cn3-v9-VMz">
+                                                    <rect key="frame" x="304.5" y="225.5" width="35" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="None"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most active ip address for day (TPLink):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MU5-mv-mM8">
+                                                    <rect key="frame" x="20" y="258.5" width="256.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J05-cK-6xJ">
+                                                    <rect key="frame" x="281.5" y="252.5" width="35" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="None"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most active ip address for day (DLink):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fh-JQ-nd5">
+                                                    <rect key="frame" x="20" y="285.5" width="249" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2X-3Y-uCP">
+                                                    <rect key="frame" x="274" y="279.5" width="35" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="None"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of potential threats and attacks: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9a-Gx-tI8">
+                                                    <rect key="frame" x="20" y="312.5" width="394" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snI-XW-9Ho" customClass="LineChartView" customModule="Charts">
+                                                    <rect key="frame" x="10" y="10" width="394" height="211.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="J05-cK-6xJ" firstAttribute="leading" secondItem="MU5-mv-mM8" secondAttribute="trailing" constant="5" id="2Kl-go-CIq"/>
+                                                <constraint firstItem="eOD-y6-Fdg" firstAttribute="top" secondItem="snI-XW-9Ho" secondAttribute="bottom" constant="10" id="7tf-L1-y7e"/>
+                                                <constraint firstItem="R9a-Gx-tI8" firstAttribute="top" secondItem="5Fh-JQ-nd5" secondAttribute="bottom" constant="10" id="AmM-Hf-ctK"/>
+                                                <constraint firstItem="cn3-v9-VMz" firstAttribute="leading" secondItem="eOD-y6-Fdg" secondAttribute="trailing" constant="5" id="CnM-dy-7FK"/>
+                                                <constraint firstItem="O2X-3Y-uCP" firstAttribute="leading" secondItem="5Fh-JQ-nd5" secondAttribute="trailing" constant="5" id="Gy8-jS-HdF"/>
+                                                <constraint firstItem="5Fh-JQ-nd5" firstAttribute="leading" secondItem="b7A-Ac-Cy3" secondAttribute="leading" constant="20" id="HH9-NU-PIy"/>
+                                                <constraint firstItem="5Fh-JQ-nd5" firstAttribute="top" secondItem="MU5-mv-mM8" secondAttribute="bottom" constant="10" id="JHT-Or-KIK"/>
+                                                <constraint firstItem="O2X-3Y-uCP" firstAttribute="centerY" secondItem="5Fh-JQ-nd5" secondAttribute="centerY" id="W82-IQ-BjY"/>
+                                                <constraint firstItem="snI-XW-9Ho" firstAttribute="leading" secondItem="b7A-Ac-Cy3" secondAttribute="leading" constant="10" id="ZZB-ZK-8HU"/>
+                                                <constraint firstItem="MU5-mv-mM8" firstAttribute="top" secondItem="eOD-y6-Fdg" secondAttribute="bottom" constant="10" id="ZoM-Qw-qxq"/>
+                                                <constraint firstItem="MU5-mv-mM8" firstAttribute="leading" secondItem="b7A-Ac-Cy3" secondAttribute="leading" constant="20" id="Zto-Ua-n3h"/>
+                                                <constraint firstAttribute="trailing" secondItem="R9a-Gx-tI8" secondAttribute="trailing" id="duT-J9-Uql"/>
+                                                <constraint firstItem="J05-cK-6xJ" firstAttribute="centerY" secondItem="MU5-mv-mM8" secondAttribute="centerY" id="eVY-t0-SrN"/>
+                                                <constraint firstItem="snI-XW-9Ho" firstAttribute="top" secondItem="b7A-Ac-Cy3" secondAttribute="top" constant="10" id="fSz-S0-lqx"/>
+                                                <constraint firstItem="eOD-y6-Fdg" firstAttribute="leading" secondItem="b7A-Ac-Cy3" secondAttribute="leading" constant="20" id="fho-G1-qMr"/>
+                                                <constraint firstAttribute="bottom" secondItem="R9a-Gx-tI8" secondAttribute="bottom" constant="20" id="lHn-Wy-Tng"/>
+                                                <constraint firstItem="R9a-Gx-tI8" firstAttribute="leading" secondItem="b7A-Ac-Cy3" secondAttribute="leading" constant="20" id="nOY-L2-ii7"/>
+                                                <constraint firstItem="cn3-v9-VMz" firstAttribute="centerY" secondItem="eOD-y6-Fdg" secondAttribute="centerY" id="rfm-PB-ET9"/>
+                                                <constraint firstAttribute="trailing" secondItem="snI-XW-9Ho" secondAttribute="trailing" constant="10" id="uQU-s8-SPR"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="TBl-BE-gxa" detailTextLabel="1sj-V0-L7U" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="6G5-wD-G7f">
-                                        <rect key="frame" x="0.0" y="250" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="350" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6G5-wD-G7f" id="4mS-Dz-B1H">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -98,8 +163,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1sj-V0-L7U">
-                                                    <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logs count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1sj-V0-L7U">
+                                                    <rect key="frame" x="20" y="25.5" width="77.5" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -112,7 +177,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="qvM-7H-JBi" detailTextLabel="pUu-lZ-5AC" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="mJX-By-BBD">
-                                        <rect key="frame" x="0.0" y="294" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="394" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mJX-By-BBD" id="v7d-IQ-6d8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -125,8 +190,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pUu-lZ-5AC">
-                                                    <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logs count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pUu-lZ-5AC">
+                                                    <rect key="frame" x="20" y="25.5" width="77.5" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -139,7 +204,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Nwd-Wu-ae3" detailTextLabel="n7G-XB-qdm" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="OKu-1w-Icg">
-                                        <rect key="frame" x="0.0" y="338" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="438" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OKu-1w-Icg" id="MRz-21-yI0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -152,8 +217,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n7G-XB-qdm">
-                                                    <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logs count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n7G-XB-qdm">
+                                                    <rect key="frame" x="20" y="25.5" width="77.5" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -175,11 +240,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Logs" id="6Eu-na-2D1"/>
                     <connections>
+                        <outlet property="chartView" destination="snI-XW-9Ho" id="6dr-6l-mLE"/>
                         <outlet property="dlinkCell" destination="OKu-1w-Icg" id="sYN-1i-z3m"/>
                         <outlet property="kasperskyCell" destination="6G5-wD-G7f" id="OuM-r1-347"/>
                         <outlet property="tplinkCell" destination="mJX-By-BBD" id="u6e-GN-CtV"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7HL-ry-86y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1129" y="-2138"/>
         </scene>
