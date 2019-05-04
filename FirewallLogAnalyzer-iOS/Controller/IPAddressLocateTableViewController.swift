@@ -7,9 +7,29 @@
 //
 
 import UIKit
+import MapKit
 
 class IPAddressLocateTableViewController: UITableViewController {
     @IBOutlet weak var ipTextField: UITextField!
+    @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var ipLabel: UILabel!
+    @IBOutlet weak var hostnameLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var continentCodeLabel: UILabel!
+    @IBOutlet weak var continentNameLabel: UILabel!
+    @IBOutlet weak var countryCodeLabel: UILabel!
+    @IBOutlet weak var countryNameLabel: UILabel!
+    @IBOutlet weak var regionCodeLabel: UILabel!
+    @IBOutlet weak var regionNameLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var zipLabel: UILabel!
+    @IBOutlet weak var latitudeLabel: UILabel!
+    @IBOutlet weak var longitudeLabel: UILabel!
+    @IBOutlet weak var geonameIdLabel: UILabel!
+    @IBOutlet weak var capitalLabel: UILabel!
+    @IBOutlet weak var countryFlagLabel: UILabel!
+    @IBOutlet weak var callingCodeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +54,38 @@ class IPAddressLocateTableViewController: UITableViewController {
         guard let ip = ipTextField.text else { return }
         self.view.endEditing(true)
         NetworkManager.shared.getLocation(ip: ip) { (status, ipGeoLocation) in
+            guard let ipGeoLocation = ipGeoLocation else { return }
+            self.ipLabel.text = ipGeoLocation.ip
+            self.hostnameLabel.text = ipGeoLocation.hostname
+            self.typeLabel.text = ipGeoLocation.type
+            self.continentCodeLabel.text = ipGeoLocation.continentCode
+            self.continentNameLabel.text = ipGeoLocation.continentName
+            self.countryCodeLabel.text = ipGeoLocation.countryCode
+            self.countryNameLabel.text = ipGeoLocation.countryName
+            self.regionCodeLabel.text = ipGeoLocation.regionCode
+            self.regionNameLabel.text = ipGeoLocation.regionName
+            self.cityLabel.text = ipGeoLocation.city
+            self.zipLabel.text = ipGeoLocation.zip
+            if let latitude = ipGeoLocation.latitude {
+                self.latitudeLabel.text = "\(latitude)"
+            }
+            if let longitude = ipGeoLocation.longitude {
+                self.longitudeLabel.text = "\(longitude)"
+            }
+            if let geonameId = ipGeoLocation.geonameId {
+                self.geonameIdLabel.text = "\(geonameId)"
+            }
+            self.capitalLabel.text = ipGeoLocation.capital
+            self.countryFlagLabel.text = ipGeoLocation.countryFlagEmoji
+            self.callingCodeLabel.text = ipGeoLocation.callingCode
             
+            if let latitude = ipGeoLocation.latitude, let longitude = ipGeoLocation.longitude {
+                let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = location
+                self.mapView.addAnnotation(annotation)
+                self.mapView.setCenter(location, animated: true)
+            }
         }
     }
 }

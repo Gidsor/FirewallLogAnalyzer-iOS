@@ -20,10 +20,10 @@ class IPGeoLocation {
     var regionName: String = ""
     var city: String = ""
     var zip: String = ""
-    var latitude: String = ""
-    var longitude: String = ""
+    var latitude: Double?
+    var longitude: Double?
     
-    var geonameId: String = ""
+    var geonameId: Int?
     var capital: String = ""
     var countryFlag: String = ""
     var countryFlagEmoji: String = ""
@@ -51,11 +51,11 @@ class IPGeoLocation {
         regionName = json["region_name"] as? String ?? ""
         city = json["city"] as? String ?? ""
         zip = json["zip"] as? String ?? ""
-        latitude = json["latitude"] as? String ?? ""
-        longitude = json["longitude"] as? String ?? ""
+        latitude = json["latitude"] as? Double
+        longitude = json["longitude"] as? Double
         
         if let json = json["location"] as? JSON {
-            geonameId = json["geoname_id"] as? String ?? ""
+            geonameId = json["geoname_id"] as? Int
             capital = json["capital"] as? String ?? ""
             countryFlag = json["country_flag"] as? String ?? ""
             countryFlagEmoji = json["country_flag_emoji"] as? String ?? ""
