@@ -17,6 +17,14 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+        if indexPath.row == 1 {
+            logout()
+        }
+    }
+    
+    func logout() {
+        UserSettings.server = nil
+        UserSettings.password = nil
+        (UIApplication.shared.delegate as? AppDelegate)?.setRootViewController(storyboardName: "Main", viewControlellerIdentifier: "ConnectServerViewController")
     }
 }
