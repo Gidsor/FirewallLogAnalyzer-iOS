@@ -46,6 +46,7 @@ typealias Response = (StatusCode, JSON?) -> Void
 typealias KasperskyResponse = (StatusCode, [KasperskyLog]) -> Void
 typealias TPLinkResponse = (StatusCode, [TPLinkLog]) -> Void
 typealias DLinkResponse = (StatusCode, [DLinkLog]) -> Void
+typealias IPGeoLocationResponse = (StatusCode, IPGeoLocation?) -> Void
 
 class NetworkManager {
     let queue = DispatchQueue(label: "Network Manger Queue", qos: .utility)
@@ -192,11 +193,18 @@ class NetworkManager {
         }
     }
     
-    func getLocation(ip: String, response: @escaping Response) {
-        let url = "http://api.ipstack.com/" + ip + "?access_key=fc9fcd02758b7a4291e1db0b113f93f8"
-        Alamofire.request(url).responseJSON(queue: queue) { (response) in
-            if let json = response.result.value {
-                print(json)
+    func getLocation(ip: String, response: @escaping IPGeoLocationResponse) {
+        let url = "http://api.ipstack.com/" + ip + "?access_key=fc9fcd02758b7a4291e1db0b113f93f8&format=1&hostname=1"
+        Alamofire.request(url).responseJSON(queue: queue) { (dataResponse) in
+            let statusCode = StatusCode(unsafeRawValue: dataResponse.response?.statusCode)
+            if statusCode == .ok, let json = dataResponse.result.value as? JSON {
+                DispatchQueue.main.async {
+                    response(statusCode, IPGeoLocation(json: json))
+                }
+            } else {
+                DispatchQueue.main.async {
+                    response(statusCode, nil)
+                }
             }
         }
     }
