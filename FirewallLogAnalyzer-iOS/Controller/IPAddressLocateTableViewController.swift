@@ -85,6 +85,8 @@ class IPAddressLocateTableViewController: UITableViewController {
                 annotation.coordinate = location
                 self.mapView.addAnnotation(annotation)
                 self.mapView.setCenter(location, animated: true)
+                let region = MKCoordinateRegion(center: location, latitudinalMeters: 500, longitudinalMeters: 500)
+                self.mapView.setRegion(region, animated: true)
             }
         }
     }
