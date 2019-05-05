@@ -25,8 +25,10 @@ class DLinkLogsTableViewController: UIViewController {
         
         spreadsheetView.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
         spreadsheetView.intercellSpacing = CGSize(width: 4, height: 1)
+        spreadsheetView.bounces = false
         
         spreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
+        
         showActivityIndicator(in: view)
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
             self.logs = logs

@@ -149,7 +149,6 @@ class DashboardTableViewController: UITableViewController {
         sortedLogsCountForHour.forEach { (value) in
             chartDataEntry.append(ChartDataEntry(x: Double(value.key), y: Double(value.value)))
         }
-        print(chartDataEntry)
         return chartDataEntry
     }
     
