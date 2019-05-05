@@ -17,7 +17,6 @@
 		C029B126227A236C00383533 /* TPLinkLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B125227A236C00383533 /* TPLinkLog.swift */; };
 		C029B128227A237600383533 /* KasperskyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B127227A237600383533 /* KasperskyLog.swift */; };
 		C029B12A227A238200383533 /* DLinkLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B129227A238200383533 /* DLinkLog.swift */; };
-		C029B12C227A349C00383533 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B12B227A349C00383533 /* Log.swift */; };
 		C029B12E227B7E7A00383533 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B12D227B7E7A00383533 /* DashboardTableViewController.swift */; };
 		C029B131227B8AEC00383533 /* KasperskyLogsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B130227B8AEC00383533 /* KasperskyLogsTableViewController.swift */; };
 		C0486959227E0C8D00B6936B /* IPGeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0486958227E0C8D00B6936B /* IPGeoLocation.swift */; };
@@ -45,7 +44,6 @@
 		C029B125227A236C00383533 /* TPLinkLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPLinkLog.swift; sourceTree = "<group>"; };
 		C029B127227A237600383533 /* KasperskyLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KasperskyLog.swift; sourceTree = "<group>"; };
 		C029B129227A238200383533 /* DLinkLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLinkLog.swift; sourceTree = "<group>"; };
-		C029B12B227A349C00383533 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C029B12D227B7E7A00383533 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		C029B130227B8AEC00383533 /* KasperskyLogsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KasperskyLogsTableViewController.swift; sourceTree = "<group>"; };
 		C0486958227E0C8D00B6936B /* IPGeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPGeoLocation.swift; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 		C0C09E13226CF3C700C69B36 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C029B12B227A349C00383533 /* Log.swift */,
 				C029B127227A237600383533 /* KasperskyLog.swift */,
 				C029B125227A236C00383533 /* TPLinkLog.swift */,
 				C029B129227A238200383533 /* DLinkLog.swift */,
@@ -345,7 +342,6 @@
 				C0C09E15226CF3E500C69B36 /* UserDefaults.swift in Sources */,
 				C00E885A227CAF3300896ED8 /* ConnectServerViewController.swift in Sources */,
 				C06CA30A227DF72C004C41FA /* IPGeolocationTableViewController.swift in Sources */,
-				C029B12C227A349C00383533 /* Log.swift in Sources */,
 				C00E885F227CCD2900896ED8 /* SettingsTableViewController.swift in Sources */,
 				C0486959227E0C8D00B6936B /* IPGeoLocation.swift in Sources */,
 				C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */,

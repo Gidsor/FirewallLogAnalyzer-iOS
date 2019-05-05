@@ -97,7 +97,7 @@ class DashboardTableViewController: UITableViewController {
         let max = ipLogs.max { (ipLog1, ipLog2) -> Bool in
             ipLog1.value < ipLog2.value
         }
-        print(max)
+        
         if max?.key == nil {
             ipDLinkButton.setTitle("None", for: .normal)
         } else {
