@@ -105,6 +105,20 @@ class DashboardTableViewController: UITableViewController {
         }
     }
     
+    func getKasperskyChartDataEntry() -> [ChartDataEntry] {
+        var chartDataEntry: [ChartDataEntry] = []
+        let date = Date()
+        guard let previousDate = Calendar.current.date(byAdding: .day, value: -1, to: date) else { return chartDataEntry }
+        print(date)
+        print(previousDate)
+        var logsCountForHour: [Int : Int] = [:]
+        
+        for log in kasperskyLogs {
+            
+        }
+        return chartDataEntry
+    }
+    
     func lineChartSetup() {
         
         chartView.chartDescription?.enabled = false
@@ -141,7 +155,7 @@ class DashboardTableViewController: UITableViewController {
         
         chartView.animate(xAxisDuration: 1.5)
         
-        chartDataEntry = []
+        chartDataEntry = getKasperskyChartDataEntry()
         for i in 0..<24 {
             let count = Double.random(in: 0..<150)
             let dataEntry = ChartDataEntry(x: Double(i), y: Double.random(in: 0..<150))

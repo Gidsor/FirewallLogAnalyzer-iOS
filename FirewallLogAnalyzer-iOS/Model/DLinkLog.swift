@@ -8,12 +8,7 @@
 
 import Foundation
 
-class DLinkLog {
-    var id: Int
-    var time: String
-    var date: String
-    var firewallType: FirewallType
-    
+class DLinkLog: Log {
     var severity: String
     var category: String
     var categoryID: String
@@ -28,22 +23,7 @@ class DLinkLog {
     var event: String
     var action: String
     
-    init(json: JSON) {
-        id = json["id"] as? Int ?? 0
-        time = json["time"] as? String ?? ""
-        date = json["date"] as? String ?? ""
-        
-        let type = json["firewallType"] as? String ?? ""
-        if type == FirewallType.kaspersky.rawValue {
-            firewallType = .kaspersky
-        } else if type == FirewallType.tplink.rawValue {
-            firewallType = .tplink
-        } else if type == FirewallType.dlink.rawValue {
-            firewallType = .dlink
-        } else {
-            firewallType = .unknown
-        }
-        
+    override init(json: JSON) {
         severity = json["severity"] as? String ?? ""
         category = json["category"] as? String ?? ""
         categoryID = json["categoryID"] as? String ?? ""
@@ -57,6 +37,8 @@ class DLinkLog {
         dstPort = json["dstPort"] as? String ?? ""
         event = json["event"] as? String ?? ""
         action = json["action"] as? String ?? ""
+        
+        super.init(json: json)
     }
     
     static func getLogs(json: JSON) -> [DLinkLog] {

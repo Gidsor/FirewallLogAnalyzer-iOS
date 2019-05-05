@@ -8,19 +8,7 @@
 
 import Foundation
 
-enum FirewallType: String {
-    case kaspersky = "Kaspersky"
-    case tplink = "TPLink"
-    case dlink = "DLink"
-    case unknown
-}
-
-class KasperskyLog {
-    var id: Int
-    var time: String
-    var date: String
-    var firewallType: FirewallType
-    
+class KasperskyLog: Log {
     var description: String
     var protectType: String
     var application: String
@@ -30,22 +18,7 @@ class KasperskyLog {
     var protocolNetwork: String
     var ipAddress: String
     
-    init(json: JSON) {
-        id = json["id"] as? Int ?? 0
-        time = json["time"] as? String ?? ""
-        date = json["date"] as? String ?? ""
-        
-        let type = json["firewallType"] as? String ?? ""
-        if type == FirewallType.kaspersky.rawValue {
-            firewallType = .kaspersky
-        } else if type == FirewallType.tplink.rawValue {
-            firewallType = .tplink
-        } else if type == FirewallType.dlink.rawValue {
-            firewallType = .dlink
-        } else {
-            firewallType = .unknown
-        }
-        
+    override init(json: JSON) {
         description = json["description"] as? String ?? ""
         protectType = json["protectType"] as? String ?? ""
         application = json["application"] as? String ?? ""
@@ -54,6 +27,8 @@ class KasperskyLog {
         port = json["port"] as? String ?? ""
         protocolNetwork = json["protocol"] as? String ?? ""
         ipAddress = json["ipAddress"] as? String ?? ""
+        
+        super.init(json: json)
     }
     
     static func getLogs(json: JSON) -> [KasperskyLog] {
