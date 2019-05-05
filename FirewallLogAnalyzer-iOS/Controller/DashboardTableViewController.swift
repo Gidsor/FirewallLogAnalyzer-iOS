@@ -43,12 +43,7 @@ class DashboardTableViewController: UITableViewController {
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
             self.tplinkLogs = logs
             self.tplinkCell.detailTextLabel?.text = "Logs count: \(logs.count)"
-            logs.forEach({ (log) in
-                if log.ipAddress != "" {
-                    self.ipTPLinkButton.setTitle(log.ipAddress, for: .normal)
-                    return
-                }
-            })
+            self.ipTPLinkButton.setTitle("None", for: .normal)
         }
         
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
