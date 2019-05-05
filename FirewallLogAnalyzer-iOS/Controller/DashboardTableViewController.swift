@@ -37,12 +37,7 @@ class DashboardTableViewController: UITableViewController {
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
             self.kasperskyLogs = logs
             self.kasperskyCell.detailTextLabel?.text = "Logs count: \(logs.count)"
-            logs.forEach({ (log) in
-                if log.ipAddress != "" {
-                    self.ipKasperskyButton.setTitle(log.ipAddress, for: .normal)
-                    return
-                }
-            })
+            self.findMoreActiveIPAddressForLastDay(logs: logs)
         }
         
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
@@ -59,15 +54,60 @@ class DashboardTableViewController: UITableViewController {
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
             self.dlinkLogs = logs
             self.dlinkCell.detailTextLabel?.text = "Logs count: \(logs.count)"
-            logs.forEach({ (log) in
-                if log.srcIP != "" {
-                    self.ipDLinkButton.setTitle(log.srcIP, for: .normal)
-                    return
-                }
-            })
+            self.findMoreActiveIPAddressForLastDay(logs: logs)
         }
         
         lineChartSetup()
+    }
+    
+    func findMoreActiveIPAddressForLastDay(logs: [KasperskyLog]) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale.current
+        guard let date = formatter.date(from: formatter.string(from: Date())) else { return }
+        guard let previousDate = Calendar.current.date(byAdding: .day, value: -1, to: date) else { return }
+        var ipLogs: [String : Int] = [:]
+        for log in logs {
+            if let logDate = formatter.date(from: log.date), logDate >= previousDate, log.ipAddress != "" {
+                ipLogs[log.ipAddress] = ipLogs[log.ipAddress] ?? 0
+                ipLogs[log.ipAddress] = ipLogs[log.ipAddress]! + 1
+                
+            }
+        }
+        let max = ipLogs.max { (ipLog1, ipLog2) -> Bool in
+            ipLog1.value < ipLog2.value
+        }
+        if max?.key == nil {
+            ipKasperskyButton.setTitle("None", for: .normal)
+        } else {
+            ipKasperskyButton.setTitle(max?.key, for: .normal)
+        }
+    }
+    
+    func findMoreActiveIPAddressForLastDay(logs: [DLinkLog]) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale.current
+        guard let date = formatter.date(from: formatter.string(from: Date())) else { return }
+        guard let previousDate = Calendar.current.date(byAdding: .day, value: -1, to: date) else { return }
+        var ipLogs: [String : Int] = [:]
+        for log in logs {
+            if let logDate = formatter.date(from: log.date), logDate >= previousDate, log.srcIP != "" {
+                ipLogs[log.srcIP] = ipLogs[log.srcIP] ?? 0
+                ipLogs[log.srcIP] = ipLogs[log.srcIP]! + 1
+            }
+        }
+        let max = ipLogs.max { (ipLog1, ipLog2) -> Bool in
+            ipLog1.value < ipLog2.value
+        }
+        print(max)
+        if max?.key == nil {
+            ipDLinkButton.setTitle("None", for: .normal)
+        } else {
+            ipDLinkButton.setTitle(max?.key, for: .normal)
+        }
     }
     
     func lineChartSetup() {
