@@ -255,7 +255,9 @@
                             <outlet property="delegate" destination="Eog-qc-grn" id="0fa-LT-3za"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Logs" id="6Eu-na-2D1"/>
+                    <navigationItem key="navigationItem" title="Logs" id="6Eu-na-2D1">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="50s-aa-zAB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="chartView" destination="snI-XW-9Ho" id="6dr-6l-mLE"/>
                         <outlet property="dlinkCell" destination="OKu-1w-Icg" id="sYN-1i-z3m"/>
@@ -318,7 +320,7 @@
             </objects>
             <point key="canvasLocation" x="-1061" y="-389"/>
         </scene>
-        <!--Kaspersky Logs Table View Controller-->
+        <!--Kaspersky Logs-->
         <scene sceneID="YfE-pQ-Xtq">
             <objects>
                 <viewController id="JgN-e8-aad" customClass="KasperskyLogsTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -360,6 +362,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tNR-pk-3pF"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Kaspersky Logs" id="p6X-jZ-fbX"/>
                     <connections>
                         <outlet property="countLabel" destination="u8Z-M4-L0r" id="gkX-Fb-rg7"/>
                         <outlet property="spreadsheetView" destination="M8S-Mb-4SM" id="5D7-Bd-vne"/>
@@ -369,7 +372,7 @@
             </objects>
             <point key="canvasLocation" x="1945" y="-2736"/>
         </scene>
-        <!--Link Logs Table View Controller-->
+        <!--TPLink Logs-->
         <scene sceneID="W7Q-Za-Y8L">
             <objects>
                 <viewController id="B0s-pT-dte" customClass="TPLinkLogsTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -411,6 +414,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0JL-e1-Pja"/>
                     </view>
+                    <navigationItem key="navigationItem" title="TPLink Logs" id="9xy-Tl-vaY"/>
                     <connections>
                         <outlet property="countLabel" destination="4tW-jJ-p3H" id="MTu-nb-n2X"/>
                         <outlet property="spreadsheetView" destination="Jnl-gS-7YC" id="8Qh-2F-da9"/>
@@ -434,7 +438,7 @@
             </objects>
             <point key="canvasLocation" x="303" y="-1420"/>
         </scene>
-        <!--Link Logs Table View Controller-->
+        <!--DLink Logs-->
         <scene sceneID="1E4-fS-Itt">
             <objects>
                 <viewController id="zJ8-vx-AMG" customClass="DLinkLogsTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -476,6 +480,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bha-MS-vNI"/>
                     </view>
+                    <navigationItem key="navigationItem" title="DLink Logs" id="aMS-Ix-bNK"/>
                     <connections>
                         <outlet property="countLabel" destination="IFZ-0u-MqU" id="rjv-i0-yd2"/>
                         <outlet property="spreadsheetView" destination="ea2-57-o4F" id="lZ0-xN-GsP"/>
@@ -494,10 +499,124 @@
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="Kqd-wB-jpD" kind="relationship" relationship="rootViewController" id="9JL-ON-fOO"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enA-I4-GRF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="303" y="-757"/>
+        </scene>
+        <!--Charts-->
+        <scene sceneID="pW8-Yn-yE7">
+            <objects>
+                <tableViewController id="Kqd-wB-jpD" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XCv-EK-Ben">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="8t9-K0-ULK">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="San-Ad-miD">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="San-Ad-miD" id="8SY-iu-5ym">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Fh-FK-N9u">
+                                                    <rect key="frame" x="30" y="0.0" width="104" height="89"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="kUU-r7-JLu" detailTextLabel="Ou3-OP-TiY" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="8sU-0t-tIx">
+                                        <rect key="frame" x="0.0" y="100" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8sU-0t-tIx" id="qiH-OA-210">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Kaspersky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kUU-r7-JLu">
+                                                    <rect key="frame" x="20" y="5" width="79.666666666666671" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logs count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ou3-OP-TiY">
+                                                    <rect key="frame" x="20" y="25.333333333333332" width="77.333333333333329" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Nzb-zW-EGn" detailTextLabel="g1d-1b-OaY" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="hZ4-zb-7He">
+                                        <rect key="frame" x="0.0" y="144" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hZ4-zb-7He" id="yg8-54-0Wt">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="TP-Link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nzb-zW-EGn">
+                                                    <rect key="frame" x="20" y="5" width="60" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logs count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g1d-1b-OaY">
+                                                    <rect key="frame" x="20" y="25.333333333333332" width="77.333333333333329" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Pmb-ve-mB1" detailTextLabel="rqp-W9-Mor" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="onJ-t0-ZRp">
+                                        <rect key="frame" x="0.0" y="188" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onJ-t0-ZRp" id="FXd-NM-9BK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="D-Link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pmb-ve-mB1">
+                                                    <rect key="frame" x="20.000000000000004" y="5" width="51.333333333333336" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logs count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rqp-W9-Mor">
+                                                    <rect key="frame" x="20" y="25.333333333333332" width="77.333333333333329" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Kqd-wB-jpD" id="fGy-uc-NLb"/>
+                            <outlet property="delegate" destination="Kqd-wB-jpD" id="99c-O3-SJK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Charts" id="AU0-16-uBX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BWG-EO-gE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1228.985507246377" y="-757.33695652173924"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dvt-n4-hJG">
@@ -1257,7 +1376,9 @@
                             <outlet property="delegate" destination="Ltn-0h-pAH" id="Qt6-rs-mGl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="IP Geolocation" id="y7d-Fs-pGd"/>
+                    <navigationItem key="navigationItem" title="IP Geolocation" id="y7d-Fs-pGd">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="fUX-qn-QxW"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="callingCodeLabel" destination="deT-G3-ULD" id="iOD-Vc-23u"/>
                         <outlet property="capitalLabel" destination="H6c-Yh-0aT" id="4eI-WQ-A89"/>
@@ -1301,7 +1422,7 @@
             </objects>
             <point key="canvasLocation" x="303" y="625"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--Settings-->
         <scene sceneID="gck-sf-9xe">
             <objects>
                 <tableViewController id="udl-d3-eH3" customClass="SettingsTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -1362,7 +1483,9 @@
                             <outlet property="delegate" destination="udl-d3-eH3" id="AeT-99-DMA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="oty-rp-6As"/>
+                    <navigationItem key="navigationItem" title="Settings" id="oty-rp-6As">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="RYg-YG-ZME"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qjv-Wh-2hY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
