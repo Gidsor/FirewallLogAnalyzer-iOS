@@ -14,6 +14,9 @@ class DashboardTableViewController: UITableViewController {
     @IBOutlet weak var tplinkCell: UITableViewCell!
     @IBOutlet weak var dlinkCell: UITableViewCell!
     @IBOutlet weak var chartView: LineChartView!
+    @IBOutlet weak var ipKasperskyButton: UIButton!
+    @IBOutlet weak var ipTPLinkButton: UIButton!
+    @IBOutlet weak var ipDLinkButton: UIButton!
     
     var kasperskyLogs: [KasperskyLog] = []
     var tplinkLogs: [TPLinkLog] = []
@@ -34,16 +37,34 @@ class DashboardTableViewController: UITableViewController {
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
             self.kasperskyLogs = logs
             self.kasperskyCell.detailTextLabel?.text = "Logs count: \(logs.count)"
+            logs.forEach({ (log) in
+                if log.ipAddress != "" {
+                    self.ipKasperskyButton.setTitle(log.ipAddress, for: .normal)
+                    return
+                }
+            })
         }
         
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
             self.tplinkLogs = logs
             self.tplinkCell.detailTextLabel?.text = "Logs count: \(logs.count)"
+            logs.forEach({ (log) in
+                if log.ipAddress != "" {
+                    self.ipTPLinkButton.setTitle(log.ipAddress, for: .normal)
+                    return
+                }
+            })
         }
         
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
             self.dlinkLogs = logs
             self.dlinkCell.detailTextLabel?.text = "Logs count: \(logs.count)"
+            logs.forEach({ (log) in
+                if log.srcIP != "" {
+                    self.ipDLinkButton.setTitle(log.srcIP, for: .normal)
+                    return
+                }
+            })
         }
         
         lineChartSetup()
@@ -76,7 +97,7 @@ class DashboardTableViewController: UITableViewController {
         
         let leftAxis = chartView.leftAxis
         leftAxis.labelTextColor = .black
-        leftAxis.axisMaximum = 200
+        leftAxis.axisMaximum = 10
         leftAxis.axisMinimum = 0
         leftAxis.drawGridLinesEnabled = true
         leftAxis.granularityEnabled = true
@@ -87,8 +108,10 @@ class DashboardTableViewController: UITableViewController {
         
         chartDataEntry = []
         for i in 0..<24 {
+            let count = Double.random(in: 0..<150)
             let dataEntry = ChartDataEntry(x: Double(i), y: Double.random(in: 0..<150))
             chartDataEntry.append(dataEntry)
+            leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, count + 10)
         }
         
         let set1 = LineChartDataSet(values: chartDataEntry, label: "Kaspersky")
@@ -105,8 +128,10 @@ class DashboardTableViewController: UITableViewController {
         
         chartDataEntry = []
         for i in 0..<24 {
+            let count = Double.random(in: 0..<150)
             let dataEntry = ChartDataEntry(x: Double(i), y: Double.random(in: 0..<150))
             chartDataEntry.append(dataEntry)
+            leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, count + 10)
         }
         
         let set2 = LineChartDataSet(values: chartDataEntry, label: "TPLink")
@@ -123,8 +148,10 @@ class DashboardTableViewController: UITableViewController {
         
         chartDataEntry = []
         for i in 0..<24 {
+            let count = Double.random(in: 0..<150)
             let dataEntry = ChartDataEntry(x: Double(i), y: Double.random(in: 0..<150))
             chartDataEntry.append(dataEntry)
+            leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, count + 10)
         }
         
         let set3 = LineChartDataSet(values: chartDataEntry, label: "DLink")
@@ -140,5 +167,12 @@ class DashboardTableViewController: UITableViewController {
         let lineChartData = LineChartData(dataSets: [set1, set2, set3])
         
         chartView.data = lineChartData
+    }
+    
+    @IBAction func showIPGeolocation(_ sender: UIButton) {
+        guard let ip = sender.title(for: .normal), ip != "None" else { return }
+        tabBarController?.selectedIndex = 3
+        let ipGeolocationController = (tabBarController?.viewControllers?[3] as? UINavigationController)?.topViewController as? IPGeolocationTableViewController
+        ipGeolocationController?.search(ip: ip)
     }
 }

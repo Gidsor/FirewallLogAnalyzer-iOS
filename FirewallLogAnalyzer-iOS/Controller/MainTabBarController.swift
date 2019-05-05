@@ -39,6 +39,11 @@ class MainTabBarController: UITabBarController {
 
 extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        if let viewController = (viewController as? UINavigationController)?.topViewController as? UITableViewController {
+            viewController.tableView.scrollToTop()
+        }
+        
         return true
     }
 }

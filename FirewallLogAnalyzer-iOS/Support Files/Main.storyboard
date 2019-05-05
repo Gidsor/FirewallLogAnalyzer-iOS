@@ -92,6 +92,9 @@
                                                     <rect key="frame" x="304.66666666666669" y="225.66666666666666" width="35" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="None"/>
+                                                    <connections>
+                                                        <action selector="showIPGeolocation:" destination="Eog-qc-grn" eventType="touchUpInside" id="8bL-9n-NoH"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most active ip address for day (TPLink):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MU5-mv-mM8">
                                                     <rect key="frame" x="20" y="258.66666666666669" width="256.66666666666669" height="17"/>
@@ -103,6 +106,9 @@
                                                     <rect key="frame" x="281.66666666666669" y="252.66666666666663" width="35" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="None"/>
+                                                    <connections>
+                                                        <action selector="showIPGeolocation:" destination="Eog-qc-grn" eventType="touchUpInside" id="0FT-3e-Z93"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most active ip address for day (DLink):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fh-JQ-nd5">
                                                     <rect key="frame" x="20" y="285.66666666666669" width="249" height="17"/>
@@ -114,6 +120,9 @@
                                                     <rect key="frame" x="274" y="279.66666666666669" width="35" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="None"/>
+                                                    <connections>
+                                                        <action selector="showIPGeolocation:" destination="Eog-qc-grn" eventType="touchUpInside" id="l7P-fl-PxN"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of potential threats and attacks: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9a-Gx-tI8">
                                                     <rect key="frame" x="20" y="312.66666666666669" width="394" height="17"/>
@@ -242,6 +251,9 @@
                     <connections>
                         <outlet property="chartView" destination="snI-XW-9Ho" id="6dr-6l-mLE"/>
                         <outlet property="dlinkCell" destination="OKu-1w-Icg" id="sYN-1i-z3m"/>
+                        <outlet property="ipDLinkButton" destination="O2X-3Y-uCP" id="S8s-x1-bBk"/>
+                        <outlet property="ipKasperskyButton" destination="cn3-v9-VMz" id="yF3-GH-iDd"/>
+                        <outlet property="ipTPLinkButton" destination="J05-cK-6xJ" id="WCH-wb-puh"/>
                         <outlet property="kasperskyCell" destination="6G5-wD-G7f" id="OuM-r1-347"/>
                         <outlet property="tplinkCell" destination="mJX-By-BBD" id="u6e-GN-CtV"/>
                     </connections>
@@ -499,7 +511,7 @@
         <!--IP Geolocation-->
         <scene sceneID="X5a-xn-lAV">
             <objects>
-                <tableViewController id="Ltn-0h-pAH" customClass="IPAddressLocateTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="IPGeolocationTableViewController" id="Ltn-0h-pAH" customClass="IPGeolocationTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5hJ-8j-7wV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1054,7 +1066,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Tce-vI-IBO">
-                                                    <rect key="frame" x="0.0" y="10" width="414" height="129.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="10" width="414" height="130"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwI-db-rM9">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
@@ -1117,23 +1129,23 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qs0-vg-RwM">
-                                                            <rect key="frame" x="0.0" y="52.333333333333343" width="414" height="25"/>
+                                                            <rect key="frame" x="0.0" y="52.666666666666657" width="414" height="25"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="json_quotes" translatesAutoresizingMaskIntoConstraints="NO" id="OUa-yT-bbJ">
-                                                                    <rect key="frame" x="20" y="2.6666666666666643" width="20" height="20"/>
+                                                                    <rect key="frame" x="20" y="2.3333333333333357" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="Age-ak-VCF"/>
                                                                         <constraint firstAttribute="width" constant="20" id="RDZ-Z8-PlF"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="capital:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fm9-lv-r2W">
-                                                                    <rect key="frame" x="45" y="2.9999999999999929" width="52.666666666666657" height="19.333333333333332"/>
+                                                                    <rect key="frame" x="45" y="2.6666666666666643" width="52.666666666666657" height="19.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6c-Yh-0aT">
-                                                                    <rect key="frame" x="107.66666666666667" y="2.9999999999999929" width="13.666666666666671" height="19.333333333333332"/>
+                                                                    <rect key="frame" x="107.66666666666667" y="2.6666666666666643" width="13.666666666666671" height="19.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <color key="textColor" red="0.002337717442" green="0.82329091239999996" blue="0.003627181462" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -1154,20 +1166,20 @@
                                                             <rect key="frame" x="0.0" y="78.666666666666671" width="414" height="25"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="json_quotes" translatesAutoresizingMaskIntoConstraints="NO" id="yeA-QP-PBH">
-                                                                    <rect key="frame" x="20" y="2.3333333333333286" width="20" height="20"/>
+                                                                    <rect key="frame" x="20" y="2.6666666666666572" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="8zf-nV-P6w"/>
                                                                         <constraint firstAttribute="width" constant="20" id="GMG-uN-wP7"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="country_flag:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88r-ft-Ibj">
-                                                                    <rect key="frame" x="45" y="2.6666666666666572" width="93" height="19.333333333333332"/>
+                                                                    <rect key="frame" x="45" y="3" width="93" height="19.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDE-aG-NsC">
-                                                                    <rect key="frame" x="148" y="2.6666666666666572" width="13.666666666666657" height="19.333333333333332"/>
+                                                                    <rect key="frame" x="148" y="3" width="13.666666666666657" height="19.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <color key="textColor" red="0.002337717442" green="0.82329091239999996" blue="0.003627181462" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -1185,10 +1197,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YzL-Qz-l3s">
-                                                            <rect key="frame" x="0.0" y="104.66666666666667" width="414" height="25.000000000000014"/>
+                                                            <rect key="frame" x="0.0" y="105" width="414" height="25"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="json_quotes" translatesAutoresizingMaskIntoConstraints="NO" id="SSZ-iF-cLK">
-                                                                    <rect key="frame" x="20" y="2.6666666666666572" width="20" height="20"/>
+                                                                    <rect key="frame" x="20" y="2.6666666666666714" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="20" id="Vd7-XN-ZSA"/>
                                                                         <constraint firstAttribute="height" constant="20" id="ekn-jH-Iiy"/>

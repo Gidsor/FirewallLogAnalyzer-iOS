@@ -1,5 +1,5 @@
 //
-//  IPAddressLocateTableViewController.swift
+//  IPGeolocationTableViewController.swift
 //  FirewallLogAnalyzer-iOS
 //
 //  Created by Vadim Denisov on 04/05/2019.
@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class IPAddressLocateTableViewController: UITableViewController {
+class IPGeolocationTableViewController: UITableViewController {
     @IBOutlet weak var ipTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -31,10 +31,16 @@ class IPAddressLocateTableViewController: UITableViewController {
     @IBOutlet weak var countryFlagLabel: UILabel!
     @IBOutlet weak var callingCodeLabel: UILabel!
     
+    private var initCompleation: ((String) -> ())?
+    private var ip: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         setupKeyboard()
+        if let ip = ip {
+            initCompleation?(ip)
+        }
     }
     
     func setupKeyboard() {
@@ -48,6 +54,16 @@ class IPAddressLocateTableViewController: UITableViewController {
     
     @objc func doneButtonAction() {
         view.endEditing(true)
+    }
+    
+    func search(ip: String) {
+        guard let ipTextField = ipTextField else {
+            self.ip = ip
+            initCompleation = search(ip:)
+            return
+        }
+        ipTextField.text = ip
+        search(ip)
     }
     
     @IBAction func search(_ sender: Any) {
