@@ -34,34 +34,50 @@ class DashboardTableViewController: UITableViewController {
     }
     
     func updateDashboard() {
+        var kasperskyLoaded = false
+        var tplinkLoaded = false
+        var dlinkLoaded = false
+        
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
             self.kasperskyLogs = logs
             self.kasperskyCell.detailTextLabel?.text = "Logs count: \(logs.count)"
             self.findMoreActiveIPAddressForLastDay(logs: logs)
+            kasperskyLoaded = true
+            if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
+                self.lineChartSetup()
+            }
         }
         
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
             self.tplinkLogs = logs
             self.tplinkCell.detailTextLabel?.text = "Logs count: \(logs.count)"
             self.ipTPLinkButton.setTitle("None", for: .normal)
+            tplinkLoaded = true
+            if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
+                self.lineChartSetup()
+            }
         }
         
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
             self.dlinkLogs = logs
             self.dlinkCell.detailTextLabel?.text = "Logs count: \(logs.count)"
             self.findMoreActiveIPAddressForLastDay(logs: logs)
+            dlinkLoaded = true
+            if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
+                self.lineChartSetup()
+            }
         }
-        
-        lineChartSetup()
     }
     
     func findMoreActiveIPAddressForLastDay(logs: [KasperskyLog]) {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.locale = Locale.current
         guard let date = formatter.date(from: formatter.string(from: Date())) else { return }
-        guard let previousDate = Calendar.current.date(byAdding: .day, value: -1, to: date) else { return }
+        guard let previousDate = calendar.date(byAdding: .day, value: -1, to: date) else { return }
         var ipLogs: [String : Int] = [:]
         for log in logs {
             if let logDate = formatter.date(from: log.date), logDate >= previousDate, log.ipAddress != "" {
@@ -81,12 +97,14 @@ class DashboardTableViewController: UITableViewController {
     }
     
     func findMoreActiveIPAddressForLastDay(logs: [DLinkLog]) {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.locale = Locale.current
         guard let date = formatter.date(from: formatter.string(from: Date())) else { return }
-        guard let previousDate = Calendar.current.date(byAdding: .day, value: -1, to: date) else { return }
+        guard let previousDate = calendar.date(byAdding: .day, value: -1, to: date) else { return }
         var ipLogs: [String : Int] = [:]
         for log in logs {
             if let logDate = formatter.date(from: log.date), logDate >= previousDate, log.srcIP != "" {
@@ -105,17 +123,33 @@ class DashboardTableViewController: UITableViewController {
         }
     }
     
-    func getKasperskyChartDataEntry() -> [ChartDataEntry] {
+    func getChartDataEntry(logs: [Log]) -> [ChartDataEntry] {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         var chartDataEntry: [ChartDataEntry] = []
         let date = Date()
-        guard let previousDate = Calendar.current.date(byAdding: .day, value: -1, to: date) else { return chartDataEntry }
-        print(date)
-        print(previousDate)
+        guard let previousDate = calendar.date(byAdding: .day, value: -1, to: date) else { return chartDataEntry }
         var logsCountForHour: [Int : Int] = [:]
-        
-        for log in kasperskyLogs {
-            
+        for i in 0..<24 {
+            logsCountForHour[i] = 0
         }
+        
+        for log in logs {
+            if let formatterDate = log.formatterDate {
+                if formatterDate <= date && formatterDate >= previousDate {
+                    let components = calendar.dateComponents([.day, .hour], from: formatterDate)
+                    logsCountForHour[components.hour!] = logsCountForHour[components.hour!]! + 1
+                }
+            }
+        }
+        
+        let sortedLogsCountForHour = logsCountForHour.sorted(by: { (value1, value2) -> Bool in
+            value1.key < value2.key
+        })
+        sortedLogsCountForHour.forEach { (value) in
+            chartDataEntry.append(ChartDataEntry(x: Double(value.key), y: Double(value.value)))
+        }
+        print(chartDataEntry)
         return chartDataEntry
     }
     
@@ -146,7 +180,7 @@ class DashboardTableViewController: UITableViewController {
         
         let leftAxis = chartView.leftAxis
         leftAxis.labelTextColor = .black
-        leftAxis.axisMaximum = 10
+        leftAxis.axisMaximum = 20
         leftAxis.axisMinimum = 0
         leftAxis.drawGridLinesEnabled = true
         leftAxis.granularityEnabled = true
@@ -155,13 +189,10 @@ class DashboardTableViewController: UITableViewController {
         
         chartView.animate(xAxisDuration: 1.5)
         
-        chartDataEntry = getKasperskyChartDataEntry()
-        for i in 0..<24 {
-            let count = Double.random(in: 0..<150)
-            let dataEntry = ChartDataEntry(x: Double(i), y: Double.random(in: 0..<150))
-            chartDataEntry.append(dataEntry)
-            leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, count + 10)
-        }
+        chartDataEntry = getChartDataEntry(logs: kasperskyLogs)
+        leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, chartDataEntry.max(by: { (value1, value2) -> Bool in
+            value1.y < value2.y
+        })!.y + 30)
         
         let set1 = LineChartDataSet(values: chartDataEntry, label: "Kaspersky")
         set1.axisDependency = .left
@@ -175,13 +206,10 @@ class DashboardTableViewController: UITableViewController {
         set1.drawCircleHoleEnabled = false
         
         
-        chartDataEntry = []
-        for i in 0..<24 {
-            let count = Double.random(in: 0..<150)
-            let dataEntry = ChartDataEntry(x: Double(i), y: Double.random(in: 0..<150))
-            chartDataEntry.append(dataEntry)
-            leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, count + 10)
-        }
+        chartDataEntry = getChartDataEntry(logs: tplinkLogs)
+        leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, chartDataEntry.max(by: { (value1, value2) -> Bool in
+            value1.y < value2.y
+        })!.y + 30)
         
         let set2 = LineChartDataSet(values: chartDataEntry, label: "TPLink")
         set2.axisDependency = .left
@@ -195,13 +223,10 @@ class DashboardTableViewController: UITableViewController {
         set2.drawCircleHoleEnabled = false
         
         
-        chartDataEntry = []
-        for i in 0..<24 {
-            let count = Double.random(in: 0..<150)
-            let dataEntry = ChartDataEntry(x: Double(i), y: Double.random(in: 0..<150))
-            chartDataEntry.append(dataEntry)
-            leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, count + 10)
-        }
+        chartDataEntry = getChartDataEntry(logs: dlinkLogs)
+        leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, chartDataEntry.max(by: { (value1, value2) -> Bool in
+            value1.y < value2.y
+        })!.y + 30)
         
         let set3 = LineChartDataSet(values: chartDataEntry, label: "DLink")
         set3.axisDependency = .left

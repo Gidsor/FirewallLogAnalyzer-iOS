@@ -75,21 +75,27 @@
                         <sections>
                             <tableViewSection id="pzS-gI-vib">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="350" id="g9w-w0-WqQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="360" id="g9w-w0-WqQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="360"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g9w-w0-WqQ" id="b7A-Ac-Cy3">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="349.66666666666669"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="359.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity for 24 hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoI-ok-tTc">
+                                                    <rect key="frame" x="138.33333333333331" y="10" width="137.33333333333331" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most active ip address for day (Kaspersky):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOD-y6-Fdg">
-                                                    <rect key="frame" x="20" y="231.66666666666666" width="279.66666666666669" height="17"/>
+                                                    <rect key="frame" x="20" y="241.66666666666666" width="279.66666666666669" height="16.999999999999972"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cn3-v9-VMz">
-                                                    <rect key="frame" x="304.66666666666669" y="225.66666666666666" width="35" height="29"/>
+                                                    <rect key="frame" x="304.66666666666669" y="235.66666666666666" width="35" height="28.999999999999972"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="None"/>
                                                     <connections>
@@ -97,13 +103,13 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most active ip address for day (TPLink):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MU5-mv-mM8">
-                                                    <rect key="frame" x="20" y="258.66666666666669" width="256.66666666666669" height="17"/>
+                                                    <rect key="frame" x="20" y="268.66666666666669" width="256.66666666666669" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J05-cK-6xJ">
-                                                    <rect key="frame" x="281.66666666666669" y="252.66666666666663" width="35" height="29"/>
+                                                    <rect key="frame" x="281.66666666666669" y="262.66666666666669" width="35" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="None"/>
                                                     <connections>
@@ -111,13 +117,13 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most active ip address for day (DLink):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fh-JQ-nd5">
-                                                    <rect key="frame" x="20" y="285.66666666666669" width="249" height="17"/>
+                                                    <rect key="frame" x="20" y="295.66666666666669" width="249" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2X-3Y-uCP">
-                                                    <rect key="frame" x="274" y="279.66666666666669" width="35" height="29"/>
+                                                    <rect key="frame" x="274" y="289.66666666666669" width="35" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="None"/>
                                                     <connections>
@@ -125,13 +131,13 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of potential threats and attacks: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9a-Gx-tI8">
-                                                    <rect key="frame" x="20" y="312.66666666666669" width="394" height="17"/>
+                                                    <rect key="frame" x="20" y="322.66666666666669" width="394" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snI-XW-9Ho" customClass="LineChartView" customModule="Charts">
-                                                    <rect key="frame" x="10" y="10" width="394" height="211.66666666666666"/>
+                                                    <rect key="frame" x="10" y="29.999999999999986" width="394" height="201.66666666666663"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
@@ -143,23 +149,25 @@
                                                 <constraint firstItem="O2X-3Y-uCP" firstAttribute="leading" secondItem="5Fh-JQ-nd5" secondAttribute="trailing" constant="5" id="Gy8-jS-HdF"/>
                                                 <constraint firstItem="5Fh-JQ-nd5" firstAttribute="leading" secondItem="b7A-Ac-Cy3" secondAttribute="leading" constant="20" id="HH9-NU-PIy"/>
                                                 <constraint firstItem="5Fh-JQ-nd5" firstAttribute="top" secondItem="MU5-mv-mM8" secondAttribute="bottom" constant="10" id="JHT-Or-KIK"/>
+                                                <constraint firstItem="EoI-ok-tTc" firstAttribute="top" secondItem="b7A-Ac-Cy3" secondAttribute="top" constant="10" id="L8r-Bf-SNN"/>
                                                 <constraint firstItem="O2X-3Y-uCP" firstAttribute="centerY" secondItem="5Fh-JQ-nd5" secondAttribute="centerY" id="W82-IQ-BjY"/>
                                                 <constraint firstItem="snI-XW-9Ho" firstAttribute="leading" secondItem="b7A-Ac-Cy3" secondAttribute="leading" constant="10" id="ZZB-ZK-8HU"/>
                                                 <constraint firstItem="MU5-mv-mM8" firstAttribute="top" secondItem="eOD-y6-Fdg" secondAttribute="bottom" constant="10" id="ZoM-Qw-qxq"/>
                                                 <constraint firstItem="MU5-mv-mM8" firstAttribute="leading" secondItem="b7A-Ac-Cy3" secondAttribute="leading" constant="20" id="Zto-Ua-n3h"/>
                                                 <constraint firstAttribute="trailing" secondItem="R9a-Gx-tI8" secondAttribute="trailing" id="duT-J9-Uql"/>
                                                 <constraint firstItem="J05-cK-6xJ" firstAttribute="centerY" secondItem="MU5-mv-mM8" secondAttribute="centerY" id="eVY-t0-SrN"/>
-                                                <constraint firstItem="snI-XW-9Ho" firstAttribute="top" secondItem="b7A-Ac-Cy3" secondAttribute="top" constant="10" id="fSz-S0-lqx"/>
+                                                <constraint firstItem="snI-XW-9Ho" firstAttribute="top" secondItem="b7A-Ac-Cy3" secondAttribute="top" constant="30" id="fSz-S0-lqx"/>
                                                 <constraint firstItem="eOD-y6-Fdg" firstAttribute="leading" secondItem="b7A-Ac-Cy3" secondAttribute="leading" constant="20" id="fho-G1-qMr"/>
                                                 <constraint firstAttribute="bottom" secondItem="R9a-Gx-tI8" secondAttribute="bottom" constant="20" id="lHn-Wy-Tng"/>
                                                 <constraint firstItem="R9a-Gx-tI8" firstAttribute="leading" secondItem="b7A-Ac-Cy3" secondAttribute="leading" constant="20" id="nOY-L2-ii7"/>
                                                 <constraint firstItem="cn3-v9-VMz" firstAttribute="centerY" secondItem="eOD-y6-Fdg" secondAttribute="centerY" id="rfm-PB-ET9"/>
                                                 <constraint firstAttribute="trailing" secondItem="snI-XW-9Ho" secondAttribute="trailing" constant="10" id="uQU-s8-SPR"/>
+                                                <constraint firstItem="EoI-ok-tTc" firstAttribute="centerX" secondItem="b7A-Ac-Cy3" secondAttribute="centerX" id="vS1-wS-iBi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="TBl-BE-gxa" detailTextLabel="1sj-V0-L7U" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="6G5-wD-G7f">
-                                        <rect key="frame" x="0.0" y="350" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="360" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6G5-wD-G7f" id="4mS-Dz-B1H">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -186,7 +194,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="qvM-7H-JBi" detailTextLabel="pUu-lZ-5AC" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="mJX-By-BBD">
-                                        <rect key="frame" x="0.0" y="394" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="404" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mJX-By-BBD" id="v7d-IQ-6d8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -213,7 +221,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Nwd-Wu-ae3" detailTextLabel="n7G-XB-qdm" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="OKu-1w-Icg">
-                                        <rect key="frame" x="0.0" y="438" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="448" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OKu-1w-Icg" id="MRz-21-yI0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
