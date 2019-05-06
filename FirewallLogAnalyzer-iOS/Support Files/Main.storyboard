@@ -75,7 +75,7 @@
                         <sections>
                             <tableViewSection id="pzS-gI-vib">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="35" id="drL-wI-m2v">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="35" id="drL-wI-m2v">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="drL-wI-m2v" id="HG1-fW-T8m">
@@ -314,8 +314,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="URL"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hP7-zS-a4K">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Port" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hP7-zS-a4K">
                                 <rect key="frame" x="30" y="154" width="354" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fwb-IC-Q7G">
+                                <rect key="frame" x="30" y="214" width="354" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
@@ -328,6 +334,9 @@
                             <constraint firstItem="hP7-zS-a4K" firstAttribute="leading" secondItem="GYL-4S-DqJ" secondAttribute="leading" constant="30" id="Lxj-ge-wr9"/>
                             <constraint firstItem="GYL-4S-DqJ" firstAttribute="trailing" secondItem="hP7-zS-a4K" secondAttribute="trailing" constant="30" id="Xge-8w-YLU"/>
                             <constraint firstItem="GYL-4S-DqJ" firstAttribute="trailing" secondItem="wQq-Ul-oNx" secondAttribute="trailing" constant="30" id="Yij-zh-547"/>
+                            <constraint firstItem="Fwb-IC-Q7G" firstAttribute="leading" secondItem="GYL-4S-DqJ" secondAttribute="leading" constant="30" id="dZs-TU-6Ue"/>
+                            <constraint firstItem="GYL-4S-DqJ" firstAttribute="trailing" secondItem="Fwb-IC-Q7G" secondAttribute="trailing" constant="30" id="ift-7S-Tim"/>
+                            <constraint firstItem="Fwb-IC-Q7G" firstAttribute="top" secondItem="hP7-zS-a4K" secondAttribute="bottom" constant="30" id="p7W-WW-kVS"/>
                             <constraint firstItem="wQq-Ul-oNx" firstAttribute="leading" secondItem="GYL-4S-DqJ" secondAttribute="leading" constant="30" id="zWb-lr-gs8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GYL-4S-DqJ"/>
@@ -340,7 +349,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="passwordTextField" destination="hP7-zS-a4K" id="ECo-FX-D2c"/>
+                        <outlet property="passwordTextField" destination="Fwb-IC-Q7G" id="uRR-yU-pav"/>
+                        <outlet property="portTextField" destination="hP7-zS-a4K" id="bGp-kx-Fpy"/>
                         <outlet property="urlTextField" destination="wQq-Ul-oNx" id="dWl-Jz-3Sw"/>
                     </connections>
                 </viewController>
@@ -1601,7 +1611,7 @@
                         <sections>
                             <tableViewSection id="lC7-fo-sQu">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="420" id="w6j-zM-Stl">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="420" id="w6j-zM-Stl">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="420"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w6j-zM-Stl" id="0Ly-sc-fbb">
