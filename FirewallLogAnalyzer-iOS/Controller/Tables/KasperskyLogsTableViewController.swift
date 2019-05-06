@@ -22,8 +22,6 @@ class KasperskyLogsTableViewController: UIViewController {
     var isMaxDate = false
     var formatter = DateFormatter()
     
-    // TODO: set max width for each column after get cell if width more old
-    
     var sourceLogs: [KasperskyLog] = []
     var logs: [KasperskyLog] = []
     

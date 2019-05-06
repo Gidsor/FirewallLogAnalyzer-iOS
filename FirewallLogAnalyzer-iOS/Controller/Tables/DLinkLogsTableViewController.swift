@@ -12,13 +12,25 @@ import SpreadsheetView
 class DLinkLogsTableViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var spreadsheetView: SpreadsheetView!
+    @IBOutlet weak var minDateButton: UIButton!
+    @IBOutlet weak var maxDateButton: UIButton!
+    var minDate = Date()
+    var maxDate = Date()
+    var toolBar = UIToolbar()
+    var datePicker  = UIDatePicker()
+    var isMinDate = false
+    var isMaxDate = false
+    var formatter = DateFormatter()
     
-    // TODO: set max width for each column after get cell if width more old
-    
+    var sourceLogs: [DLinkLog] = []
     var logs: [DLinkLog] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        formatter.dateFormat = "dd.MM.yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale.current
         
         spreadsheetView.dataSource = self
         spreadsheetView.delegate = self
@@ -31,7 +43,16 @@ class DLinkLogsTableViewController: UIViewController {
         
         showActivityIndicator(in: view)
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
+            self.sourceLogs = logs
             self.logs = logs
+            self.minDate = logs.min(by: { (log1, log2) -> Bool in
+                log1.formatterDate < log2.formatterDate
+            })?.formatterDate ?? Date()
+            self.maxDate = logs.max(by: { (log1, log2) -> Bool in
+                log1.formatterDate < log2.formatterDate
+            })?.formatterDate ?? Date()
+            self.minDateButton.setTitle(self.formatter.string(from: self.minDate), for: .normal)
+            self.maxDateButton.setTitle(self.formatter.string(from: self.maxDate), for: .normal)
             self.spreadsheetView.reloadData()
             self.countLabel.text = "Logs count: \(self.logs.count)"
             self.hideActivityIndicator(in: self.view)
@@ -43,6 +64,56 @@ class DLinkLogsTableViewController: UIViewController {
         spreadsheetView.flashScrollIndicators()
     }
     
+    @IBAction func setDateButton(_ sender: UIButton) {
+        toolBar.removeFromSuperview()
+        datePicker.removeFromSuperview()
+        datePicker = UIDatePicker()
+        if sender == minDateButton {
+            isMinDate = true
+            isMaxDate = false
+            datePicker.setDate(formatter.date(from: minDateButton.title(for: .normal) ?? "01.01.2000") ?? Date(), animated: true)
+        } else {
+            isMinDate = false
+            isMaxDate = true
+            datePicker.setDate(formatter.date(from: maxDateButton.title(for: .normal) ?? "01.01.2000") ?? Date(), animated: true)
+        }
+        datePicker.backgroundColor = UIColor.white
+        
+        datePicker.autoresizingMask = .flexibleWidth
+        datePicker.datePickerMode = .date
+        
+        datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
+        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        self.view.addSubview(datePicker)
+        
+        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
+        toolBar.barStyle = .default
+        toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
+        toolBar.sizeToFit()
+        view.addSubview(toolBar)
+    }
+    
+    @objc func dateChanged(_ sender: UIDatePicker?) {
+        
+    }
+    
+    @objc func onDoneButtonClick() {
+        if isMinDate {
+            minDate = datePicker.date
+            minDateButton.setTitle(formatter.string(from: datePicker.date), for: .normal)
+        } else if isMaxDate {
+            maxDate = datePicker.date
+            maxDateButton.setTitle(formatter.string(from: datePicker.date), for: .normal)
+        }
+        logs = sourceLogs.filter({ (log) -> Bool in
+            log.formatterDate <= maxDate && log.formatterDate >= minDate
+        })
+        countLabel.text = "Logs count: \(logs.count)"
+        spreadsheetView.reloadData()
+        toolBar.removeFromSuperview()
+        datePicker.removeFromSuperview()
+        spreadsheetView.reloadData()
+    }
 }
 
 extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetViewDelegate {
