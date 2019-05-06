@@ -19,7 +19,7 @@ class Log {
     var id: Int
     var time: String
     var date: String
-    var formatterDate: Date?
+    var formatterDate: Date
     var firewallType: FirewallType
     
     init(json: JSON) {
@@ -33,23 +33,24 @@ class Log {
             formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
             formatter.timeZone = TimeZone(secondsFromGMT: 0)
             formatter.locale = Locale.current
-            formatterDate = formatter.date(from: date + " " + time)
+            formatterDate = formatter.date(from: date + " " + time) ?? Date()
             firewallType = .kaspersky
         } else if type == FirewallType.tplink.rawValue {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             formatter.timeZone = TimeZone(secondsFromGMT: 0)
             formatter.locale = Locale.current
-            formatterDate = formatter.date(from: date + " " + time)
+            formatterDate = formatter.date(from: date + " " + time) ?? Date()
             firewallType = .tplink
         } else if type == FirewallType.dlink.rawValue {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             formatter.timeZone = TimeZone(secondsFromGMT: 0)
             formatter.locale = Locale.current
-            formatterDate = formatter.date(from: date + " " + time)
+            formatterDate = formatter.date(from: date + " " + time) ?? Date()
             firewallType = .dlink
         } else {
+            formatterDate = Date()
             firewallType = .unknown
         }
     }

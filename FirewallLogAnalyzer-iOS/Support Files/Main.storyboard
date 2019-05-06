@@ -369,8 +369,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11K-c2-fHQ">
                                 <rect key="frame" x="0.0" y="64" width="414" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8Z-M4-L0r">
-                                        <rect key="frame" x="186" y="14.666666666666671" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logs count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8Z-M4-L0r">
+                                        <rect key="frame" x="20.000000000000007" y="14.666666666666671" width="104.66666666666669" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ow-fQ-faa">
+                                        <rect key="frame" x="187.33333333333334" y="8.6666666666666714" width="85.000000000000028" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="01.01.2000"/>
+                                        <connections>
+                                            <action selector="setDateButton:" destination="JgN-e8-aad" eventType="touchUpInside" id="Yfo-OK-WcR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ke-1e-WmH">
+                                        <rect key="frame" x="309" y="8.6666666666666714" width="85" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="01.01.2000"/>
+                                        <connections>
+                                            <action selector="setDateButton:" destination="JgN-e8-aad" eventType="touchUpInside" id="3B8-Iy-6yz"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="—" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyj-NL-zeb">
+                                        <rect key="frame" x="282.33333333333331" y="14.666666666666671" width="16.666666666666686" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -378,9 +400,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="9ke-1e-WmH" firstAttribute="leading" secondItem="gyj-NL-zeb" secondAttribute="trailing" constant="10" id="9RY-Gc-NA8"/>
                                     <constraint firstAttribute="height" constant="50" id="Jmn-qa-7Yv"/>
+                                    <constraint firstItem="u8Z-M4-L0r" firstAttribute="leading" secondItem="11K-c2-fHQ" secondAttribute="leading" constant="20" id="W0W-4e-5xJ"/>
                                     <constraint firstItem="u8Z-M4-L0r" firstAttribute="centerY" secondItem="11K-c2-fHQ" secondAttribute="centerY" id="ab2-6E-GhI"/>
-                                    <constraint firstItem="u8Z-M4-L0r" firstAttribute="centerX" secondItem="11K-c2-fHQ" secondAttribute="centerX" id="fog-29-2re"/>
+                                    <constraint firstItem="gyj-NL-zeb" firstAttribute="centerY" secondItem="11K-c2-fHQ" secondAttribute="centerY" id="bZA-Kn-Rh4"/>
+                                    <constraint firstAttribute="trailing" secondItem="9ke-1e-WmH" secondAttribute="trailing" constant="20" id="f5H-ES-cLl"/>
+                                    <constraint firstItem="gyj-NL-zeb" firstAttribute="leading" secondItem="0Ow-fQ-faa" secondAttribute="trailing" constant="10" id="jek-Kd-hAs"/>
+                                    <constraint firstItem="9ke-1e-WmH" firstAttribute="centerY" secondItem="11K-c2-fHQ" secondAttribute="centerY" id="lyb-ig-PqW"/>
+                                    <constraint firstItem="0Ow-fQ-faa" firstAttribute="centerY" secondItem="11K-c2-fHQ" secondAttribute="centerY" id="xT3-Lg-IGb"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8S-Mb-4SM" customClass="SpreadsheetView" customModule="SpreadsheetView">
@@ -403,6 +431,8 @@
                     <navigationItem key="navigationItem" title="Kaspersky Logs" id="p6X-jZ-fbX"/>
                     <connections>
                         <outlet property="countLabel" destination="u8Z-M4-L0r" id="gkX-Fb-rg7"/>
+                        <outlet property="maxDateButton" destination="9ke-1e-WmH" id="efo-6r-XAM"/>
+                        <outlet property="minDateButton" destination="0Ow-fQ-faa" id="zr9-wp-C0z"/>
                         <outlet property="spreadsheetView" destination="M8S-Mb-4SM" id="5D7-Bd-vne"/>
                     </connections>
                 </viewController>
@@ -421,8 +451,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOY-fc-bZg">
                                 <rect key="frame" x="0.0" y="64" width="414" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tW-jJ-p3H">
-                                        <rect key="frame" x="186" y="14.666666666666671" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logs count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tW-jJ-p3H">
+                                        <rect key="frame" x="154.66666666666666" y="14.666666666666671" width="104.66666666666666" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -490,8 +520,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Vx-RH-ayc">
                                 <rect key="frame" x="0.0" y="64" width="414" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFZ-0u-MqU">
-                                        <rect key="frame" x="186" y="14.666666666666671" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logs count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFZ-0u-MqU">
+                                        <rect key="frame" x="154.66666666666666" y="14.666666666666671" width="104.66666666666666" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

@@ -141,11 +141,9 @@ class DashboardTableViewController: UITableViewController {
         }
         
         for log in logs {
-            if let formatterDate = log.formatterDate {
-                if formatterDate <= date && formatterDate >= previousDate {
-                    let components = calendar.dateComponents([.day, .hour], from: formatterDate)
-                    logsCountForHour[components.hour!] = logsCountForHour[components.hour!]! + 1
-                }
+            if log.formatterDate <= date && log.formatterDate >= previousDate {
+                let components = calendar.dateComponents([.day, .hour], from: log.formatterDate)
+                logsCountForHour[components.hour!] = logsCountForHour[components.hour!]! + 1
             }
         }
         
