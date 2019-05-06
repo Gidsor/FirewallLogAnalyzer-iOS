@@ -30,6 +30,7 @@
 		C0C09E15226CF3E500C69B36 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09E14226CF3E500C69B36 /* UserDefaults.swift */; };
 		C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09E18226CF4AD00C69B36 /* KeyboardObserver.swift */; };
 		C0C66F2C227F04D1004381AA /* UITableView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C66F2B227F04D1004381AA /* UITableView+Scroll.swift */; };
+		C0CB982022802CAF0070C773 /* MostActiveIPAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB981F22802CAF0070C773 /* MostActiveIPAddressViewController.swift */; };
 		CCD7CB201B7A1D8130217CCF /* Pods_FirewallLogAnalyzer_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DF8E98FD0A2BA293F63EBB /* Pods_FirewallLogAnalyzer_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		C0C09E14226CF3E500C69B36 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		C0C09E18226CF4AD00C69B36 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		C0C66F2B227F04D1004381AA /* UITableView+Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Scroll.swift"; sourceTree = "<group>"; };
+		C0CB981F22802CAF0070C773 /* MostActiveIPAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostActiveIPAddressViewController.swift; sourceTree = "<group>"; };
 		DE8304FDA26CF97881413ED0 /* Pods-FirewallLogAnalyzer-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirewallLogAnalyzer-iOS.debug.xcconfig"; path = "Target Support Files/Pods-FirewallLogAnalyzer-iOS/Pods-FirewallLogAnalyzer-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		E0DF8E98FD0A2BA293F63EBB /* Pods_FirewallLogAnalyzer_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirewallLogAnalyzer_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -189,6 +191,7 @@
 				C00E8859227CAF3300896ED8 /* ConnectServerViewController.swift */,
 				C00E885E227CCD2900896ED8 /* SettingsTableViewController.swift */,
 				C06CA309227DF72C004C41FA /* IPGeolocationTableViewController.swift */,
+				C0CB982122802CB90070C773 /* Charts */,
 				C00E8851227C528F00896ED8 /* Tables */,
 			);
 			path = Controller;
@@ -212,6 +215,14 @@
 				C0486958227E0C8D00B6936B /* IPGeoLocation.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C0CB982122802CB90070C773 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				C0CB981F22802CAF0070C773 /* MostActiveIPAddressViewController.swift */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +366,7 @@
 				C00E8853227C848D00896ED8 /* TPLinkLogsTableViewController.swift in Sources */,
 				C00B4663226F36AB0030DE5A /* NetworkManager.swift in Sources */,
 				C08CABE2226D013E009B276B /* MainTabBarController.swift in Sources */,
+				C0CB982022802CAF0070C773 /* MostActiveIPAddressViewController.swift in Sources */,
 				C029B131227B8AEC00383533 /* KasperskyLogsTableViewController.swift in Sources */,
 				C029B126227A236C00383533 /* TPLinkLog.swift in Sources */,
 				C00E8850227C525E00896ED8 /* TextCell.swift in Sources */,

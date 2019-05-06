@@ -33,7 +33,9 @@ extension UIViewController {
                 activityIndicator.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
                 activityIndicator.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
                 activityIndicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-                activityIndicator.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
+                activityIndicator.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+                activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
                 ])
             
             UIView.animate(withDuration: 0.3, animations: {
