@@ -98,11 +98,14 @@ class KasperskyLogsTableViewController: UIViewController {
     }
     
     @objc func onDoneButtonClick() {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         if isMinDate {
             minDate = datePicker.date
             minDateButton.setTitle(formatter.string(from: datePicker.date), for: .normal)
         } else if isMaxDate {
             maxDate = datePicker.date
+            maxDate = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: maxDate) ?? Date()
             maxDateButton.setTitle(formatter.string(from: datePicker.date), for: .normal)
         }
         logs = sourceLogs.filter({ (log) -> Bool in
