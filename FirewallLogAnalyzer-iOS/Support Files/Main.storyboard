@@ -551,7 +551,7 @@
         <!--Reports-->
         <scene sceneID="pW8-Yn-yE7">
             <objects>
-                <tableViewController id="Kqd-wB-jpD" sceneMemberID="viewController">
+                <tableViewController id="Kqd-wB-jpD" customClass="ReportsTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XCv-EK-Ben">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1418,6 +1418,9 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="0AC-85-5Eb" kind="show" id="cXf-y4-DJX"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="iUm-Xo-fbt" imageView="xuP-uS-FcQ" style="IBUITableViewCellStyleDefault" id="xAM-fv-ffm">
                                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1457,10 +1460,55 @@
             </objects>
             <point key="canvasLocation" x="1129" y="625"/>
         </scene>
+        <!--Connected servers-->
+        <scene sceneID="uA1-Jv-fdP">
+            <objects>
+                <tableViewController id="0AC-85-5Eb" customClass="ConnectedServersTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1ge-aI-0pL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="7OP-Ua-r0c">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Ytt-Al-Gdn" style="IBUITableViewCellStyleDefault" id="h1S-UK-4Jz">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h1S-UK-4Jz" id="J45-bv-Ymg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ytt-Al-Gdn">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="0AC-85-5Eb" id="YZh-rT-Njo"/>
+                            <outlet property="delegate" destination="0AC-85-5Eb" id="ayy-Vl-gXr"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Connected servers" id="aWh-AZ-x7o"/>
+                    <connections>
+                        <outlet property="serverCell" destination="h1S-UK-4Jz" id="WPx-8b-sJn"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hcr-2p-BWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1968" y="624"/>
+        </scene>
         <!--Charts-->
         <scene sceneID="uIS-SE-W33">
             <objects>
-                <tableViewController id="N4P-lX-Kx2" sceneMemberID="viewController">
+                <tableViewController id="N4P-lX-Kx2" customClass="ChartsTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="46h-Vi-Zek">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1625,6 +1673,9 @@
                                                         <segment title="TPLink"/>
                                                         <segment title="DLink"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="changeFirewallType:" destination="T9d-K3-xen" eventType="valueChanged" id="K9r-gu-5GK"/>
+                                                    </connections>
                                                 </segmentedControl>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wz5-cX-VBw" customClass="PieChartView" customModule="Charts">
                                                     <rect key="frame" x="0.0" y="38" width="414" height="381.66666666666669"/>

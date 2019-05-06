@@ -22,6 +22,9 @@
 		C0486959227E0C8D00B6936B /* IPGeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0486958227E0C8D00B6936B /* IPGeoLocation.swift */; };
 		C06CA30A227DF72C004C41FA /* IPGeolocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06CA309227DF72C004C41FA /* IPGeolocationTableViewController.swift */; };
 		C078C2A42280B95F002CC50F /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C078C2A32280B95F002CC50F /* String+Validation.swift */; };
+		C078C2A72280C5C0002CC50F /* ConnectedServersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C078C2A62280C5C0002CC50F /* ConnectedServersTableViewController.swift */; };
+		C078C2A92280C687002CC50F /* ReportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C078C2A82280C687002CC50F /* ReportsTableViewController.swift */; };
+		C078C2AB2280C6DB002CC50F /* ChartsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C078C2AA2280C6DB002CC50F /* ChartsTableViewController.swift */; };
 		C086E409227F6176003DFF6A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086E408227F6176003DFF6A /* Log.swift */; };
 		C08CABE2226D013E009B276B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08CABE1226D013E009B276B /* MainTabBarController.swift */; };
 		C0991DAF2249499400DF1CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0991DAE2249499400DF1CAE /* AppDelegate.swift */; };
@@ -52,6 +55,9 @@
 		C0486958227E0C8D00B6936B /* IPGeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPGeoLocation.swift; sourceTree = "<group>"; };
 		C06CA309227DF72C004C41FA /* IPGeolocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPGeolocationTableViewController.swift; sourceTree = "<group>"; };
 		C078C2A32280B95F002CC50F /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
+		C078C2A62280C5C0002CC50F /* ConnectedServersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedServersTableViewController.swift; sourceTree = "<group>"; };
+		C078C2A82280C687002CC50F /* ReportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewController.swift; sourceTree = "<group>"; };
+		C078C2AA2280C6DB002CC50F /* ChartsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsTableViewController.swift; sourceTree = "<group>"; };
 		C086E408227F6176003DFF6A /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C08CABE1226D013E009B276B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C0991DAB2249499400DF1CAE /* FirewallLogAnalyzer-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FirewallLogAnalyzer-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +111,14 @@
 				C00E8854227CA41A00896ED8 /* DLinkLogsTableViewController.swift */,
 			);
 			path = Tables;
+			sourceTree = "<group>";
+		};
+		C078C2A52280C588002CC50F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C078C2A62280C5C0002CC50F /* ConnectedServersTableViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		C0991DA22249499400DF1CAE = {
@@ -181,13 +195,16 @@
 		C0C09E11226CF3B000C69B36 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C00E8859227CAF3300896ED8 /* ConnectServerViewController.swift */,
 				C08CABE1226D013E009B276B /* MainTabBarController.swift */,
 				C029B12D227B7E7A00383533 /* DashboardTableViewController.swift */,
-				C00E8859227CAF3300896ED8 /* ConnectServerViewController.swift */,
-				C00E885E227CCD2900896ED8 /* SettingsTableViewController.swift */,
+				C078C2A82280C687002CC50F /* ReportsTableViewController.swift */,
+				C078C2AA2280C6DB002CC50F /* ChartsTableViewController.swift */,
 				C06CA309227DF72C004C41FA /* IPGeolocationTableViewController.swift */,
+				C00E885E227CCD2900896ED8 /* SettingsTableViewController.swift */,
 				C0CB982122802CB90070C773 /* Charts */,
 				C00E8851227C528F00896ED8 /* Tables */,
+				C078C2A52280C588002CC50F /* Settings */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -347,6 +364,7 @@
 			files = (
 				C00E8858227CA6CD00896ED8 /* UIViewController+ActivityIndicator.swift in Sources */,
 				C029B128227A237600383533 /* KasperskyLog.swift in Sources */,
+				C078C2A72280C5C0002CC50F /* ConnectedServersTableViewController.swift in Sources */,
 				C086E409227F6176003DFF6A /* Log.swift in Sources */,
 				C078C2A42280B95F002CC50F /* String+Validation.swift in Sources */,
 				C029B12A227A238200383533 /* DLinkLog.swift in Sources */,
@@ -357,11 +375,13 @@
 				C0486959227E0C8D00B6936B /* IPGeoLocation.swift in Sources */,
 				C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */,
 				C0C66F2C227F04D1004381AA /* UITableView+Scroll.swift in Sources */,
+				C078C2AB2280C6DB002CC50F /* ChartsTableViewController.swift in Sources */,
 				C00E8855227CA41A00896ED8 /* DLinkLogsTableViewController.swift in Sources */,
 				C029B12E227B7E7A00383533 /* DashboardTableViewController.swift in Sources */,
 				C00E8853227C848D00896ED8 /* TPLinkLogsTableViewController.swift in Sources */,
 				C00B4663226F36AB0030DE5A /* NetworkManager.swift in Sources */,
 				C08CABE2226D013E009B276B /* MainTabBarController.swift in Sources */,
+				C078C2A92280C687002CC50F /* ReportsTableViewController.swift in Sources */,
 				C0CB982022802CAF0070C773 /* MostActiveIPAddressViewController.swift in Sources */,
 				C029B131227B8AEC00383533 /* KasperskyLogsTableViewController.swift in Sources */,
 				C029B126227A236C00383533 /* TPLinkLog.swift in Sources */,
