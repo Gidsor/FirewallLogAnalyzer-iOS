@@ -12,20 +12,42 @@ import Charts
 class MostActiveIPAddressViewController: UITableViewController {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var chartView: PieChartView!
+    @IBOutlet weak var minDateButton: UIButton!
+    @IBOutlet weak var maxDateButton: UIButton!
+    var minDate = Date()
+    var maxDate = Date()
+    var toolBar = UIToolbar()
+    var datePicker  = UIDatePicker()
+    var isMinDate = false
+    var isMaxDate = false
+    var formatter = DateFormatter()
+    var sourceKasperskyLogs: [KasperskyLog] = []
     var kasperskyLogs: [KasperskyLog] = []
+    var sourceTPLinkLogs: [TPLinkLog] = []
     var tplinkLogs: [TPLinkLog] = []
+    var sourceDLinkLogs: [DLinkLog] = []
     var dlinkLogs: [DLinkLog] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        formatter.dateFormat = "dd.MM.yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale.current
+        
         var kasperskyLoaded = false
         var tplinkLoaded = false
         var dlinkLoaded = false
         
+        minDate = formatter.date(from: "01.01.2000") ?? Date()
+        maxDate = formatter.date(from: formatter.string(from: Date())) ?? Date()
+        minDateButton.setTitle(self.formatter.string(from: minDate), for: .normal)
+        maxDateButton.setTitle(self.formatter.string(from: maxDate), for: .normal)
+        
         showActivityIndicator(in: view)
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
+            self.sourceKasperskyLogs = logs
             self.kasperskyLogs = logs
             kasperskyLoaded = true
             if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
@@ -35,6 +57,7 @@ class MostActiveIPAddressViewController: UITableViewController {
         }
         
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
+            self.sourceTPLinkLogs = logs
             self.tplinkLogs = logs
             tplinkLoaded = true
             if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
@@ -44,6 +67,7 @@ class MostActiveIPAddressViewController: UITableViewController {
         }
         
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
+            self.sourceDLinkLogs = logs
             self.dlinkLogs = logs
             dlinkLoaded = true
             if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
@@ -55,6 +79,68 @@ class MostActiveIPAddressViewController: UITableViewController {
     
     @IBAction func changeFirewallType(_ sender: UISegmentedControl) {
         setupChart()
+    }
+    
+    @IBAction func setDateButton(_ sender: UIButton) {
+        toolBar.removeFromSuperview()
+        datePicker.removeFromSuperview()
+        datePicker = UIDatePicker()
+        if sender == minDateButton {
+            isMinDate = true
+            isMaxDate = false
+            datePicker.setDate(formatter.date(from: minDateButton.title(for: .normal) ?? "01.01.2000") ?? Date(), animated: true)
+        } else {
+            isMinDate = false
+            isMaxDate = true
+            datePicker.setDate(formatter.date(from: maxDateButton.title(for: .normal) ?? "01.01.2000") ?? Date(), animated: true)
+        }
+        datePicker.backgroundColor = UIColor.white
+        
+        datePicker.autoresizingMask = .flexibleWidth
+        datePicker.datePickerMode = .date
+        
+        datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
+        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        self.view.addSubview(datePicker)
+        
+        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
+        toolBar.barStyle = .default
+        toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
+        toolBar.sizeToFit()
+        view.addSubview(toolBar)
+    }
+    
+    @objc func dateChanged(_ sender: UIDatePicker?) {
+        update()
+    }
+    
+    func update() {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        if isMinDate {
+            minDate = datePicker.date
+            minDateButton.setTitle(formatter.string(from: datePicker.date), for: .normal)
+        } else if isMaxDate {
+            maxDate = datePicker.date
+            maxDate = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: maxDate) ?? Date()
+            maxDateButton.setTitle(formatter.string(from: datePicker.date), for: .normal)
+        }
+        kasperskyLogs = sourceKasperskyLogs.filter({ (log) -> Bool in
+            log.formatterDate <= maxDate && log.formatterDate >= minDate
+        })
+        tplinkLogs = sourceTPLinkLogs.filter({ (log) -> Bool in
+            log.formatterDate <= maxDate && log.formatterDate >= minDate
+        })
+        dlinkLogs = sourceDLinkLogs.filter({ (log) -> Bool in
+            log.formatterDate <= maxDate && log.formatterDate >= minDate
+        })
+        setupChart()
+    }
+    
+    @objc func onDoneButtonClick() {
+        update()
+        toolBar.removeFromSuperview()
+        datePicker.removeFromSuperview()
     }
     
     func setupChart() {

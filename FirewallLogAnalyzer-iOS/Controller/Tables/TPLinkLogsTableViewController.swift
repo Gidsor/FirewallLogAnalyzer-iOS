@@ -94,10 +94,10 @@ class TPLinkLogsTableViewController: UIViewController {
     }
     
     @objc func dateChanged(_ sender: UIDatePicker?) {
-        
+        update()
     }
     
-    @objc func onDoneButtonClick() {
+    func update() {
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         if isMinDate {
@@ -113,9 +113,12 @@ class TPLinkLogsTableViewController: UIViewController {
         })
         countLabel.text = "Logs count: \(logs.count)"
         spreadsheetView.reloadData()
+    }
+    
+    @objc func onDoneButtonClick() {
+        update()
         toolBar.removeFromSuperview()
         datePicker.removeFromSuperview()
-        spreadsheetView.reloadData()
     }
 }
 
