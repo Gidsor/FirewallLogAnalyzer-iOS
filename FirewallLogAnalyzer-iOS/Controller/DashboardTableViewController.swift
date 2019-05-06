@@ -14,6 +14,7 @@ class DashboardTableViewController: UITableViewController {
     @IBOutlet weak var tplinkCell: UITableViewCell!
     @IBOutlet weak var dlinkCell: UITableViewCell!
     @IBOutlet weak var chartView: LineChartView!
+    @IBOutlet weak var ipServerButton: UIButton!
     @IBOutlet weak var ipKasperskyButton: UIButton!
     @IBOutlet weak var ipTPLinkButton: UIButton!
     @IBOutlet weak var ipDLinkButton: UIButton!
@@ -34,16 +35,19 @@ class DashboardTableViewController: UITableViewController {
     }
     
     func updateDashboard() {
+        ipServerButton.setTitle(UserSettings.server, for: .normal)
         var kasperskyLoaded = false
         var tplinkLoaded = false
         var dlinkLoaded = false
         
+        showActivityIndicator(in: view)
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
             self.kasperskyLogs = logs
             self.kasperskyCell.detailTextLabel?.text = "Logs count: \(logs.count)"
             self.findMoreActiveIPAddressForLastDay(logs: logs)
             kasperskyLoaded = true
             if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
+                self.hideActivityIndicator(in: self.view)
                 self.lineChartSetup()
             }
         }
@@ -54,6 +58,7 @@ class DashboardTableViewController: UITableViewController {
             self.ipTPLinkButton.setTitle("None", for: .normal)
             tplinkLoaded = true
             if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
+                self.hideActivityIndicator(in: self.view)
                 self.lineChartSetup()
             }
         }
@@ -64,6 +69,7 @@ class DashboardTableViewController: UITableViewController {
             self.findMoreActiveIPAddressForLastDay(logs: logs)
             dlinkLoaded = true
             if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
+                self.hideActivityIndicator(in: self.view)
                 self.lineChartSetup()
             }
         }

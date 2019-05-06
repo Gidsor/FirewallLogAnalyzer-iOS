@@ -69,7 +69,9 @@ class IPGeolocationTableViewController: UITableViewController {
     @IBAction func search(_ sender: Any) {
         guard let ip = ipTextField.text else { return }
         self.view.endEditing(true)
+        self.showActivityIndicator(in: self.view)
         NetworkManager.shared.getLocation(ip: ip) { (status, ipGeoLocation) in
+            self.hideActivityIndicator(in: self.view)
             guard let ipGeoLocation = ipGeoLocation else { return }
             self.ipLabel.text = ipGeoLocation.ip
             self.hostnameLabel.text = ipGeoLocation.hostname

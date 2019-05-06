@@ -168,7 +168,19 @@ extension KasperskyLogsTableViewController: SpreadsheetViewDataSource, Spreadshe
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected: (row: \(indexPath.row), column: \(indexPath.column))")
+        // IP address
+        if indexPath.column == 10 && indexPath.row != 0 {
+            let ip = logs[indexPath.row - 1].ipAddress
+            if ip == "" { return }
+            let alert = UIAlertController(title: "Show IP Geolocation?", message: ip, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Show", style: .default, handler: { _ in
+                self.tabBarController?.selectedIndex = 3
+                let ipGeolocationController = (self.tabBarController?.viewControllers?[3] as? UINavigationController)?.topViewController as? IPGeolocationTableViewController
+                ipGeolocationController?.search(ip: ip)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
 }

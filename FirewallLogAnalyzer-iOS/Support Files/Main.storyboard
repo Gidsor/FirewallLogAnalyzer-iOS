@@ -75,8 +75,35 @@
                         <sections>
                             <tableViewSection id="pzS-gI-vib">
                                 <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="35" id="drL-wI-m2v">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="drL-wI-m2v" id="HG1-fW-T8m">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="34.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server log storage:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdF-fK-rK3">
+                                                    <rect key="frame" x="20.000000000000007" y="9" width="122.66666666666669" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zv-v9-wTG">
+                                                    <rect key="frame" x="147.66666666666666" y="3" width="35" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="None"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2Zv-v9-wTG" firstAttribute="centerY" secondItem="hdF-fK-rK3" secondAttribute="centerY" id="QHi-LL-dGc"/>
+                                                <constraint firstItem="2Zv-v9-wTG" firstAttribute="leading" secondItem="hdF-fK-rK3" secondAttribute="trailing" constant="5" id="dZM-JT-cd3"/>
+                                                <constraint firstItem="hdF-fK-rK3" firstAttribute="leading" secondItem="HG1-fW-T8m" secondAttribute="leading" constant="20" id="qGe-ca-wPh"/>
+                                                <constraint firstItem="hdF-fK-rK3" firstAttribute="centerY" secondItem="HG1-fW-T8m" secondAttribute="centerY" id="xcl-Ma-LTn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="360" id="g9w-w0-WqQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="360"/>
+                                        <rect key="frame" x="0.0" y="35" width="414" height="360"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g9w-w0-WqQ" id="b7A-Ac-Cy3">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="359.66666666666669"/>
@@ -167,7 +194,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="TBl-BE-gxa" detailTextLabel="1sj-V0-L7U" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="6G5-wD-G7f">
-                                        <rect key="frame" x="0.0" y="360" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="395" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6G5-wD-G7f" id="4mS-Dz-B1H">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -194,7 +221,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="qvM-7H-JBi" detailTextLabel="pUu-lZ-5AC" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="mJX-By-BBD">
-                                        <rect key="frame" x="0.0" y="404" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="439" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mJX-By-BBD" id="v7d-IQ-6d8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -221,7 +248,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Nwd-Wu-ae3" detailTextLabel="n7G-XB-qdm" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="OKu-1w-Icg">
-                                        <rect key="frame" x="0.0" y="448" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="483" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OKu-1w-Icg" id="MRz-21-yI0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -263,6 +290,7 @@
                         <outlet property="dlinkCell" destination="OKu-1w-Icg" id="sYN-1i-z3m"/>
                         <outlet property="ipDLinkButton" destination="O2X-3Y-uCP" id="S8s-x1-bBk"/>
                         <outlet property="ipKasperskyButton" destination="cn3-v9-VMz" id="yF3-GH-iDd"/>
+                        <outlet property="ipServerButton" destination="2Zv-v9-wTG" id="42a-hJ-157"/>
                         <outlet property="ipTPLinkButton" destination="J05-cK-6xJ" id="WCH-wb-puh"/>
                         <outlet property="kasperskyCell" destination="6G5-wD-G7f" id="OuM-r1-347"/>
                         <outlet property="tplinkCell" destination="mJX-By-BBD" id="u6e-GN-CtV"/>
