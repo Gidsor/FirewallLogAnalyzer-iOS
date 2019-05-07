@@ -38,6 +38,7 @@
 		C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09E18226CF4AD00C69B36 /* KeyboardObserver.swift */; };
 		C0C66F2C227F04D1004381AA /* UITableView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C66F2B227F04D1004381AA /* UITableView+Scroll.swift */; };
 		C0CB982022802CAF0070C773 /* MostActiveIPAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB981F22802CAF0070C773 /* MostActiveIPAddressViewController.swift */; };
+		C0EF95D522823CCB00CA57ED /* TrafficIPAddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF95D422823CCB00CA57ED /* TrafficIPAddressTableViewController.swift */; };
 		C0F43356228207C80000646E /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F43355228207C80000646E /* EventsTableViewController.swift */; };
 		C0F43358228214610000646E /* ProtocolsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F43357228214610000646E /* ProtocolsTableViewController.swift */; };
 		CCD7CB201B7A1D8130217CCF /* Pods_FirewallLogAnalyzer_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DF8E98FD0A2BA293F63EBB /* Pods_FirewallLogAnalyzer_iOS.framework */; };
@@ -78,6 +79,7 @@
 		C0C09E18226CF4AD00C69B36 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		C0C66F2B227F04D1004381AA /* UITableView+Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Scroll.swift"; sourceTree = "<group>"; };
 		C0CB981F22802CAF0070C773 /* MostActiveIPAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostActiveIPAddressViewController.swift; sourceTree = "<group>"; };
+		C0EF95D422823CCB00CA57ED /* TrafficIPAddressTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficIPAddressTableViewController.swift; sourceTree = "<group>"; };
 		C0F43355228207C80000646E /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		C0F43357228214610000646E /* ProtocolsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolsTableViewController.swift; sourceTree = "<group>"; };
 		DE8304FDA26CF97881413ED0 /* Pods-FirewallLogAnalyzer-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirewallLogAnalyzer-iOS.debug.xcconfig"; path = "Target Support Files/Pods-FirewallLogAnalyzer-iOS/Pods-FirewallLogAnalyzer-iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				C094856D2281D16A006E5AF7 /* LiveTrafficTableViewController.swift */,
 				C0F43355228207C80000646E /* EventsTableViewController.swift */,
 				C0F43357228214610000646E /* ProtocolsTableViewController.swift */,
+				C0EF95D422823CCB00CA57ED /* TrafficIPAddressTableViewController.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				C00E8858227CA6CD00896ED8 /* UIViewController+ActivityIndicator.swift in Sources */,
 				C0F43356228207C80000646E /* EventsTableViewController.swift in Sources */,
 				C029B128227A237600383533 /* KasperskyLog.swift in Sources */,
+				C0EF95D522823CCB00CA57ED /* TrafficIPAddressTableViewController.swift in Sources */,
 				C078C2A72280C5C0002CC50F /* ConnectedServersTableViewController.swift in Sources */,
 				C086E409227F6176003DFF6A /* Log.swift in Sources */,
 				C078C2A42280B95F002CC50F /* String+Validation.swift in Sources */,

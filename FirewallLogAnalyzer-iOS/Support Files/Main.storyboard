@@ -2352,7 +2352,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_6" translatesAutoresizingMaskIntoConstraints="NO" id="nwU-1S-dFk">
-                                                    <rect key="frame" x="10" y="10" width="16" height="69.666666666666671"/>
+                                                    <rect key="frame" x="10" y="10" width="107.00000000000003" height="69.666666666666671"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Traffic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xoo-cm-LtO">
                                                     <rect key="frame" x="193" y="9.9999999999999982" width="88.333333333333314" height="20.333333333333329"/>
@@ -2500,6 +2500,45 @@
                                             <segue destination="lPZ-IA-cl6" kind="show" id="tEA-Dr-6yr"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="iIW-aH-rGC">
+                                        <rect key="frame" x="0.0" y="450" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iIW-aH-rGC" id="Uc1-7t-8Vg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_2" translatesAutoresizingMaskIntoConstraints="NO" id="SgT-lG-iE1">
+                                                    <rect key="frame" x="10" y="10" width="101" height="69.666666666666671"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Traffic with specific IP address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xg8-L5-VGC">
+                                                    <rect key="frame" x="114.66666666666669" y="9.9999999999999982" width="245" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Bar chart to display traffic with en ip address for various logs" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="WwY-uj-aWc">
+                                                    <rect key="frame" x="110" y="30.333333333333332" width="294" height="59.333333333333343"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="WwY-uj-aWc" secondAttribute="bottom" id="4EL-QG-fU7"/>
+                                                <constraint firstAttribute="trailing" secondItem="WwY-uj-aWc" secondAttribute="trailing" constant="10" id="COr-lN-Amm"/>
+                                                <constraint firstItem="xg8-L5-VGC" firstAttribute="centerX" secondItem="Uc1-7t-8Vg" secondAttribute="centerX" constant="30" id="IpE-lL-1Gs"/>
+                                                <constraint firstItem="WwY-uj-aWc" firstAttribute="top" secondItem="xg8-L5-VGC" secondAttribute="bottom" id="JMq-rB-gBo"/>
+                                                <constraint firstItem="SgT-lG-iE1" firstAttribute="leading" secondItem="Uc1-7t-8Vg" secondAttribute="leading" constant="10" id="Jnl-A1-Hzt"/>
+                                                <constraint firstItem="SgT-lG-iE1" firstAttribute="top" secondItem="Uc1-7t-8Vg" secondAttribute="top" constant="10" id="X6D-0r-Po5"/>
+                                                <constraint firstItem="xg8-L5-VGC" firstAttribute="top" secondItem="Uc1-7t-8Vg" secondAttribute="top" constant="10" id="f9q-aS-BNb"/>
+                                                <constraint firstItem="WwY-uj-aWc" firstAttribute="leading" secondItem="Uc1-7t-8Vg" secondAttribute="leading" constant="110" id="gfN-NV-78l"/>
+                                                <constraint firstAttribute="bottom" secondItem="SgT-lG-iE1" secondAttribute="bottom" constant="10" id="h6k-bM-ejc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="5j1-j9-8BX" kind="show" id="SBc-Sc-J3Z"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -2630,7 +2669,7 @@
             </objects>
             <point key="canvasLocation" x="2041" y="-1786"/>
         </scene>
-        <!--Live Traffic-->
+        <!--Live Traffic (24 hours)-->
         <scene sceneID="cBB-lF-W7W">
             <objects>
                 <tableViewController id="oLK-VD-FGT" customClass="LiveTraffic24HoursTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -2721,7 +2760,7 @@
                             <outlet property="delegate" destination="oLK-VD-FGT" id="i5g-Jo-EL4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Live Traffic" id="Ccg-bq-bFs"/>
+                    <navigationItem key="navigationItem" title="Live Traffic (24 hours)" id="Ccg-bq-bFs"/>
                     <connections>
                         <outlet property="chartView" destination="2oo-N5-0xw" id="BAd-Sp-HOH"/>
                         <outlet property="datePickerButton" destination="cEg-Dw-ymK" id="Kxf-SM-9lZ"/>
@@ -2731,7 +2770,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXu-92-pyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2693" y="-1786"/>
+            <point key="canvasLocation" x="3357" y="-1786"/>
         </scene>
         <!--Live Traffic-->
         <scene sceneID="ILc-CJ-pH4">
@@ -2845,7 +2884,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOO-fY-gFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2041" y="-1118"/>
+            <point key="canvasLocation" x="2693" y="-1786"/>
         </scene>
         <!--Events-->
         <scene sceneID="2Uh-ya-fbb">
@@ -2959,7 +2998,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvf-TT-7wn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2693" y="-1118"/>
+            <point key="canvasLocation" x="2041" y="-1118"/>
         </scene>
         <!--Protocols-->
         <scene sceneID="E8O-YN-E1n">
@@ -3073,6 +3112,100 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3hu-CN-VIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2693" y="-1118"/>
+        </scene>
+        <!--Traffic with specific IP address-->
+        <scene sceneID="ddX-RC-ycD">
+            <objects>
+                <tableViewController id="5j1-j9-8BX" customClass="TrafficIPAddressTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Idx-mH-ft7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="bT8-oj-HZt">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="440" id="reh-Ct-6Pw">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="440"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="reh-Ct-6Pw" id="akJ-fg-VAX">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="439.66666666666669"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m7L-7y-4Fx">
+                                                    <rect key="frame" x="10" y="10" width="233" height="29"/>
+                                                    <segments>
+                                                        <segment title="Kaspersky"/>
+                                                        <segment title="TPLink"/>
+                                                        <segment title="DLink"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="changeFirewallType:" destination="5j1-j9-8BX" eventType="valueChanged" id="dCs-80-6tH"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMn-Y5-yhB" customClass="BarChartView" customModule="Charts">
+                                                    <rect key="frame" x="0.0" y="48" width="414" height="391.66666666666669"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="IP address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g3b-Nv-pvf">
+                                                    <rect key="frame" x="248" y="9" width="156" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="g3b-Nv-pvf" secondAttribute="trailing" constant="10" id="QO4-0J-dqe"/>
+                                                <constraint firstItem="m7L-7y-4Fx" firstAttribute="leading" secondItem="akJ-fg-VAX" secondAttribute="leading" constant="10" id="Y6A-M9-QU1"/>
+                                                <constraint firstItem="QMn-Y5-yhB" firstAttribute="leading" secondItem="akJ-fg-VAX" secondAttribute="leading" id="eJ5-AN-EUX"/>
+                                                <constraint firstItem="m7L-7y-4Fx" firstAttribute="top" secondItem="akJ-fg-VAX" secondAttribute="top" constant="10" id="h9h-g1-Hbz"/>
+                                                <constraint firstItem="g3b-Nv-pvf" firstAttribute="centerY" secondItem="m7L-7y-4Fx" secondAttribute="centerY" id="pF1-pU-7jE"/>
+                                                <constraint firstItem="g3b-Nv-pvf" firstAttribute="leading" secondItem="m7L-7y-4Fx" secondAttribute="trailing" constant="5" id="q0O-cz-EYH"/>
+                                                <constraint firstAttribute="trailing" secondItem="QMn-Y5-yhB" secondAttribute="trailing" id="vD1-Kx-PdM"/>
+                                                <constraint firstItem="QMn-Y5-yhB" firstAttribute="top" secondItem="m7L-7y-4Fx" secondAttribute="bottom" constant="10" id="wh8-Ze-jo1"/>
+                                                <constraint firstAttribute="bottom" secondItem="QMn-Y5-yhB" secondAttribute="bottom" id="yXQ-Qv-Q2L"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Lr7-UI-XK9">
+                                        <rect key="frame" x="0.0" y="440" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lr7-UI-XK9" id="qzx-X6-bK9">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logs count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaO-zb-ILG">
+                                                    <rect key="frame" x="19.999999999999993" y="10.000000000000002" width="88.333333333333314" height="23.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="LaO-zb-ILG" secondAttribute="bottom" constant="10" id="bbB-td-LKq"/>
+                                                <constraint firstItem="LaO-zb-ILG" firstAttribute="leading" secondItem="qzx-X6-bK9" secondAttribute="leading" constant="20" id="jsj-NB-wrh"/>
+                                                <constraint firstItem="LaO-zb-ILG" firstAttribute="top" secondItem="qzx-X6-bK9" secondAttribute="top" constant="10" id="vDu-b1-iZf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="5j1-j9-8BX" id="xe4-Bk-fzh"/>
+                            <outlet property="delegate" destination="5j1-j9-8BX" id="qnD-at-sOM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Traffic with specific IP address" id="Xtv-et-wwM"/>
+                    <connections>
+                        <outlet property="chartView" destination="QMn-Y5-yhB" id="kV7-El-duz"/>
+                        <outlet property="ipAddressTextField" destination="g3b-Nv-pvf" id="OQJ-UP-ohY"/>
+                        <outlet property="logsCountLabel" destination="LaO-zb-ILG" id="kon-9a-hea"/>
+                        <outlet property="segmentControl" destination="m7L-7y-4Fx" id="Pm0-Ml-JEI"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yfy-F3-9t2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="3357" y="-1118"/>
         </scene>
     </scenes>
@@ -3081,6 +3214,7 @@
         <image name="analytics-33" width="505" height="505"/>
         <image name="analytics-78" width="505" height="505"/>
         <image name="chart_10" width="100" height="100"/>
+        <image name="chart_2" width="101" height="100"/>
         <image name="chart_3" width="100" height="100"/>
         <image name="chart_4" width="100" height="100"/>
         <image name="chart_6" width="107" height="100"/>
