@@ -14,6 +14,7 @@ class MostActiveIPAddressViewController: UITableViewController {
     @IBOutlet weak var chartView: PieChartView!
     @IBOutlet weak var minDateButton: UIButton!
     @IBOutlet weak var maxDateButton: UIButton!
+    @IBOutlet weak var logsCountLabel: UILabel!
     var minDate = Date()
     var maxDate = Date()
     var toolBar = UIToolbar()
@@ -22,15 +23,17 @@ class MostActiveIPAddressViewController: UITableViewController {
     var isMaxDate = false
     var formatter = DateFormatter()
     var sourceKasperskyLogs: [KasperskyLog] = []
-    var kasperskyLogs: [KasperskyLog] = []
     var sourceTPLinkLogs: [TPLinkLog] = []
-    var tplinkLogs: [TPLinkLog] = []
     var sourceDLinkLogs: [DLinkLog] = []
+    var kasperskyLogs: [KasperskyLog] = []
+    var tplinkLogs: [TPLinkLog] = []
     var dlinkLogs: [DLinkLog] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.tableFooterView = UIView()
         
         formatter.dateFormat = "dd.MM.yyyy"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
@@ -190,8 +193,9 @@ class MostActiveIPAddressViewController: UITableViewController {
             let count = kasperskySortedValues.count > 15 ? 15 : kasperskySortedValues.count
             values = (0..<count).map { (i) -> PieChartDataEntry in
                 return PieChartDataEntry(value: Double(kasperskySortedValues[i].value),
-                                         label: kasperskySortedValues[i].key)
+                                         label: kasperskySortedValues[i].key + " (\(kasperskySortedValues[i].value))")
             }
+            logsCountLabel.text = "Logs count: \(kasperskyLogs.count)"
         } else if segmentControl.selectedSegmentIndex == 1 {
             var tplinkValues: [String : Int] = [:]
             tplinkLogs.forEach {
@@ -204,8 +208,9 @@ class MostActiveIPAddressViewController: UITableViewController {
             let count = tplinkSortedValues.count > 15 ? 15 : tplinkSortedValues.count
             values = (0..<count).map { (i) -> PieChartDataEntry in
                 return PieChartDataEntry(value: Double(tplinkSortedValues[i].value),
-                                         label: tplinkSortedValues[i].key)
+                                         label: tplinkSortedValues[i].key + " (\(tplinkSortedValues[i].value))")
             }
+            logsCountLabel.text = "Logs count: \(tplinkLogs.count)"
         } else if segmentControl.selectedSegmentIndex == 2 {
             var dlinkValues: [String : Int] = [:]
             dlinkLogs.forEach {
@@ -218,8 +223,9 @@ class MostActiveIPAddressViewController: UITableViewController {
             let count = dlinkSortedValues.count > 15 ? 15 : dlinkSortedValues.count
             values = (0..<count).map { (i) -> PieChartDataEntry in
                 return PieChartDataEntry(value: Double(dlinkSortedValues[i].value),
-                                         label: dlinkSortedValues[i].key)
+                                         label: dlinkSortedValues[i].key + " (\(dlinkSortedValues[i].value))")
             }
+            logsCountLabel.text = "Logs count: \(dlinkLogs.count)"
         }
         
         let set = PieChartDataSet(values: values, label: "")

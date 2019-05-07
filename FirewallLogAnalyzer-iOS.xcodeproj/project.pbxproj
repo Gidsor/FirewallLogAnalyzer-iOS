@@ -27,6 +27,7 @@
 		C078C2AB2280C6DB002CC50F /* ChartsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C078C2AA2280C6DB002CC50F /* ChartsTableViewController.swift */; };
 		C086E409227F6176003DFF6A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086E408227F6176003DFF6A /* Log.swift */; };
 		C08CABE2226D013E009B276B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08CABE1226D013E009B276B /* MainTabBarController.swift */; };
+		C094856A2281A682006E5AF7 /* LiveTrafficTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09485692281A682006E5AF7 /* LiveTrafficTableViewController.swift */; };
 		C0991DAF2249499400DF1CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0991DAE2249499400DF1CAE /* AppDelegate.swift */; };
 		C0991DB62249499600DF1CAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0991DB52249499600DF1CAE /* Assets.xcassets */; };
 		C0991DB92249499600DF1CAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0991DB72249499600DF1CAE /* LaunchScreen.storyboard */; };
@@ -60,6 +61,7 @@
 		C078C2AA2280C6DB002CC50F /* ChartsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsTableViewController.swift; sourceTree = "<group>"; };
 		C086E408227F6176003DFF6A /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C08CABE1226D013E009B276B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		C09485692281A682006E5AF7 /* LiveTrafficTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTrafficTableViewController.swift; sourceTree = "<group>"; };
 		C0991DAB2249499400DF1CAE /* FirewallLogAnalyzer-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FirewallLogAnalyzer-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0991DAE2249499400DF1CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0991DB52249499600DF1CAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				C0CB981F22802CAF0070C773 /* MostActiveIPAddressViewController.swift */,
+				C09485692281A682006E5AF7 /* LiveTrafficTableViewController.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				C08CABE2226D013E009B276B /* MainTabBarController.swift in Sources */,
 				C078C2A92280C687002CC50F /* ReportsTableViewController.swift in Sources */,
 				C0CB982022802CAF0070C773 /* MostActiveIPAddressViewController.swift in Sources */,
+				C094856A2281A682006E5AF7 /* LiveTrafficTableViewController.swift in Sources */,
 				C029B131227B8AEC00383533 /* KasperskyLogsTableViewController.swift in Sources */,
 				C029B126227A236C00383533 /* TPLinkLog.swift in Sources */,
 				C00E8850227C525E00896ED8 /* TextCell.swift in Sources */,
