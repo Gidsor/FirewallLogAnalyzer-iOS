@@ -1,15 +1,15 @@
 //
-//  MostActiveIPAddressViewController.swift
+//  ProtocolsTableViewController.swift
 //  FirewallLogAnalyzer-iOS
 //
-//  Created by Vadim Denisov on 06/05/2019.
+//  Created by Vadim Denisov on 08/05/2019.
 //  Copyright © 2019 Vadim Denisov. All rights reserved.
 //
 
 import UIKit
 import Charts
 
-class MostActiveIPAddressViewController: UITableViewController {
+class ProtocolsTableViewController: UITableViewController {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var chartView: PieChartView!
     @IBOutlet weak var minDateButton: UIButton!
@@ -156,10 +156,10 @@ class MostActiveIPAddressViewController: UITableViewController {
         
         chartView.drawCenterTextEnabled = true
         
-        chartView.drawHoleEnabled = true
+        chartView.drawHoleEnabled = false
         chartView.rotationAngle = 0
         chartView.rotationEnabled = false
-        chartView.highlightPerTapEnabled = true
+        chartView.highlightPerTapEnabled = false
         
         let l = chartView.legend
         l.horizontalAlignment = .left
@@ -184,8 +184,8 @@ class MostActiveIPAddressViewController: UITableViewController {
         if segmentControl.selectedSegmentIndex == 0 {
             var kasperskyValues: [String : Int] = [:]
             kasperskyLogs.forEach {
-                if $0.ipAddress != "" {
-                    kasperskyValues[$0.ipAddress] = (kasperskyValues[$0.ipAddress] ?? 0) + 1
+                if $0.protocolNetwork != "" {
+                    kasperskyValues[$0.protocolNetwork] = (kasperskyValues[$0.protocolNetwork] ?? 0) + 1
                 }
             }
             let kasperskySortedValues = kasperskyValues.sorted { $0.value > $1.value }
@@ -199,8 +199,8 @@ class MostActiveIPAddressViewController: UITableViewController {
         } else if segmentControl.selectedSegmentIndex == 1 {
             var tplinkValues: [String : Int] = [:]
             tplinkLogs.forEach {
-                if $0.ipAddress != "" {
-                    tplinkValues[$0.ipAddress] = (tplinkValues[$0.ipAddress] ?? 0) + 1
+                if $0.protocolNetwork != "" {
+                    tplinkValues[$0.protocolNetwork] = (tplinkValues[$0.protocolNetwork] ?? 0) + 1
                 }
             }
             let tplinkSortedValues = tplinkValues.sorted { $0.value > $1.value }
@@ -214,8 +214,8 @@ class MostActiveIPAddressViewController: UITableViewController {
         } else if segmentControl.selectedSegmentIndex == 2 {
             var dlinkValues: [String : Int] = [:]
             dlinkLogs.forEach {
-                if $0.srcIP != "" {
-                    dlinkValues[$0.srcIP] = (dlinkValues[$0.srcIP] ?? 0) + 1
+                if $0.protocolNetwork != "" {
+                    dlinkValues[$0.protocolNetwork] = (dlinkValues[$0.protocolNetwork] ?? 0) + 1
                 }
             }
             let dlinkSortedValues = dlinkValues.sorted { $0.value > $1.value }
@@ -239,7 +239,7 @@ class MostActiveIPAddressViewController: UITableViewController {
             + ChartColorTemplates.pastel()
             + [UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)]
         
-        set.valueLinePart1OffsetPercentage = 0.8
+        set.valueLinePart1OffsetPercentage = 1
         set.valueLinePart1Length = 0.2
         set.valueLinePart2Length = 0.4
         //set.xValuePosition = .outsideSlice
@@ -255,6 +255,8 @@ class MostActiveIPAddressViewController: UITableViewController {
         data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
         data.setValueFont(.systemFont(ofSize: 11, weight: .light))
         data.setValueTextColor(.black)
+        // hide percents
+        data.setDrawValues(false)
         
         chartView.data = data
         chartView.highlightValues(nil)
@@ -262,3 +264,4 @@ class MostActiveIPAddressViewController: UITableViewController {
     }
     
 }
+

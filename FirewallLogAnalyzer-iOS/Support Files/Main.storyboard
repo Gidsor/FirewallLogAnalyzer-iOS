@@ -669,12 +669,629 @@
                         <sections>
                             <tableViewSection id="8t9-K0-ULK">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="SkG-Vs-g0r">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="115" id="IpT-Qb-Bjt">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SkG-Vs-g0r" id="nye-Ee-qhU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.66666666666666"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IpT-Qb-Bjt" id="b0W-9x-smd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analytics-15" translatesAutoresizingMaskIntoConstraints="NO" id="P6T-2e-jGb">
+                                                    <rect key="frame" x="10" y="10" width="100" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="VKF-Ru-W1D"/>
+                                                        <constraint firstAttribute="width" constant="100" id="gm1-Fp-Sgd"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Search logs by filters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVq-zx-s4S">
+                                                    <rect key="frame" x="153" y="9.9999999999999982" width="168" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="You can search through the logs for the firewall with various filters and combine them." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Kae-Os-Iho">
+                                                    <rect key="frame" x="110" y="40.333333333333329" width="294" height="40.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="5Ct-zZ-0ph">
+                                                    <rect key="frame" x="110" y="80.666666666666671" width="294" height="29"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHU-ll-3gt">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="Kaspersky (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVi-Q5-mIR">
+                                                            <rect key="frame" x="128.66666666666666" y="0.0" width="67" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="TPLink (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5b-aw-1v1">
+                                                            <rect key="frame" x="234" y="0.0" width="60" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="DLink (0)"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Kae-Os-Iho" firstAttribute="top" secondItem="dVq-zx-s4S" secondAttribute="bottom" constant="10" id="0HD-bv-A6f"/>
+                                                <constraint firstItem="5Ct-zZ-0ph" firstAttribute="trailing" secondItem="Kae-Os-Iho" secondAttribute="trailing" id="3jd-9F-EtZ"/>
+                                                <constraint firstItem="dVq-zx-s4S" firstAttribute="top" secondItem="b0W-9x-smd" secondAttribute="top" constant="10" id="8PN-S2-1Gb"/>
+                                                <constraint firstAttribute="bottom" secondItem="5Ct-zZ-0ph" secondAttribute="bottom" constant="5" id="C15-Oz-1aq"/>
+                                                <constraint firstItem="P6T-2e-jGb" firstAttribute="leading" secondItem="b0W-9x-smd" secondAttribute="leading" constant="10" id="GWj-PO-8l9"/>
+                                                <constraint firstItem="P6T-2e-jGb" firstAttribute="top" secondItem="b0W-9x-smd" secondAttribute="top" constant="10" id="M8z-yW-Kws"/>
+                                                <constraint firstItem="dVq-zx-s4S" firstAttribute="centerX" secondItem="b0W-9x-smd" secondAttribute="centerX" constant="30" id="SOr-I7-9pI"/>
+                                                <constraint firstItem="5Ct-zZ-0ph" firstAttribute="leading" secondItem="Kae-Os-Iho" secondAttribute="leading" id="TT6-Lu-sNr"/>
+                                                <constraint firstItem="Kae-Os-Iho" firstAttribute="leading" secondItem="b0W-9x-smd" secondAttribute="leading" constant="110" id="UI2-2L-BzY"/>
+                                                <constraint firstAttribute="trailing" secondItem="Kae-Os-Iho" secondAttribute="trailing" constant="10" id="e0r-zd-Ky0"/>
+                                                <constraint firstItem="5Ct-zZ-0ph" firstAttribute="top" secondItem="Kae-Os-Iho" secondAttribute="bottom" id="eaB-Zm-3uX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="115" id="0fx-8m-fGN">
+                                        <rect key="frame" x="0.0" y="115" width="414" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0fx-8m-fGN" id="nbS-la-Yn4">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="documents" translatesAutoresizingMaskIntoConstraints="NO" id="Oyb-In-36r">
+                                                    <rect key="frame" x="10" y="10" width="100" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="Snd-8R-J07"/>
+                                                        <constraint firstAttribute="height" constant="70" id="zA4-xi-qnp"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Full report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wf-kR-b3u">
+                                                    <rect key="frame" x="196" y="9.9999999999999982" width="82.333333333333314" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Create report with all logs, information, attacks, threats and charts for further investigation " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="x6c-oJ-BBh">
+                                                    <rect key="frame" x="110" y="40.333333333333329" width="294" height="40.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="cUL-L5-UrU">
+                                                    <rect key="frame" x="110" y="80.666666666666671" width="284" height="29"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPH-3c-DRw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="68" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="Kaspersky"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifi-CM-LW3">
+                                                            <rect key="frame" x="102.66666666666666" y="0.0" width="45" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="TPLink"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aS-Bg-4ow">
+                                                            <rect key="frame" x="182.33333333333331" y="0.0" width="37" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="DLink"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQN-va-lw0">
+                                                            <rect key="frame" x="254" y="0.0" width="30" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="All"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cUL-L5-UrU" firstAttribute="top" secondItem="x6c-oJ-BBh" secondAttribute="bottom" id="6vk-Lk-v43"/>
+                                                <constraint firstItem="x6c-oJ-BBh" firstAttribute="top" secondItem="4wf-kR-b3u" secondAttribute="bottom" constant="10" id="Ash-IO-3Ba"/>
+                                                <constraint firstItem="cUL-L5-UrU" firstAttribute="leading" secondItem="x6c-oJ-BBh" secondAttribute="leading" id="Fqr-lL-d9S"/>
+                                                <constraint firstItem="Oyb-In-36r" firstAttribute="top" secondItem="nbS-la-Yn4" secondAttribute="top" constant="10" id="HTV-ra-s5Q"/>
+                                                <constraint firstItem="Oyb-In-36r" firstAttribute="leading" secondItem="nbS-la-Yn4" secondAttribute="leading" constant="10" id="N3X-Mb-YLU"/>
+                                                <constraint firstItem="4wf-kR-b3u" firstAttribute="centerX" secondItem="nbS-la-Yn4" secondAttribute="centerX" constant="30" id="Rar-mJ-QmE"/>
+                                                <constraint firstAttribute="bottom" secondItem="cUL-L5-UrU" secondAttribute="bottom" constant="5" id="SjC-nb-Gux"/>
+                                                <constraint firstItem="4wf-kR-b3u" firstAttribute="top" secondItem="nbS-la-Yn4" secondAttribute="top" constant="10" id="URT-w5-SXn"/>
+                                                <constraint firstItem="x6c-oJ-BBh" firstAttribute="leading" secondItem="nbS-la-Yn4" secondAttribute="leading" constant="110" id="VPG-hz-aD3"/>
+                                                <constraint firstItem="cUL-L5-UrU" firstAttribute="trailing" secondItem="x6c-oJ-BBh" secondAttribute="trailing" constant="-10" id="tDu-dJ-WFS"/>
+                                                <constraint firstAttribute="trailing" secondItem="x6c-oJ-BBh" secondAttribute="trailing" constant="10" id="uJ9-WK-pNc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="115" id="1X2-ep-8KK">
+                                        <rect key="frame" x="0.0" y="230" width="414" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1X2-ep-8KK" id="ZLh-z5-GlG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analytics-78" translatesAutoresizingMaskIntoConstraints="NO" id="0mF-fP-AWU">
+                                                    <rect key="frame" x="10" y="10" width="100" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="Ybr-I5-qsy"/>
+                                                        <constraint firstAttribute="height" constant="70" id="oTO-kd-rd7"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Report with charts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMR-4L-ktr">
+                                                    <rect key="frame" x="163" y="9.9999999999999982" width="148.33333333333337" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Select needed charts and create report for the firewall." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="1h2-Dv-uOG">
+                                                    <rect key="frame" x="110" y="40.333333333333343" width="294" height="33.666666666666657"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Tsv-dk-MGp">
+                                                    <rect key="frame" x="110" y="74" width="284" height="35.666666666666657"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vC-qG-Tr1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="68" height="35.666666666666664"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="Kaspersky"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2i-Gh-MG3">
+                                                            <rect key="frame" x="135" y="0.0" width="45" height="35.666666666666664"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="TPLink"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ea6-Dc-WeP">
+                                                            <rect key="frame" x="247" y="0.0" width="37" height="35.666666666666664"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="DLink"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JMR-4L-ktr" firstAttribute="centerX" secondItem="ZLh-z5-GlG" secondAttribute="centerX" constant="30" id="0Xo-SG-fmv"/>
+                                                <constraint firstItem="0mF-fP-AWU" firstAttribute="leading" secondItem="ZLh-z5-GlG" secondAttribute="leading" constant="10" id="4WR-Kg-BSV"/>
+                                                <constraint firstAttribute="bottom" secondItem="Tsv-dk-MGp" secondAttribute="bottom" constant="5" id="87m-dt-uQx"/>
+                                                <constraint firstItem="JMR-4L-ktr" firstAttribute="top" secondItem="ZLh-z5-GlG" secondAttribute="top" constant="10" id="DEm-f6-YXI"/>
+                                                <constraint firstItem="Tsv-dk-MGp" firstAttribute="trailing" secondItem="1h2-Dv-uOG" secondAttribute="trailing" constant="-10" id="Q00-Zu-sK1"/>
+                                                <constraint firstItem="1h2-Dv-uOG" firstAttribute="top" secondItem="JMR-4L-ktr" secondAttribute="bottom" constant="10" id="See-r8-w9x"/>
+                                                <constraint firstItem="1h2-Dv-uOG" firstAttribute="leading" secondItem="ZLh-z5-GlG" secondAttribute="leading" constant="110" id="Wji-Bs-aBv"/>
+                                                <constraint firstItem="0mF-fP-AWU" firstAttribute="top" secondItem="ZLh-z5-GlG" secondAttribute="top" constant="10" id="Y6i-tv-AR2"/>
+                                                <constraint firstItem="Tsv-dk-MGp" firstAttribute="top" secondItem="1h2-Dv-uOG" secondAttribute="bottom" id="cJl-GM-n7I"/>
+                                                <constraint firstAttribute="trailing" secondItem="1h2-Dv-uOG" secondAttribute="trailing" constant="10" id="qeh-f3-Bfi"/>
+                                                <constraint firstItem="Tsv-dk-MGp" firstAttribute="leading" secondItem="1h2-Dv-uOG" secondAttribute="leading" id="uxJ-Pl-A8c"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="115" id="ibQ-VN-uxn">
+                                        <rect key="frame" x="0.0" y="345" width="414" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ibQ-VN-uxn" id="NKZ-DA-Tmf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tablet-4" translatesAutoresizingMaskIntoConstraints="NO" id="Yda-g6-xem">
+                                                    <rect key="frame" x="10" y="10" width="100" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="nH8-oa-Vzc"/>
+                                                        <constraint firstAttribute="height" constant="70" id="yHP-Ed-lue"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Warnings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JaF-Y3-hYV">
+                                                    <rect key="frame" x="199.33333333333334" y="9.9999999999999982" width="75.333333333333343" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="You can search through the logs for the firewall with various filters and combine them." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="OCK-bj-EHe">
+                                                    <rect key="frame" x="110" y="40.333333333333329" width="294" height="40.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="aQx-M0-g3V">
+                                                    <rect key="frame" x="110" y="80.666666666666671" width="294" height="29"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgl-rZ-y9t">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="Kaspersky (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma9-Vf-3FM">
+                                                            <rect key="frame" x="128.66666666666666" y="0.0" width="67" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="TPLink (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCh-Yh-Vwf">
+                                                            <rect key="frame" x="234" y="0.0" width="60" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="DLink (0)"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aQx-M0-g3V" firstAttribute="top" secondItem="OCK-bj-EHe" secondAttribute="bottom" id="JYp-gx-6Be"/>
+                                                <constraint firstItem="Yda-g6-xem" firstAttribute="leading" secondItem="NKZ-DA-Tmf" secondAttribute="leading" constant="10" id="Ncj-v4-gs9"/>
+                                                <constraint firstItem="JaF-Y3-hYV" firstAttribute="centerX" secondItem="NKZ-DA-Tmf" secondAttribute="centerX" constant="30" id="U33-ns-8iX"/>
+                                                <constraint firstAttribute="trailing" secondItem="OCK-bj-EHe" secondAttribute="trailing" constant="10" id="aVo-WM-BjL"/>
+                                                <constraint firstItem="Yda-g6-xem" firstAttribute="top" secondItem="NKZ-DA-Tmf" secondAttribute="top" constant="10" id="bQH-3t-Qwt"/>
+                                                <constraint firstItem="JaF-Y3-hYV" firstAttribute="top" secondItem="NKZ-DA-Tmf" secondAttribute="top" constant="10" id="e9C-lG-9DR"/>
+                                                <constraint firstItem="OCK-bj-EHe" firstAttribute="top" secondItem="JaF-Y3-hYV" secondAttribute="bottom" constant="10" id="edd-2B-N9x"/>
+                                                <constraint firstAttribute="bottom" secondItem="aQx-M0-g3V" secondAttribute="bottom" constant="5" id="fmg-Zt-xus"/>
+                                                <constraint firstItem="aQx-M0-g3V" firstAttribute="trailing" secondItem="OCK-bj-EHe" secondAttribute="trailing" id="gkW-M1-AeX"/>
+                                                <constraint firstItem="aQx-M0-g3V" firstAttribute="leading" secondItem="OCK-bj-EHe" secondAttribute="leading" id="p30-ye-JOl"/>
+                                                <constraint firstItem="OCK-bj-EHe" firstAttribute="leading" secondItem="NKZ-DA-Tmf" secondAttribute="leading" constant="110" id="ppv-3z-5NM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="115" id="hxR-QG-Knd">
+                                        <rect key="frame" x="0.0" y="460" width="414" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hxR-QG-Knd" id="21j-ax-Ng2">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analytics-33" translatesAutoresizingMaskIntoConstraints="NO" id="SQ2-4s-5Hb">
+                                                    <rect key="frame" x="10" y="10" width="100" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="ddD-bT-2eh"/>
+                                                        <constraint firstAttribute="width" constant="100" id="kWn-Ly-jOB"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Top 10 Subnets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1i-nb-t3M">
+                                                    <rect key="frame" x="175.66666666666666" y="9.9999999999999982" width="122.99999999999997" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="You can search through the logs for the firewall with various filters and combine them." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Naw-LI-Oed">
+                                                    <rect key="frame" x="110" y="40.333333333333329" width="294" height="40.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="PnZ-ki-t5F">
+                                                    <rect key="frame" x="110" y="80.666666666666671" width="294" height="29"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYn-BM-rZu">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="Kaspersky (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmX-ZG-air">
+                                                            <rect key="frame" x="128.66666666666666" y="0.0" width="67" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="TPLink (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFO-sH-ZGz">
+                                                            <rect key="frame" x="234" y="0.0" width="60" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="DLink (0)"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PnZ-ki-t5F" firstAttribute="trailing" secondItem="Naw-LI-Oed" secondAttribute="trailing" id="77y-wo-fxd"/>
+                                                <constraint firstItem="Naw-LI-Oed" firstAttribute="leading" secondItem="21j-ax-Ng2" secondAttribute="leading" constant="110" id="NoZ-eP-bBa"/>
+                                                <constraint firstAttribute="bottom" secondItem="PnZ-ki-t5F" secondAttribute="bottom" constant="5" id="T08-oh-nd6"/>
+                                                <constraint firstItem="Naw-LI-Oed" firstAttribute="top" secondItem="D1i-nb-t3M" secondAttribute="bottom" constant="10" id="bac-o1-q4K"/>
+                                                <constraint firstItem="SQ2-4s-5Hb" firstAttribute="leading" secondItem="21j-ax-Ng2" secondAttribute="leading" constant="10" id="cWv-ww-Ew0"/>
+                                                <constraint firstItem="PnZ-ki-t5F" firstAttribute="leading" secondItem="Naw-LI-Oed" secondAttribute="leading" id="e2u-Ze-nGv"/>
+                                                <constraint firstAttribute="trailing" secondItem="Naw-LI-Oed" secondAttribute="trailing" constant="10" id="gEM-jH-yQL"/>
+                                                <constraint firstItem="PnZ-ki-t5F" firstAttribute="top" secondItem="Naw-LI-Oed" secondAttribute="bottom" id="ipD-YS-qzh"/>
+                                                <constraint firstItem="SQ2-4s-5Hb" firstAttribute="top" secondItem="21j-ax-Ng2" secondAttribute="top" constant="10" id="met-Sf-bH6"/>
+                                                <constraint firstItem="D1i-nb-t3M" firstAttribute="centerX" secondItem="21j-ax-Ng2" secondAttribute="centerX" constant="30" id="wwh-ox-cHR"/>
+                                                <constraint firstItem="D1i-nb-t3M" firstAttribute="top" secondItem="21j-ax-Ng2" secondAttribute="top" constant="10" id="z60-yJ-5RV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="115" id="ArF-oV-7EK">
+                                        <rect key="frame" x="0.0" y="575" width="414" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ArF-oV-7EK" id="whX-RQ-pBl">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analytics-33" translatesAutoresizingMaskIntoConstraints="NO" id="8Ij-Ku-spK">
+                                                    <rect key="frame" x="10" y="10" width="100" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="QPP-TK-k4J"/>
+                                                        <constraint firstAttribute="height" constant="70" id="kSl-o8-YAi"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="IP Usage Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izM-gU-zBt">
+                                                    <rect key="frame" x="161.33333333333331" y="9.9999999999999982" width="151.33333333333331" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="You can search through the logs for the firewall with various filters and combine them." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="KSM-Ik-Bbt">
+                                                    <rect key="frame" x="110" y="40.333333333333329" width="294" height="40.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="zdK-rp-wNq">
+                                                    <rect key="frame" x="110" y="80.666666666666671" width="294" height="29"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gps-vg-3PM">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="Kaspersky (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fC-9n-Paa">
+                                                            <rect key="frame" x="128.66666666666666" y="0.0" width="67" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="TPLink (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIP-Pf-qgA">
+                                                            <rect key="frame" x="234" y="0.0" width="60" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="DLink (0)"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KSM-Ik-Bbt" firstAttribute="top" secondItem="izM-gU-zBt" secondAttribute="bottom" constant="10" id="6rn-Bx-gZ1"/>
+                                                <constraint firstItem="KSM-Ik-Bbt" firstAttribute="leading" secondItem="whX-RQ-pBl" secondAttribute="leading" constant="110" id="8NA-jq-QSw"/>
+                                                <constraint firstItem="zdK-rp-wNq" firstAttribute="trailing" secondItem="KSM-Ik-Bbt" secondAttribute="trailing" id="E2t-bV-XRa"/>
+                                                <constraint firstItem="zdK-rp-wNq" firstAttribute="top" secondItem="KSM-Ik-Bbt" secondAttribute="bottom" id="Isv-99-KoD"/>
+                                                <constraint firstItem="izM-gU-zBt" firstAttribute="top" secondItem="whX-RQ-pBl" secondAttribute="top" constant="10" id="JrH-9P-p3o"/>
+                                                <constraint firstItem="izM-gU-zBt" firstAttribute="centerX" secondItem="whX-RQ-pBl" secondAttribute="centerX" constant="30" id="Sv3-rG-2nb"/>
+                                                <constraint firstItem="8Ij-Ku-spK" firstAttribute="leading" secondItem="whX-RQ-pBl" secondAttribute="leading" constant="10" id="alg-Ay-XRn"/>
+                                                <constraint firstItem="zdK-rp-wNq" firstAttribute="leading" secondItem="KSM-Ik-Bbt" secondAttribute="leading" id="c1B-aa-Zwe"/>
+                                                <constraint firstItem="8Ij-Ku-spK" firstAttribute="top" secondItem="whX-RQ-pBl" secondAttribute="top" constant="10" id="jyN-Oe-hgK"/>
+                                                <constraint firstAttribute="bottom" secondItem="zdK-rp-wNq" secondAttribute="bottom" constant="5" id="jz6-Yx-Kz5"/>
+                                                <constraint firstAttribute="trailing" secondItem="KSM-Ik-Bbt" secondAttribute="trailing" constant="10" id="udQ-pI-ot2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="115" id="O2h-06-SjH">
+                                        <rect key="frame" x="0.0" y="690" width="414" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O2h-06-SjH" id="SN6-gS-A58">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analytics-33" translatesAutoresizingMaskIntoConstraints="NO" id="hBx-OW-myu">
+                                                    <rect key="frame" x="10" y="10" width="100" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="DIr-iT-z9I"/>
+                                                        <constraint firstAttribute="height" constant="70" id="UjR-wj-C54"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Events Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaG-qi-htS">
+                                                    <rect key="frame" x="169.66666666666669" y="9.9999999999999982" width="134.66666666666669" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="You can search through the logs for the firewall with various filters and combine them." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Rj7-yT-RVA">
+                                                    <rect key="frame" x="110" y="40.333333333333329" width="294" height="40.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fFV-Pu-cto">
+                                                    <rect key="frame" x="110" y="80.666666666666671" width="294" height="29"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDB-E1-fV8">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="Kaspersky (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgI-2w-h23">
+                                                            <rect key="frame" x="128.66666666666666" y="0.0" width="67" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="TPLink (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjq-gd-q2V">
+                                                            <rect key="frame" x="234" y="0.0" width="60" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="DLink (0)"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="fFV-Pu-cto" secondAttribute="bottom" constant="5" id="42o-pa-Jgf"/>
+                                                <constraint firstItem="fFV-Pu-cto" firstAttribute="leading" secondItem="Rj7-yT-RVA" secondAttribute="leading" id="4nf-Cm-XX0"/>
+                                                <constraint firstItem="YaG-qi-htS" firstAttribute="top" secondItem="SN6-gS-A58" secondAttribute="top" constant="10" id="8fH-wk-PvZ"/>
+                                                <constraint firstItem="Rj7-yT-RVA" firstAttribute="top" secondItem="YaG-qi-htS" secondAttribute="bottom" constant="10" id="WfJ-yC-6ta"/>
+                                                <constraint firstItem="fFV-Pu-cto" firstAttribute="top" secondItem="Rj7-yT-RVA" secondAttribute="bottom" id="Yh7-u9-c3w"/>
+                                                <constraint firstItem="hBx-OW-myu" firstAttribute="top" secondItem="SN6-gS-A58" secondAttribute="top" constant="10" id="fce-Z4-Hwx"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rj7-yT-RVA" secondAttribute="trailing" constant="10" id="gok-oH-AvU"/>
+                                                <constraint firstItem="YaG-qi-htS" firstAttribute="centerX" secondItem="SN6-gS-A58" secondAttribute="centerX" constant="30" id="hPG-ry-4Ds"/>
+                                                <constraint firstItem="hBx-OW-myu" firstAttribute="leading" secondItem="SN6-gS-A58" secondAttribute="leading" constant="10" id="sH2-zx-G4n"/>
+                                                <constraint firstItem="Rj7-yT-RVA" firstAttribute="leading" secondItem="SN6-gS-A58" secondAttribute="leading" constant="110" id="wej-E9-srU"/>
+                                                <constraint firstItem="fFV-Pu-cto" firstAttribute="trailing" secondItem="Rj7-yT-RVA" secondAttribute="trailing" id="x2x-42-VYo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="115" id="f7b-7f-Oaf">
+                                        <rect key="frame" x="0.0" y="805" width="414" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f7b-7f-Oaf" id="c0m-t6-fg1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analytics-33" translatesAutoresizingMaskIntoConstraints="NO" id="yMI-88-8DY">
+                                                    <rect key="frame" x="10" y="10" width="100" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="8gr-Ja-Oli"/>
+                                                        <constraint firstAttribute="width" constant="100" id="mVD-7Z-AVq"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="DoS-Attacks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLM-ye-8YF">
+                                                    <rect key="frame" x="186.33333333333334" y="9.9999999999999982" width="101.33333333333334" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="You can search through the logs for the firewall with various filters and combine them." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="8Nw-sV-bGK">
+                                                    <rect key="frame" x="110" y="40.333333333333329" width="294" height="40.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ub8-HD-pfA">
+                                                    <rect key="frame" x="110" y="80.666666666666671" width="294" height="29"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6S-jx-8Po">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="Kaspersky (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzv-Zg-hrh">
+                                                            <rect key="frame" x="128.66666666666666" y="0.0" width="67" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="TPLink (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDY-Qc-eYM">
+                                                            <rect key="frame" x="234" y="0.0" width="60" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="DLink (0)"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ub8-HD-pfA" secondAttribute="bottom" constant="5" id="0jP-AQ-rbs"/>
+                                                <constraint firstItem="yMI-88-8DY" firstAttribute="top" secondItem="c0m-t6-fg1" secondAttribute="top" constant="10" id="CeG-jF-Rd3"/>
+                                                <constraint firstItem="yMI-88-8DY" firstAttribute="leading" secondItem="c0m-t6-fg1" secondAttribute="leading" constant="10" id="DWE-dg-7uV"/>
+                                                <constraint firstItem="ub8-HD-pfA" firstAttribute="top" secondItem="8Nw-sV-bGK" secondAttribute="bottom" id="NSj-Rz-WJQ"/>
+                                                <constraint firstItem="ub8-HD-pfA" firstAttribute="leading" secondItem="8Nw-sV-bGK" secondAttribute="leading" id="T4l-ck-f2P"/>
+                                                <constraint firstAttribute="trailing" secondItem="8Nw-sV-bGK" secondAttribute="trailing" constant="10" id="Vjb-sg-VOM"/>
+                                                <constraint firstItem="ub8-HD-pfA" firstAttribute="trailing" secondItem="8Nw-sV-bGK" secondAttribute="trailing" id="dNV-7W-LIo"/>
+                                                <constraint firstItem="BLM-ye-8YF" firstAttribute="centerX" secondItem="c0m-t6-fg1" secondAttribute="centerX" constant="30" id="dlQ-vE-uo8"/>
+                                                <constraint firstItem="8Nw-sV-bGK" firstAttribute="leading" secondItem="c0m-t6-fg1" secondAttribute="leading" constant="110" id="eVt-T9-qt2"/>
+                                                <constraint firstItem="8Nw-sV-bGK" firstAttribute="top" secondItem="BLM-ye-8YF" secondAttribute="bottom" constant="10" id="k0o-c7-jTK"/>
+                                                <constraint firstItem="BLM-ye-8YF" firstAttribute="top" secondItem="c0m-t6-fg1" secondAttribute="top" constant="10" id="pqP-k8-n97"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="115" id="OZN-Vs-1dx">
+                                        <rect key="frame" x="0.0" y="920" width="414" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OZN-Vs-1dx" id="AdU-5g-eJb">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analytics-33" translatesAutoresizingMaskIntoConstraints="NO" id="zRy-xe-agC">
+                                                    <rect key="frame" x="10" y="10" width="100" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="9Gj-96-vU4"/>
+                                                        <constraint firstAttribute="height" constant="70" id="w9F-mG-oYH"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="IP-Spoofing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNp-vd-mUn">
+                                                    <rect key="frame" x="189.33333333333334" y="9.9999999999999982" width="95.333333333333343" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="You can search through the logs for the firewall with various filters and combine them." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="r7c-C8-x8x">
+                                                    <rect key="frame" x="110" y="40.333333333333329" width="294" height="40.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="eHS-CC-KMy">
+                                                    <rect key="frame" x="110" y="80.666666666666671" width="294" height="29"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gz-Yt-yLm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="Kaspersky (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bf-oh-fTF">
+                                                            <rect key="frame" x="128.66666666666666" y="0.0" width="67" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="TPLink (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCv-oH-jD9">
+                                                            <rect key="frame" x="234" y="0.0" width="60" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="DLink (0)"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zRy-xe-agC" firstAttribute="leading" secondItem="AdU-5g-eJb" secondAttribute="leading" constant="10" id="0Cm-ou-h9X"/>
+                                                <constraint firstItem="eHS-CC-KMy" firstAttribute="top" secondItem="r7c-C8-x8x" secondAttribute="bottom" id="4CV-2o-gsw"/>
+                                                <constraint firstItem="r7c-C8-x8x" firstAttribute="top" secondItem="KNp-vd-mUn" secondAttribute="bottom" constant="10" id="Ac5-rt-J09"/>
+                                                <constraint firstItem="zRy-xe-agC" firstAttribute="top" secondItem="AdU-5g-eJb" secondAttribute="top" constant="10" id="GRk-YQ-q3e"/>
+                                                <constraint firstItem="eHS-CC-KMy" firstAttribute="leading" secondItem="r7c-C8-x8x" secondAttribute="leading" id="S5Y-7B-0ed"/>
+                                                <constraint firstItem="r7c-C8-x8x" firstAttribute="leading" secondItem="AdU-5g-eJb" secondAttribute="leading" constant="110" id="i1F-bq-sSe"/>
+                                                <constraint firstItem="KNp-vd-mUn" firstAttribute="top" secondItem="AdU-5g-eJb" secondAttribute="top" constant="10" id="k6R-Zq-2cF"/>
+                                                <constraint firstItem="KNp-vd-mUn" firstAttribute="centerX" secondItem="AdU-5g-eJb" secondAttribute="centerX" constant="30" id="nOU-Yi-ga7"/>
+                                                <constraint firstItem="eHS-CC-KMy" firstAttribute="trailing" secondItem="r7c-C8-x8x" secondAttribute="trailing" id="qdD-yC-yP8"/>
+                                                <constraint firstAttribute="trailing" secondItem="r7c-C8-x8x" secondAttribute="trailing" constant="10" id="teZ-c3-guO"/>
+                                                <constraint firstAttribute="bottom" secondItem="eHS-CC-KMy" secondAttribute="bottom" constant="5" id="wXl-et-UyO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="115" id="s8M-FA-Uah">
+                                        <rect key="frame" x="0.0" y="1035" width="414" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s8M-FA-Uah" id="gQL-hl-WP0">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analytics-33" translatesAutoresizingMaskIntoConstraints="NO" id="LBR-PC-QcV">
+                                                    <rect key="frame" x="10" y="10" width="100" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="djc-px-3M7"/>
+                                                        <constraint firstAttribute="width" constant="100" id="xmv-EN-A7i"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="ICMP/TCP/UDP based attacks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIV-X4-dXe">
+                                                    <rect key="frame" x="118.33333333333333" y="9.9999999999999982" width="237.66666666666669" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="You can search through the logs for the firewall with various filters and combine them." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xaJ-bu-1ur">
+                                                    <rect key="frame" x="110" y="40.333333333333329" width="294" height="40.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ygP-aH-oEr">
+                                                    <rect key="frame" x="110" y="80.666666666666671" width="294" height="29"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hH8-oy-OOG">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="Kaspersky (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOv-sb-n7l">
+                                                            <rect key="frame" x="128.66666666666666" y="0.0" width="67" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="TPLink (0)"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7F-Ps-r0q">
+                                                            <rect key="frame" x="234" y="0.0" width="60" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="DLink (0)"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xaJ-bu-1ur" firstAttribute="leading" secondItem="gQL-hl-WP0" secondAttribute="leading" constant="110" id="6Qu-uC-d3M"/>
+                                                <constraint firstItem="dIV-X4-dXe" firstAttribute="top" secondItem="gQL-hl-WP0" secondAttribute="top" constant="10" id="6nv-hC-42N"/>
+                                                <constraint firstAttribute="bottom" secondItem="ygP-aH-oEr" secondAttribute="bottom" constant="5" id="9AN-2Z-gD2"/>
+                                                <constraint firstItem="ygP-aH-oEr" firstAttribute="leading" secondItem="xaJ-bu-1ur" secondAttribute="leading" id="HBm-7b-5FU"/>
+                                                <constraint firstItem="xaJ-bu-1ur" firstAttribute="top" secondItem="dIV-X4-dXe" secondAttribute="bottom" constant="10" id="I6H-z0-pgj"/>
+                                                <constraint firstItem="LBR-PC-QcV" firstAttribute="leading" secondItem="gQL-hl-WP0" secondAttribute="leading" constant="10" id="Jtd-DR-3PS"/>
+                                                <constraint firstAttribute="trailing" secondItem="xaJ-bu-1ur" secondAttribute="trailing" constant="10" id="RjO-nx-QSo"/>
+                                                <constraint firstItem="dIV-X4-dXe" firstAttribute="centerX" secondItem="gQL-hl-WP0" secondAttribute="centerX" constant="30" id="V8X-je-OCN"/>
+                                                <constraint firstItem="ygP-aH-oEr" firstAttribute="trailing" secondItem="xaJ-bu-1ur" secondAttribute="trailing" id="aip-3q-f9O"/>
+                                                <constraint firstItem="LBR-PC-QcV" firstAttribute="top" secondItem="gQL-hl-WP0" secondAttribute="top" constant="10" id="gsj-HF-xV4"/>
+                                                <constraint firstItem="ygP-aH-oEr" firstAttribute="top" secondItem="xaJ-bu-1ur" secondAttribute="bottom" id="xCQ-PR-GnX"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -691,7 +1308,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BWG-EO-gE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="-757"/>
+            <point key="canvasLocation" x="1147.8260869565217" y="-757.33695652173924"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dvt-n4-hJG">
@@ -1673,7 +2290,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_6" translatesAutoresizingMaskIntoConstraints="NO" id="nwU-1S-dFk">
-                                                    <rect key="frame" x="10" y="10" width="107.00000000000003" height="69.666666666666671"/>
+                                                    <rect key="frame" x="10" y="10" width="16" height="69.666666666666671"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Traffic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xoo-cm-LtO">
                                                     <rect key="frame" x="193" y="9.9999999999999982" width="88.333333333333314" height="20.333333333333329"/>
@@ -1780,6 +2397,45 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="9ck-cB-ROG" kind="show" id="s3i-AK-JWN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="CTa-AQ-YIT">
+                                        <rect key="frame" x="0.0" y="360" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CTa-AQ-YIT" id="KMN-M6-2kQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_10" translatesAutoresizingMaskIntoConstraints="NO" id="3CM-yX-SYw">
+                                                    <rect key="frame" x="10" y="10" width="100" height="69.666666666666671"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Protocols" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0f2-h4-5nW">
+                                                    <rect key="frame" x="199" y="9.9999999999999982" width="76.333333333333314" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Pie chart to display used protocols for the time period for various logs" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="DRK-K4-2j6">
+                                                    <rect key="frame" x="110" y="30.333333333333332" width="294" height="59.333333333333343"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0f2-h4-5nW" firstAttribute="top" secondItem="KMN-M6-2kQ" secondAttribute="top" constant="10" id="55u-DI-Sls"/>
+                                                <constraint firstAttribute="bottom" secondItem="DRK-K4-2j6" secondAttribute="bottom" id="8T1-n3-IcP"/>
+                                                <constraint firstAttribute="bottom" secondItem="3CM-yX-SYw" secondAttribute="bottom" constant="10" id="CKK-AS-PQq"/>
+                                                <constraint firstItem="3CM-yX-SYw" firstAttribute="leading" secondItem="KMN-M6-2kQ" secondAttribute="leading" constant="10" id="QI6-T9-geM"/>
+                                                <constraint firstItem="0f2-h4-5nW" firstAttribute="centerX" secondItem="KMN-M6-2kQ" secondAttribute="centerX" constant="30" id="VNR-fa-OeM"/>
+                                                <constraint firstItem="DRK-K4-2j6" firstAttribute="leading" secondItem="KMN-M6-2kQ" secondAttribute="leading" constant="110" id="Wg0-Mb-Y2y"/>
+                                                <constraint firstItem="DRK-K4-2j6" firstAttribute="top" secondItem="0f2-h4-5nW" secondAttribute="bottom" id="ack-a2-1d5"/>
+                                                <constraint firstAttribute="trailing" secondItem="DRK-K4-2j6" secondAttribute="trailing" constant="10" id="dk0-va-auR"/>
+                                                <constraint firstItem="3CM-yX-SYw" firstAttribute="top" secondItem="KMN-M6-2kQ" secondAttribute="top" constant="10" id="ytB-zS-zcu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="lPZ-IA-cl6" kind="show" id="tEA-Dr-6yr"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -2243,13 +2899,132 @@
             </objects>
             <point key="canvasLocation" x="2693" y="-1118"/>
         </scene>
+        <!--Protocols-->
+        <scene sceneID="E8O-YN-E1n">
+            <objects>
+                <tableViewController id="lPZ-IA-cl6" customClass="ProtocolsTableViewController" customModule="FirewallLogAnalyzer_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xl2-9w-3zp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="roj-g0-plN">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="440" id="MKp-Uy-z5x">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="440"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MKp-Uy-z5x" id="GZ6-wd-zMK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="439.66666666666669"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="adc-a0-weU">
+                                                    <rect key="frame" x="10" y="10" width="233" height="29"/>
+                                                    <segments>
+                                                        <segment title="Kaspersky"/>
+                                                        <segment title="TPLink"/>
+                                                        <segment title="DLink"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="changeFirewallType:" destination="lPZ-IA-cl6" eventType="valueChanged" id="quB-aj-hlV"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heM-CK-TyC" customClass="PieChartView" customModule="Charts">
+                                                    <rect key="frame" x="0.0" y="48" width="414" height="391.66666666666669"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfP-zM-F5a">
+                                                    <rect key="frame" x="251" y="9.6666666666666643" width="71" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="01.01.2000"/>
+                                                    <connections>
+                                                        <action selector="setDateButton:" destination="lPZ-IA-cl6" eventType="touchUpInside" id="fut-K9-lHU"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-7w-LgN">
+                                                    <rect key="frame" x="332.66666666666669" y="9.6666666666666643" width="71" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="01.01.2000"/>
+                                                    <connections>
+                                                        <action selector="setDateButton:" destination="lPZ-IA-cl6" eventType="touchUpInside" id="J6a-qu-Bav"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyf-pf-DAo">
+                                                    <rect key="frame" x="324" y="15.666666666666664" width="6.6666666666666856" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="adc-a0-weU" firstAttribute="leading" secondItem="GZ6-wd-zMK" secondAttribute="leading" constant="10" id="10C-Fb-Aum"/>
+                                                <constraint firstItem="heM-CK-TyC" firstAttribute="top" secondItem="adc-a0-weU" secondAttribute="bottom" constant="10" id="1Y9-lY-OGD"/>
+                                                <constraint firstItem="heM-CK-TyC" firstAttribute="leading" secondItem="GZ6-wd-zMK" secondAttribute="leading" id="5jE-vJ-jrj"/>
+                                                <constraint firstItem="gaj-7w-LgN" firstAttribute="leading" secondItem="Pyf-pf-DAo" secondAttribute="trailing" constant="2" id="AEN-5s-XxO"/>
+                                                <constraint firstAttribute="trailing" secondItem="heM-CK-TyC" secondAttribute="trailing" id="PMg-jC-Dc4"/>
+                                                <constraint firstItem="adc-a0-weU" firstAttribute="top" secondItem="GZ6-wd-zMK" secondAttribute="top" constant="10" id="XvD-J4-TWa"/>
+                                                <constraint firstItem="Pyf-pf-DAo" firstAttribute="centerY" secondItem="adc-a0-weU" secondAttribute="centerY" id="iT3-0l-ezE"/>
+                                                <constraint firstAttribute="bottom" secondItem="heM-CK-TyC" secondAttribute="bottom" id="iuV-Fh-MdC"/>
+                                                <constraint firstItem="Pyf-pf-DAo" firstAttribute="leading" secondItem="jfP-zM-F5a" secondAttribute="trailing" constant="2" id="mEf-Bl-Dhe"/>
+                                                <constraint firstItem="jfP-zM-F5a" firstAttribute="centerY" secondItem="adc-a0-weU" secondAttribute="centerY" id="nZo-Fk-wb8"/>
+                                                <constraint firstItem="jfP-zM-F5a" firstAttribute="leading" secondItem="adc-a0-weU" secondAttribute="trailing" constant="8" id="oLG-5J-CMO"/>
+                                                <constraint firstItem="gaj-7w-LgN" firstAttribute="centerY" secondItem="adc-a0-weU" secondAttribute="centerY" id="smV-Cx-LZc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Rzv-dS-BuK">
+                                        <rect key="frame" x="0.0" y="440" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rzv-dS-BuK" id="zJT-MY-3r7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logs count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UX-Ma-PEg">
+                                                    <rect key="frame" x="19.999999999999993" y="10.000000000000002" width="88.333333333333314" height="23.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="6UX-Ma-PEg" secondAttribute="bottom" constant="10" id="7K2-2R-l3M"/>
+                                                <constraint firstItem="6UX-Ma-PEg" firstAttribute="top" secondItem="zJT-MY-3r7" secondAttribute="top" constant="10" id="AbI-zT-gsi"/>
+                                                <constraint firstItem="6UX-Ma-PEg" firstAttribute="leading" secondItem="zJT-MY-3r7" secondAttribute="leading" constant="20" id="GCY-zW-m6n"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="lPZ-IA-cl6" id="chJ-wE-9EO"/>
+                            <outlet property="delegate" destination="lPZ-IA-cl6" id="p8G-Tg-JSF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Protocols" id="Jli-eC-mE2"/>
+                    <connections>
+                        <outlet property="chartView" destination="heM-CK-TyC" id="spY-gW-LvL"/>
+                        <outlet property="logsCountLabel" destination="6UX-Ma-PEg" id="s0p-RJ-Zaw"/>
+                        <outlet property="maxDateButton" destination="gaj-7w-LgN" id="DFC-q0-fAR"/>
+                        <outlet property="minDateButton" destination="jfP-zM-F5a" id="WMK-hJ-lmo"/>
+                        <outlet property="segmentControl" destination="adc-a0-weU" id="poA-Yc-vKQ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3hu-CN-VIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3357" y="-1118"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="analytics-15" width="505" height="505"/>
+        <image name="analytics-33" width="505" height="505"/>
+        <image name="analytics-78" width="505" height="505"/>
+        <image name="chart_10" width="100" height="100"/>
         <image name="chart_3" width="100" height="100"/>
         <image name="chart_4" width="100" height="100"/>
         <image name="chart_6" width="107" height="100"/>
         <image name="chart_8" width="100" height="100"/>
         <image name="dashboard" width="30" height="30"/>
+        <image name="documents" width="483" height="483"/>
         <image name="exit" width="30" height="30"/>
         <image name="json_json" width="48" height="48"/>
         <image name="json_quotes" width="48" height="48"/>
@@ -2258,6 +3033,7 @@
         <image name="server" width="30" height="30"/>
         <image name="settings" width="30" height="30"/>
         <image name="statistics" width="30" height="30"/>
+        <image name="tablet-4" width="505" height="505"/>
         <image name="worldwide_location" width="30" height="30"/>
     </resources>
 </document>
