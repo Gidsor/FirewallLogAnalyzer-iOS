@@ -1,5 +1,5 @@
 //
-//  LiveTrafficTableViewController.swift
+//  LiveTraffic24HoursTableViewController.swift
 //  FirewallLogAnalyzer-iOS
 //
 //  Created by Vadim Denisov on 07/05/2019.
@@ -9,18 +9,15 @@
 import UIKit
 import Charts
 
-class LiveTrafficTableViewController: UITableViewController {
+class LiveTraffic24HoursTableViewController: UITableViewController {
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    @IBOutlet weak var chartView: BarChartView!
-    @IBOutlet weak var minDateButton: UIButton!
-    @IBOutlet weak var maxDateButton: UIButton!
+    @IBOutlet weak var chartView: LineChartView!
+    @IBOutlet weak var datePickerButton: UIButton!
     @IBOutlet weak var logsCountLabel: UILabel!
     var minDate = Date()
     var maxDate = Date()
     var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
-    var isMinDate = false
-    var isMaxDate = false
     var formatter = DateFormatter()
     var calendar = Calendar(identifier: .gregorian)
     var sourceKasperskyLogs: [KasperskyLog] = []
@@ -29,6 +26,7 @@ class LiveTrafficTableViewController: UITableViewController {
     var kasperskyLogs: [KasperskyLog] = []
     var tplinkLogs: [TPLinkLog] = []
     var dlinkLogs: [DLinkLog] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +42,9 @@ class LiveTrafficTableViewController: UITableViewController {
         var tplinkLoaded = false
         var dlinkLoaded = false
         
-        minDate = formatter.date(from: "01.01.2000") ?? Date()
-        maxDate = formatter.date(from: formatter.string(from: Date())) ?? Date()
-        minDateButton.setTitle(self.formatter.string(from: minDate), for: .normal)
-        maxDateButton.setTitle(self.formatter.string(from: maxDate), for: .normal)
+        minDate = formatter.date(from: formatter.string(from: Date()))!
+        maxDate = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: minDate)!
+        datePickerButton.setTitle(formatter.string(from: minDate), for: .normal)
         
         showActivityIndicator(in: view)
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
@@ -89,15 +86,8 @@ class LiveTrafficTableViewController: UITableViewController {
         toolBar.removeFromSuperview()
         datePicker.removeFromSuperview()
         datePicker = UIDatePicker()
-        if sender == minDateButton {
-            isMinDate = true
-            isMaxDate = false
-            datePicker.setDate(formatter.date(from: minDateButton.title(for: .normal) ?? "01.01.2000") ?? Date(), animated: true)
-        } else {
-            isMinDate = false
-            isMaxDate = true
-            datePicker.setDate(formatter.date(from: maxDateButton.title(for: .normal) ?? "01.01.2000") ?? Date(), animated: true)
-        }
+        datePicker.setDate(formatter.date(from: datePickerButton.title(for: .normal)!)!, animated: true)
+        
         datePicker.backgroundColor = UIColor.white
         
         datePicker.autoresizingMask = .flexibleWidth
@@ -119,16 +109,10 @@ class LiveTrafficTableViewController: UITableViewController {
     }
     
     func update() {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-        if isMinDate {
-            minDate = datePicker.date
-            minDateButton.setTitle(formatter.string(from: datePicker.date), for: .normal)
-        } else if isMaxDate {
-            maxDate = datePicker.date
-            maxDate = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: maxDate) ?? Date()
-            maxDateButton.setTitle(formatter.string(from: datePicker.date), for: .normal)
-        }
+        minDate = formatter.date(from: formatter.string(from: datePicker.date))!
+        maxDate = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: minDate)!
+        datePickerButton.setTitle(formatter.string(from: datePicker.date), for: .normal)
+        
         kasperskyLogs = sourceKasperskyLogs.filter({ (log) -> Bool in
             log.formatterDate <= maxDate && log.formatterDate >= minDate
         })
@@ -147,86 +131,115 @@ class LiveTrafficTableViewController: UITableViewController {
         datePicker.removeFromSuperview()
     }
     
-    func setChartDataEntry(logs: [Log]) {
-        var logsCountByDate: [Date : Int] = [:]
+    func getChartDataEntry(logs: [Log]) -> [ChartDataEntry] {
+        var chartDataEntry: [ChartDataEntry] = []
+        var logsCountForHour: [Int : Int] = [:]
+        for i in 0..<24 {
+            logsCountForHour[i] = 0
+        }
         
         for log in logs {
             if log.formatterDate <= maxDate && log.formatterDate >= minDate {
-                let date = formatter.date(from: formatter.string(from: log.formatterDate))!
-                logsCountByDate[date] = (logsCountByDate[date] ?? 0) + 1
+                let components = calendar.dateComponents([.day, .hour], from: log.formatterDate)
+                logsCountForHour[components.hour!] = logsCountForHour[components.hour!]! + 1
             }
         }
         
-        let sortedLogsCountByDate = logsCountByDate.sorted(by: { (value1, value2) -> Bool in
+        let sortedLogsCountForHour = logsCountForHour.sorted(by: { (value1, value2) -> Bool in
             value1.key < value2.key
         })
-        
-        var days: [String] = []
-        var values: [Double] = []
-        sortedLogsCountByDate.forEach { (value) in
-            days.append(formatter.string(from: value.key))
-            values.append(Double(value.value))
-//            chartDataEntry.append(ChartDataEntry(x: Double(value.key), y: Double(value.value)))
+        sortedLogsCountForHour.forEach { (value) in
+            chartDataEntry.append(ChartDataEntry(x: Double(value.key), y: Double(value.value)))
         }
-        chartView.setBarChartData(xValues: days, yValues: values, label: "Traffic count")
         logsCountLabel.text = "Logs count: \(logs.count)"
+        return chartDataEntry
     }
     
     func setupChart() {
-        
-        chartView.drawBarShadowEnabled = false
-        chartView.drawValueAboveBarEnabled = false
-        chartView.doubleTapToZoomEnabled = false
-        chartView.scaleYEnabled = false
-        
-        let xAxis = chartView.xAxis
-        xAxis.labelPosition = .bottom
-        xAxis.labelFont = .systemFont(ofSize: 10)
-        xAxis.granularity = 1
-        xAxis.labelCount = 7
-        
-        let leftAxisFormatter = NumberFormatter()
-        leftAxisFormatter.minimumFractionDigits = 0
-        leftAxisFormatter.maximumFractionDigits = 1
-        
-        let leftAxis = chartView.leftAxis
-        leftAxis.labelFont = .systemFont(ofSize: 10)
-        leftAxis.labelCount = 8
-        leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
-        leftAxis.labelPosition = .outsideChart
-        leftAxis.spaceTop = 0.15
-        leftAxis.axisMinimum = 0
-        
-        chartView.rightAxis.enabled = false
+        chartView.chartDescription?.enabled = false
+        chartView.dragEnabled = false
+        chartView.setScaleEnabled(false)
+        chartView.pinchZoomEnabled = false
         
         let l = chartView.legend
+        l.form = .line
+        l.font = UIFont(name: "HelveticaNeue-Light", size: 11)!
+        l.textColor = .black
         l.horizontalAlignment = .left
         l.verticalAlignment = .bottom
         l.orientation = .horizontal
         l.drawInside = false
-        l.form = .circle
-        l.formSize = 9
-        l.font = UIFont(name: "HelveticaNeue-Light", size: 11)!
-        l.xEntrySpace = 4
         
-//        let marker = XYMarkerView(color: UIColor(white: 180/250, alpha: 1),
-//                                  font: .systemFont(ofSize: 12),
-//                                  textColor: .white,
-//                                  insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8),
-//                                  xAxisValueFormatter: chartView.xAxis.valueFormatter!)
-//        marker.chartView = chartView
-//        marker.minimumSize = CGSize(width: 80, height: 40)
-//        chartView.marker = marker
+        let xAxis = chartView.xAxis
+        xAxis.labelCount = 23
+        xAxis.spaceMin = 0
+        xAxis.spaceMax = 0
+        xAxis.labelFont = .systemFont(ofSize: 8)
+        xAxis.labelTextColor = .black
+        xAxis.labelPosition = .bottom
+        xAxis.drawAxisLineEnabled = false
+        
+        let leftAxis = chartView.leftAxis
+        leftAxis.labelTextColor = .black
+        leftAxis.axisMaximum = 20
+        leftAxis.axisMinimum = 0
+        leftAxis.drawGridLinesEnabled = true
+        leftAxis.granularityEnabled = true
+        
+        chartView.rightAxis.enabled = false
+        
+        chartView.animate(xAxisDuration: 1.5)
         
         if segmentControl.selectedSegmentIndex == 0 {
-            setChartDataEntry(logs: kasperskyLogs)
+            let chartDataEntry = getChartDataEntry(logs: kasperskyLogs)
+            leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, chartDataEntry.max(by: { (value1, value2) -> Bool in
+                value1.y < value2.y
+            })!.y + 30)
+            let set1 = LineChartDataSet(values: chartDataEntry, label: "Kaspersky")
+            set1.axisDependency = .left
+            set1.setColor(.red)
+            set1.setCircleColor(.red)
+            set1.lineWidth = 2
+            set1.circleRadius = 3
+            set1.fillAlpha = 65/255
+            set1.fillColor = UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)
+            set1.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
+            set1.drawCircleHoleEnabled = false
+            chartView.data = LineChartData(dataSet: set1)
         } else if segmentControl.selectedSegmentIndex == 1 {
-            setChartDataEntry(logs: tplinkLogs)
+            let chartDataEntry = getChartDataEntry(logs: tplinkLogs)
+            leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, chartDataEntry.max(by: { (value1, value2) -> Bool in
+                value1.y < value2.y
+            })!.y + 30)
+            
+            let set2 = LineChartDataSet(values: chartDataEntry, label: "TPLink")
+            set2.axisDependency = .left
+            set2.setColor(.green)
+            set2.setCircleColor(.green)
+            set2.lineWidth = 2
+            set2.circleRadius = 3
+            set2.fillAlpha = 65/255
+            set2.fillColor = UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)
+            set2.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
+            set2.drawCircleHoleEnabled = false
+            chartView.data = LineChartData(dataSet: set2)
         } else if segmentControl.selectedSegmentIndex == 2 {
-            setChartDataEntry(logs: dlinkLogs)
+            let chartDataEntry = getChartDataEntry(logs: dlinkLogs)
+            leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, chartDataEntry.max(by: { (value1, value2) -> Bool in
+                value1.y < value2.y
+            })!.y + 30)
+            
+            let set3 = LineChartDataSet(values: chartDataEntry, label: "DLink")
+            set3.axisDependency = .left
+            set3.setColor(.blue)
+            set3.setCircleColor(.blue)
+            set3.lineWidth = 2
+            set3.circleRadius = 3
+            set3.fillAlpha = 65/255
+            set3.fillColor = UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)
+            set3.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
+            set3.drawCircleHoleEnabled = false
+            chartView.data = LineChartData(dataSet: set3)
         }
-        
     }
-    
-    
 }
