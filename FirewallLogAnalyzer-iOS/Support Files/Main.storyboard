@@ -1681,7 +1681,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Line chart to display traffic for 24 hours for selected date for various logs" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="H4K-Z8-EAH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Bar chart to display traffic with selected date range for various logs" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="H4K-Z8-EAH">
                                                     <rect key="frame" x="110" y="30.333333333333332" width="294" height="59.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -1750,19 +1750,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="89.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_9" translatesAutoresizingMaskIntoConstraints="NO" id="lXt-vw-ax6">
-                                                    <rect key="frame" x="10" y="10" width="101" height="69.666666666666671"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_3" translatesAutoresizingMaskIntoConstraints="NO" id="lXt-vw-ax6">
+                                                    <rect key="frame" x="10" y="10" width="100" height="69.666666666666671"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most active IP address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pm-mr-eZ9">
-                                                    <rect key="frame" x="150.66666666666666" y="9.9999999999999982" width="172.99999999999997" height="20.333333333333329"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pm-mr-eZ9">
+                                                    <rect key="frame" x="210" y="9.9999999999999982" width="54" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Bar chart to display events with selected date range for various logs" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="F4d-Pp-Bw6">
+                                                    <rect key="frame" x="110" y="30.333333333333332" width="294" height="59.333333333333343"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="F4d-Pp-Bw6" firstAttribute="top" secondItem="7pm-mr-eZ9" secondAttribute="bottom" id="1zR-kM-TSc"/>
+                                                <constraint firstAttribute="bottom" secondItem="F4d-Pp-Bw6" secondAttribute="bottom" id="Efr-B2-7ke"/>
+                                                <constraint firstItem="F4d-Pp-Bw6" firstAttribute="leading" secondItem="1KM-65-lQl" secondAttribute="leading" constant="110" id="Ie6-tI-SB5"/>
                                                 <constraint firstItem="lXt-vw-ax6" firstAttribute="top" secondItem="1KM-65-lQl" secondAttribute="top" constant="10" id="Y0z-jb-fpa"/>
                                                 <constraint firstItem="7pm-mr-eZ9" firstAttribute="top" secondItem="1KM-65-lQl" secondAttribute="top" constant="10" id="YgZ-d3-gns"/>
+                                                <constraint firstAttribute="trailing" secondItem="F4d-Pp-Bw6" secondAttribute="trailing" constant="10" id="dK9-mg-liS"/>
                                                 <constraint firstItem="lXt-vw-ax6" firstAttribute="leading" secondItem="1KM-65-lQl" secondAttribute="leading" constant="10" id="dQp-Fb-Rqz"/>
                                                 <constraint firstItem="7pm-mr-eZ9" firstAttribute="centerX" secondItem="1KM-65-lQl" secondAttribute="centerX" constant="30" id="dkp-0R-dBG"/>
                                                 <constraint firstAttribute="bottom" secondItem="lXt-vw-ax6" secondAttribute="bottom" constant="10" id="yD4-Zj-2hP"/>
@@ -2118,10 +2128,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chart_3" width="100" height="100"/>
         <image name="chart_4" width="100" height="100"/>
         <image name="chart_6" width="107" height="100"/>
         <image name="chart_8" width="100" height="100"/>
-        <image name="chart_9" width="101" height="100"/>
         <image name="dashboard" width="30" height="30"/>
         <image name="exit" width="30" height="30"/>
         <image name="json_json" width="48" height="48"/>

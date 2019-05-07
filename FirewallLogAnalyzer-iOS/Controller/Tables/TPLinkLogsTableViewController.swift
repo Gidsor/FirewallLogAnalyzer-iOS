@@ -124,7 +124,7 @@ class TPLinkLogsTableViewController: UIViewController {
 
 extension TPLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetViewDelegate {
     func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
-        return 9
+        return 10
     }
     
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
@@ -170,6 +170,9 @@ extension TPLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetV
             if indexPath.column == 8 {
                 cell.label.text = "Protocol"
             }
+            if indexPath.column == 9 {
+                cell.label.text = "Event"
+            }
             return cell
         }
         
@@ -202,6 +205,9 @@ extension TPLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetV
         if indexPath.column == 8 {
             cell.label.text = log.protocolNetwork
         }
+        if indexPath.column == 9 {
+            cell.label.text = log.event
+        }
         return cell
     }
     
@@ -219,7 +225,9 @@ extension TPLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetV
         if column == 6 {
             return 120
         }
-        
+        if column == 9 {
+            return 200
+        }
         return 80
     }
     

@@ -15,6 +15,7 @@ class TPLinkLog: Log {
     var macAddress: String
     var ipAddress: String
     var protocolNetwork: String
+    var event: String
     
     override init(json: JSON) {
         typeEvent = json["typeEvent"] as? String ?? ""
@@ -23,6 +24,7 @@ class TPLinkLog: Log {
         macAddress = json["macAddress"] as? String ?? ""
         ipAddress = json["ipAddress"] as? String ?? ""
         protocolNetwork = json["protocol"] as? String ?? ""
+        event = json["event"] as? String ?? ""
         
         super.init(json: json)
     }
