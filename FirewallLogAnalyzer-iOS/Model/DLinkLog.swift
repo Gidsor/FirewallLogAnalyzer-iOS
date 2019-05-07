@@ -23,6 +23,8 @@ class DLinkLog: Log {
     var event: String
     var action: String
     
+    static var logs: [DLinkLog] = []
+    
     override init(json: JSON) {
         severity = json["severity"] as? String ?? ""
         category = json["category"] as? String ?? ""
@@ -49,6 +51,7 @@ class DLinkLog: Log {
             logs.append(DLinkLog(json: json))
         }
         
+        DLinkLog.logs = logs
         return logs
     }
 }

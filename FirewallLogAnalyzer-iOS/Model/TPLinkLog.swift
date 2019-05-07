@@ -17,6 +17,8 @@ class TPLinkLog: Log {
     var protocolNetwork: String
     var event: String
     
+    static var logs: [TPLinkLog] = []
+    
     override init(json: JSON) {
         typeEvent = json["typeEvent"] as? String ?? ""
         levelSignificance = json["levelSignificance"] as? String ?? ""
@@ -37,6 +39,7 @@ class TPLinkLog: Log {
             logs.append(TPLinkLog(json: json))
         }
         
+        TPLinkLog.logs = logs
         return logs
     }
 }

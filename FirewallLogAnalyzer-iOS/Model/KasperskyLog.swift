@@ -18,6 +18,8 @@ class KasperskyLog: Log {
     var protocolNetwork: String
     var ipAddress: String
     
+    static var logs: [KasperskyLog] = []
+    
     override init(json: JSON) {
         description = json["description"] as? String ?? ""
         protectType = json["protectType"] as? String ?? ""
@@ -39,6 +41,7 @@ class KasperskyLog: Log {
             logs.append(KasperskyLog(json: json))
         }
         
+        KasperskyLog.logs = logs
         return logs
     }
 }
