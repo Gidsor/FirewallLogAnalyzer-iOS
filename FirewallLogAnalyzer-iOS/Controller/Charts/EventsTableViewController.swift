@@ -1,5 +1,5 @@
 //
-//  LiveTrafficTableViewController.swift
+//  EventsTableViewController.swift
 //  FirewallLogAnalyzer-iOS
 //
 //  Created by Vadim Denisov on 07/05/2019.
@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class LiveTrafficTableViewController: UITableViewController {
+class EventsTableViewController: UITableViewController {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var chartView: BarChartView!
     @IBOutlet weak var minDateButton: UIButton!
@@ -147,13 +147,12 @@ class LiveTrafficTableViewController: UITableViewController {
         datePicker.removeFromSuperview()
     }
     
-    func setChartDataEntry(logs: [Log]) {
-        var logsCountByDate: [Date : Int] = [:]
+    func setChartDataEntry(logs: [KasperskyLog]) {
+        var logsCountByDate: [String : Int] = [:]
         
         for log in logs {
             if log.formatterDate <= maxDate && log.formatterDate >= minDate {
-                let date = formatter.date(from: formatter.string(from: log.formatterDate))!
-                logsCountByDate[date] = (logsCountByDate[date] ?? 0) + 1
+                logsCountByDate[log.description] = (logsCountByDate[log.description] ?? 0) + 1
             }
         }
         
@@ -161,14 +160,59 @@ class LiveTrafficTableViewController: UITableViewController {
             value1.key < value2.key
         })
         
-        var days: [String] = []
+        var events: [String] = []
         var values: [Double] = []
         sortedLogsCountByDate.forEach { (value) in
-            days.append(formatter.string(from: value.key))
+            events.append(value.key)
             values.append(Double(value.value))
-//            chartDataEntry.append(ChartDataEntry(x: Double(value.key), y: Double(value.value)))
         }
-        chartView.setBarChartData(xValues: days, yValues: values, label: "Traffic count")
+        chartView.setBarChartData(xValues: events, yValues: values, label: "Events count")
+        logsCountLabel.text = "Logs count: \(logs.count)"
+    }
+    
+    func setChartDataEntry(logs: [TPLinkLog]) {
+        var logsCountByDate: [String : Int] = [:]
+        
+        for log in logs {
+            if log.formatterDate <= maxDate && log.formatterDate >= minDate {
+                logsCountByDate[log.event] = (logsCountByDate[log.event] ?? 0) + 1
+            }
+        }
+        
+        let sortedLogsCountByDate = logsCountByDate.sorted(by: { (value1, value2) -> Bool in
+            value1.key < value2.key
+        })
+        
+        var events: [String] = []
+        var values: [Double] = []
+        sortedLogsCountByDate.forEach { (value) in
+            events.append(value.key)
+            values.append(Double(value.value))
+        }
+        chartView.setBarChartData(xValues: events, yValues: values, label: "Events count")
+        logsCountLabel.text = "Logs count: \(logs.count)"
+    }
+    
+    func setChartDataEntry(logs: [DLinkLog]) {
+        var logsCountByDate: [String : Int] = [:]
+        
+        for log in logs {
+            if log.formatterDate <= maxDate && log.formatterDate >= minDate {
+                logsCountByDate[log.event] = (logsCountByDate[log.event] ?? 0) + 1
+            }
+        }
+        
+        let sortedLogsCountByDate = logsCountByDate.sorted(by: { (value1, value2) -> Bool in
+            value1.key < value2.key
+        })
+        
+        var events: [String] = []
+        var values: [Double] = []
+        sortedLogsCountByDate.forEach { (value) in
+            events.append(value.key)
+            values.append(Double(value.value))
+        }
+        chartView.setBarChartData(xValues: events, yValues: values, label: "Events count")
         logsCountLabel.text = "Logs count: \(logs.count)"
     }
     
