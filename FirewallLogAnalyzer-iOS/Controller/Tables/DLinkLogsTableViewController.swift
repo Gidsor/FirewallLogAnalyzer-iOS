@@ -124,7 +124,7 @@ class DLinkLogsTableViewController: UIViewController {
 
 extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetViewDelegate {
     func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
-        return 25
+        return 24
     }
     
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
@@ -179,40 +179,40 @@ extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetVi
             if indexPath.column == 11 {
                 cell.label.text = "Destination IP"
             }
-            if indexPath.column == 13 {
+            if indexPath.column == 12 {
                 cell.label.text = "Source Port"
             }
-            if indexPath.column == 14 {
+            if indexPath.column == 13 {
                 cell.label.text = "Destination Port"
             }
-            if indexPath.column == 15 {
+            if indexPath.column == 14 {
                 cell.label.text = "Event"
             }
-            if indexPath.column == 16 {
+            if indexPath.column == 15 {
                 cell.label.text = "Action"
             }
-            if indexPath.column == 17 {
+            if indexPath.column == 16 {
                 cell.label.text = "Connection"
             }
-            if indexPath.column == 18 {
+            if indexPath.column == 17 {
                 cell.label.text = "Connection New Src IP"
             }
-            if indexPath.column == 19 {
+            if indexPath.column == 18 {
                 cell.label.text = "Connection New Src Port"
             }
-            if indexPath.column == 20 {
+            if indexPath.column == 19 {
                 cell.label.text = "Connection New Dst IP"
             }
-            if indexPath.column == 21 {
+            if indexPath.column == 20 {
                 cell.label.text = "Connection New Dst Port"
             }
-            if indexPath.column == 22 {
+            if indexPath.column == 21 {
                 cell.label.text = "OrigSent"
             }
-            if indexPath.column == 23 {
+            if indexPath.column == 22 {
                 cell.label.text = "TermSent"
             }
-            if indexPath.column == 24 {
+            if indexPath.column == 23 {
                 cell.label.text = "Connection Time"
             }
             return cell
@@ -256,40 +256,40 @@ extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetVi
         if indexPath.column == 11 {
             cell.label.text = log.dstIP
         }
-        if indexPath.column == 13 {
+        if indexPath.column == 12 {
             cell.label.text = log.srcPort
         }
-        if indexPath.column == 14 {
+        if indexPath.column == 13 {
             cell.label.text = log.dstPort
         }
-        if indexPath.column == 15 {
+        if indexPath.column == 14 {
             cell.label.text = log.event
         }
-        if indexPath.column == 16 {
+        if indexPath.column == 15 {
             cell.label.text = log.action
         }
-        if indexPath.column == 17 {
+        if indexPath.column == 16 {
             cell.label.text = log.conn
         }
-        if indexPath.column == 18 {
+        if indexPath.column == 17 {
             cell.label.text = log.connNewSrcIP
         }
-        if indexPath.column == 19 {
+        if indexPath.column == 18 {
             cell.label.text = log.connNewSrcPort
         }
-        if indexPath.column == 20 {
+        if indexPath.column == 19 {
             cell.label.text = log.connNewDstIP
         }
-        if indexPath.column == 21 {
+        if indexPath.column == 20 {
             cell.label.text = log.connNewDstPort
         }
-        if indexPath.column == 22 {
+        if indexPath.column == 21 {
             cell.label.text = log.origSent
         }
-        if indexPath.column == 23 {
+        if indexPath.column == 22 {
             cell.label.text = log.termSent
         }
-        if indexPath.column == 24 {
+        if indexPath.column == 23 {
             cell.label.text = log.connTime
         }
         return cell
@@ -303,25 +303,45 @@ extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetVi
         if column == 6 {
             return 120
         }
-        if column == 15 {
+        if column == 14 {
             return 160
         }
-        if column == 18 {
+        if column == 17 {
             return 120
+        }
+        if column == 18 {
+            return 130
         }
         if column == 19 {
-            return 130
-        }
-        if column == 20 {
             return 120
         }
-        if column == 21 {
+        if column == 20 {
             return 130
         }
-        if column == 24 {
+        if column == 23 {
             return 90
         }
         return 80
     }
     
+    func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
+        // IP address
+        if indexPath.row != 0 {
+            var ip = ""
+            let log = logs[indexPath.row - 1]
+            if indexPath.column == 10 { ip = log.srcIP }
+            if indexPath.column == 11 { ip = log.dstIP }
+            if indexPath.column == 17 { ip = log.connNewSrcIP }
+            if indexPath.column == 19 { ip = log.connNewDstIP }
+            if ip == "" { return }
+            let alert = UIAlertController(title: "Show IP Geolocation?", message: ip, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Show", style: .default, handler: { _ in
+                self.tabBarController?.selectedIndex = 3
+                let ipGeolocationController = (self.tabBarController?.viewControllers?[3] as? UINavigationController)?.topViewController as? IPGeolocationTableViewController
+                ipGeolocationController?.search(ip: ip)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }
