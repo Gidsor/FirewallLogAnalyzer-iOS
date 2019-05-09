@@ -233,8 +233,8 @@
 			isa = PBXGroup;
 			children = (
 				C0CB981F22802CAF0070C773 /* MostActiveIPAddressViewController.swift */,
-				C09485692281A682006E5AF7 /* LiveTraffic24HoursTableViewController.swift */,
 				C094856D2281D16A006E5AF7 /* LiveTrafficTableViewController.swift */,
+				C09485692281A682006E5AF7 /* LiveTraffic24HoursTableViewController.swift */,
 				C0F43355228207C80000646E /* EventsTableViewController.swift */,
 				C0F43357228214610000646E /* ProtocolsTableViewController.swift */,
 				C0EF95D422823CCB00CA57ED /* TrafficIPAddressTableViewController.swift */,

@@ -306,6 +306,21 @@ extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetVi
         if column == 15 {
             return 160
         }
+        if column == 18 {
+            return 120
+        }
+        if column == 19 {
+            return 130
+        }
+        if column == 20 {
+            return 120
+        }
+        if column == 21 {
+            return 130
+        }
+        if column == 24 {
+            return 90
+        }
         return 80
     }
     
