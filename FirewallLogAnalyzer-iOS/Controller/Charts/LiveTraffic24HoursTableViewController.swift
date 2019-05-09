@@ -9,15 +9,17 @@
 import UIKit
 import Charts
 
-class LiveTraffic24HoursTableViewController: UITableViewController {
+class LiveTraffic24HoursTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var chartView: LineChartView!
     @IBOutlet weak var datePickerButton: UIButton!
     @IBOutlet weak var logsCountLabel: UILabel!
+    @IBOutlet weak var ipButton: UIButton!
     var minDate = Date()
     var maxDate = Date()
     var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
+    var ipPicker = UIPickerView()
     var formatter = DateFormatter()
     var calendar = Calendar(identifier: .gregorian)
     var sourceKasperskyLogs: [KasperskyLog] = []
@@ -26,7 +28,9 @@ class LiveTraffic24HoursTableViewController: UITableViewController {
     var kasperskyLogs: [KasperskyLog] = []
     var tplinkLogs: [TPLinkLog] = []
     var dlinkLogs: [DLinkLog] = []
-    
+    var ipKaspersky: [String] = []
+    var ipDLink: [String] = []
+    var ipTPLink: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +54,9 @@ class LiveTraffic24HoursTableViewController: UITableViewController {
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
             self.sourceKasperskyLogs = logs
             self.kasperskyLogs = logs
+            self.ipKaspersky = logs.map { $0.ipAddress }
+            self.ipKaspersky = self.ipKaspersky.filter { $0 != "" }
+            self.ipKaspersky = Array(Set(self.ipKaspersky))
             kasperskyLoaded = true
             if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
                 self.hideActivityIndicator(in: self.view)
@@ -60,6 +67,9 @@ class LiveTraffic24HoursTableViewController: UITableViewController {
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
             self.sourceTPLinkLogs = logs
             self.tplinkLogs = logs
+            self.ipTPLink = logs.map { $0.ipAddress }
+            self.ipTPLink = self.ipTPLink.filter { $0 != "" }
+            self.ipTPLink = Array(Set(self.ipTPLink))
             tplinkLoaded = true
             if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
                 self.hideActivityIndicator(in: self.view)
@@ -70,6 +80,9 @@ class LiveTraffic24HoursTableViewController: UITableViewController {
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
             self.sourceDLinkLogs = logs
             self.dlinkLogs = logs
+            self.ipDLink = logs.map { $0.srcIP }
+            self.ipDLink = self.ipDLink.filter { $0 != "" }
+            self.ipDLink = Array(Set(self.ipDLink))
             dlinkLoaded = true
             if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
                 self.hideActivityIndicator(in: self.view)
@@ -82,9 +95,73 @@ class LiveTraffic24HoursTableViewController: UITableViewController {
         setupChart()
     }
     
+    @IBAction func setIPButton(_ sender: UIButton) {
+        toolBar.removeFromSuperview()
+        ipPicker.removeFromSuperview()
+        datePicker.removeFromSuperview()
+        ipPicker = UIPickerView()
+        ipPicker.backgroundColor = .white
+        ipPicker.autoresizingMask = .flexibleWidth
+        ipPicker.delegate = self
+        ipPicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        view.addSubview(ipPicker)
+        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
+        toolBar.barStyle = .default
+        toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
+        toolBar.sizeToFit()
+        view.addSubview(toolBar)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if segmentControl.selectedSegmentIndex == 0 {
+            return ipDLink.count + 1
+        } else if segmentControl.selectedSegmentIndex == 1 {
+            return ipTPLink.count + 1
+        } else if segmentControl.selectedSegmentIndex == 2 {
+            return ipKaspersky.count + 1
+        } else {
+            return 1
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if row == 0 {
+            ipButton.setTitle("None", for: .normal)
+        } else if segmentControl.selectedSegmentIndex == 0 {
+            ipButton.setTitle(ipDLink[row - 1], for: .normal)
+        } else if segmentControl.selectedSegmentIndex == 1 {
+            ipButton.setTitle(ipTPLink[row - 1], for: .normal)
+        } else if segmentControl.selectedSegmentIndex == 2 {
+            ipButton.setTitle(ipKaspersky[row - 1], for: .normal)
+        } else {
+            ipButton.setTitle("None", for: .normal)
+        }
+        update()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if row == 0 {
+            return "None"
+        }
+        if segmentControl.selectedSegmentIndex == 0 {
+            return ipDLink[row - 1]
+        } else if segmentControl.selectedSegmentIndex == 1 {
+            return ipTPLink[row - 1]
+        } else if segmentControl.selectedSegmentIndex == 2 {
+            return ipKaspersky[row - 1]
+        } else {
+            return "None"
+        }
+    }
+    
     @IBAction func setDateButton(_ sender: UIButton) {
         toolBar.removeFromSuperview()
         datePicker.removeFromSuperview()
+        ipPicker.removeFromSuperview()
         datePicker = UIDatePicker()
         datePicker.setDate(formatter.date(from: datePickerButton.title(for: .normal)!)!, animated: true)
         
@@ -113,20 +190,34 @@ class LiveTraffic24HoursTableViewController: UITableViewController {
         maxDate = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: minDate)!
         datePickerButton.setTitle(formatter.string(from: datePicker.date), for: .normal)
         
+        let ip = ipButton.title(for: .normal) ?? "None"
         kasperskyLogs = sourceKasperskyLogs.filter({ (log) -> Bool in
-            log.formatterDate <= maxDate && log.formatterDate >= minDate
+            if ip == "None" {
+                return log.formatterDate <= maxDate && log.formatterDate >= minDate
+            } else {
+                return log.formatterDate <= maxDate && log.formatterDate >= minDate && log.ipAddress == ip
+            }
         })
         tplinkLogs = sourceTPLinkLogs.filter({ (log) -> Bool in
-            log.formatterDate <= maxDate && log.formatterDate >= minDate
+            if ip == "None" {
+                return log.formatterDate <= maxDate && log.formatterDate >= minDate
+            } else {
+                return log.formatterDate <= maxDate && log.formatterDate >= minDate && log.ipAddress == ip
+            }
         })
         dlinkLogs = sourceDLinkLogs.filter({ (log) -> Bool in
-            log.formatterDate <= maxDate && log.formatterDate >= minDate
+            if ip == "None" {
+                return log.formatterDate <= maxDate && log.formatterDate >= minDate
+            } else {
+                return log.formatterDate <= maxDate && log.formatterDate >= minDate && log.srcIP == ip
+            }
         })
         setupChart()
     }
     
     @objc func onDoneButtonClick() {
         update()
+        ipPicker.removeFromSuperview()
         toolBar.removeFromSuperview()
         datePicker.removeFromSuperview()
     }

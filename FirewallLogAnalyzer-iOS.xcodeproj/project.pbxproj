@@ -38,6 +38,7 @@
 		C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09E18226CF4AD00C69B36 /* KeyboardObserver.swift */; };
 		C0C66F2C227F04D1004381AA /* UITableView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C66F2B227F04D1004381AA /* UITableView+Scroll.swift */; };
 		C0CB982022802CAF0070C773 /* MostActiveIPAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB981F22802CAF0070C773 /* MostActiveIPAddressViewController.swift */; };
+		C0E5438F2284856F006BD3F7 /* SeverityLevelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E5438E2284856F006BD3F7 /* SeverityLevelTableViewController.swift */; };
 		C0EF95D522823CCB00CA57ED /* TrafficIPAddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF95D422823CCB00CA57ED /* TrafficIPAddressTableViewController.swift */; };
 		C0F43356228207C80000646E /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F43355228207C80000646E /* EventsTableViewController.swift */; };
 		C0F43358228214610000646E /* ProtocolsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F43357228214610000646E /* ProtocolsTableViewController.swift */; };
@@ -79,6 +80,7 @@
 		C0C09E18226CF4AD00C69B36 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		C0C66F2B227F04D1004381AA /* UITableView+Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Scroll.swift"; sourceTree = "<group>"; };
 		C0CB981F22802CAF0070C773 /* MostActiveIPAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostActiveIPAddressViewController.swift; sourceTree = "<group>"; };
+		C0E5438E2284856F006BD3F7 /* SeverityLevelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeverityLevelTableViewController.swift; sourceTree = "<group>"; };
 		C0EF95D422823CCB00CA57ED /* TrafficIPAddressTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficIPAddressTableViewController.swift; sourceTree = "<group>"; };
 		C0F43355228207C80000646E /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		C0F43357228214610000646E /* ProtocolsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolsTableViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				C0F43355228207C80000646E /* EventsTableViewController.swift */,
 				C0F43357228214610000646E /* ProtocolsTableViewController.swift */,
 				C0EF95D422823CCB00CA57ED /* TrafficIPAddressTableViewController.swift */,
+				C0E5438E2284856F006BD3F7 /* SeverityLevelTableViewController.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				C0CB982022802CAF0070C773 /* MostActiveIPAddressViewController.swift in Sources */,
 				C094856A2281A682006E5AF7 /* LiveTraffic24HoursTableViewController.swift in Sources */,
 				C0F43358228214610000646E /* ProtocolsTableViewController.swift in Sources */,
+				C0E5438F2284856F006BD3F7 /* SeverityLevelTableViewController.swift in Sources */,
 				C029B131227B8AEC00383533 /* KasperskyLogsTableViewController.swift in Sources */,
 				C029B126227A236C00383533 /* TPLinkLog.swift in Sources */,
 				C00E8850227C525E00896ED8 /* TextCell.swift in Sources */,
