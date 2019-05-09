@@ -118,19 +118,11 @@
 		C00E8851227C528F00896ED8 /* Tables */ = {
 			isa = PBXGroup;
 			children = (
-				C029B130227B8AEC00383533 /* KasperskyLogsTableViewController.swift */,
-				C00E8852227C848D00896ED8 /* TPLinkLogsTableViewController.swift */,
 				C00E8854227CA41A00896ED8 /* DLinkLogsTableViewController.swift */,
+				C00E8852227C848D00896ED8 /* TPLinkLogsTableViewController.swift */,
+				C029B130227B8AEC00383533 /* KasperskyLogsTableViewController.swift */,
 			);
 			path = Tables;
-			sourceTree = "<group>";
-		};
-		C078C2A52280C588002CC50F /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				C078C2A62280C5C0002CC50F /* ConnectedServersTableViewController.swift */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		C0991DA22249499400DF1CAE = {
@@ -209,15 +201,10 @@
 			isa = PBXGroup;
 			children = (
 				C00E8859227CAF3300896ED8 /* ConnectServerViewController.swift */,
-				C08CABE1226D013E009B276B /* MainTabBarController.swift */,
-				C029B12D227B7E7A00383533 /* DashboardTableViewController.swift */,
-				C078C2A82280C687002CC50F /* ReportsTableViewController.swift */,
-				C078C2AA2280C6DB002CC50F /* ChartsTableViewController.swift */,
-				C06CA309227DF72C004C41FA /* IPGeolocationTableViewController.swift */,
-				C00E885E227CCD2900896ED8 /* SettingsTableViewController.swift */,
+				C078C2A62280C5C0002CC50F /* ConnectedServersTableViewController.swift */,
+				C0E5438D2284154D006BD3F7 /* TabBar */,
 				C0CB982122802CB90070C773 /* Charts */,
 				C00E8851227C528F00896ED8 /* Tables */,
-				C078C2A52280C588002CC50F /* Settings */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -253,6 +240,19 @@
 				C0EF95D422823CCB00CA57ED /* TrafficIPAddressTableViewController.swift */,
 			);
 			path = Charts;
+			sourceTree = "<group>";
+		};
+		C0E5438D2284154D006BD3F7 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C08CABE1226D013E009B276B /* MainTabBarController.swift */,
+				C029B12D227B7E7A00383533 /* DashboardTableViewController.swift */,
+				C078C2AA2280C6DB002CC50F /* ChartsTableViewController.swift */,
+				C078C2A82280C687002CC50F /* ReportsTableViewController.swift */,
+				C06CA309227DF72C004C41FA /* IPGeolocationTableViewController.swift */,
+				C00E885E227CCD2900896ED8 /* SettingsTableViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

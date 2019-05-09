@@ -23,6 +23,15 @@ class DLinkLog: Log {
     var event: String
     var action: String
     
+    var conn: String
+    var connNewSrcIP: String
+    var connNewSrcPort: String
+    var connNewDstIP: String
+    var connNewDstPort: String
+    var origSent: String
+    var termSent: String
+    var connTime: String
+    
     static var logs: [DLinkLog] = []
     
     override init(json: JSON) {
@@ -39,6 +48,16 @@ class DLinkLog: Log {
         dstPort = json["dstPort"] as? String ?? ""
         event = json["event"] as? String ?? ""
         action = json["action"] as? String ?? ""
+        
+        
+        conn = json["conn"] as? String ?? ""
+        connNewSrcIP = json["connnewsrcip"] as? String ?? ""
+        connNewSrcPort = json["connnewsrcport"] as? String ?? ""
+        connNewDstIP = json["connnewdestip"] as? String ?? ""
+        connNewDstPort = json["connnewdestport"] as? String ?? ""
+        origSent = json["origsent"] as? String ?? ""
+        termSent = json["termSent"] as? String ?? ""
+        connTime = json["conntime"] as? String ?? ""
         
         super.init(json: json)
     }

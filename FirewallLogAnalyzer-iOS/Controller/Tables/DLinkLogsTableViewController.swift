@@ -124,7 +124,7 @@ class DLinkLogsTableViewController: UIViewController {
 
 extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetViewDelegate {
     func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
-        return 17
+        return 25
     }
     
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
@@ -191,6 +191,30 @@ extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetVi
             if indexPath.column == 16 {
                 cell.label.text = "Action"
             }
+            if indexPath.column == 17 {
+                cell.label.text = "Connection"
+            }
+            if indexPath.column == 18 {
+                cell.label.text = "Connection New Src IP"
+            }
+            if indexPath.column == 19 {
+                cell.label.text = "Connection New Src Port"
+            }
+            if indexPath.column == 20 {
+                cell.label.text = "Connection New Dst IP"
+            }
+            if indexPath.column == 21 {
+                cell.label.text = "Connection New Dst Port"
+            }
+            if indexPath.column == 22 {
+                cell.label.text = "OrigSent"
+            }
+            if indexPath.column == 23 {
+                cell.label.text = "TermSent"
+            }
+            if indexPath.column == 24 {
+                cell.label.text = "Connection Time"
+            }
             return cell
         }
         
@@ -243,6 +267,30 @@ extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetVi
         }
         if indexPath.column == 16 {
             cell.label.text = log.action
+        }
+        if indexPath.column == 17 {
+            cell.label.text = log.conn
+        }
+        if indexPath.column == 18 {
+            cell.label.text = log.connNewSrcIP
+        }
+        if indexPath.column == 19 {
+            cell.label.text = log.connNewSrcPort
+        }
+        if indexPath.column == 20 {
+            cell.label.text = log.connNewDstIP
+        }
+        if indexPath.column == 21 {
+            cell.label.text = log.connNewDstPort
+        }
+        if indexPath.column == 22 {
+            cell.label.text = log.origSent
+        }
+        if indexPath.column == 23 {
+            cell.label.text = log.termSent
+        }
+        if indexPath.column == 24 {
+            cell.label.text = log.connTime
         }
         return cell
     }
