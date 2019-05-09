@@ -211,11 +211,11 @@ class LiveTrafficTableViewController: UITableViewController {
         
         chartView.animate(yAxisDuration: 1.5)
         
-        if segmentControl.selectedSegmentIndex == 0 {
+        if segmentControl.selectedSegmentIndex == 2 {
             setChartDataEntry(logs: kasperskyLogs)
         } else if segmentControl.selectedSegmentIndex == 1 {
             setChartDataEntry(logs: tplinkLogs)
-        } else if segmentControl.selectedSegmentIndex == 2 {
+        } else if segmentControl.selectedSegmentIndex == 0 {
             setChartDataEntry(logs: dlinkLogs)
         }
     }

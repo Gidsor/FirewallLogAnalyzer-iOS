@@ -241,7 +241,7 @@ class DashboardTableViewController: UITableViewController {
         set3.fillColor = UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)
         set3.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
         set3.drawCircleHoleEnabled = false
-        let lineChartData = LineChartData(dataSets: [set1, set2, set3])
+        let lineChartData = LineChartData(dataSets: [set3, set2, set1])
         
         chartView.data = lineChartData
     }

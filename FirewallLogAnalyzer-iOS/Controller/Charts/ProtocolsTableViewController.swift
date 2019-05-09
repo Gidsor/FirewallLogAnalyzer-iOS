@@ -181,7 +181,7 @@ class ProtocolsTableViewController: UITableViewController {
         
         // Values
         var values: [PieChartDataEntry] = []
-        if segmentControl.selectedSegmentIndex == 0 {
+        if segmentControl.selectedSegmentIndex == 2 {
             var kasperskyValues: [String : Int] = [:]
             kasperskyLogs.forEach {
                 if $0.protocolNetwork != "" {
@@ -211,7 +211,7 @@ class ProtocolsTableViewController: UITableViewController {
                                          label: tplinkSortedValues[i].key + " (\(tplinkSortedValues[i].value))")
             }
             logsCountLabel.text = "Logs count: \(tplinkLogs.count)"
-        } else if segmentControl.selectedSegmentIndex == 2 {
+        } else if segmentControl.selectedSegmentIndex == 0 {
             var dlinkValues: [String : Int] = [:]
             dlinkLogs.forEach {
                 if $0.protocolNetwork != "" {

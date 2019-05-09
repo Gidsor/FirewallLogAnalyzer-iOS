@@ -190,7 +190,7 @@ class LiveTraffic24HoursTableViewController: UITableViewController {
         
         chartView.animate(xAxisDuration: 1.5)
         
-        if segmentControl.selectedSegmentIndex == 0 {
+        if segmentControl.selectedSegmentIndex == 2 {
             let chartDataEntry = getChartDataEntry(logs: kasperskyLogs)
             leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, chartDataEntry.max(by: { (value1, value2) -> Bool in
                 value1.y < value2.y
@@ -223,7 +223,7 @@ class LiveTraffic24HoursTableViewController: UITableViewController {
             set2.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
             set2.drawCircleHoleEnabled = false
             chartView.data = LineChartData(dataSet: set2)
-        } else if segmentControl.selectedSegmentIndex == 2 {
+        } else if segmentControl.selectedSegmentIndex == 0 {
             let chartDataEntry = getChartDataEntry(logs: dlinkLogs)
             leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, chartDataEntry.max(by: { (value1, value2) -> Bool in
                 value1.y < value2.y
