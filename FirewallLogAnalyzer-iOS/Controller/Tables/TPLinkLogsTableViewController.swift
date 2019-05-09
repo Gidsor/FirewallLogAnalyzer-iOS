@@ -10,10 +10,27 @@ import UIKit
 import SpreadsheetView
 
 class TPLinkLogsTableViewController: UIViewController {
+    
+    enum Sorting {
+        case ascending
+        case descending
+        
+        var symbol: String {
+            switch self {
+            case .ascending:
+                return "↑"
+            case .descending:
+                return "↓"
+            }
+        }
+    }
+    
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var spreadsheetView: SpreadsheetView!
     @IBOutlet weak var minDateButton: UIButton!
     @IBOutlet weak var maxDateButton: UIButton!
+    var sortedColumn = 0
+    var sortedDirection: Sorting = .ascending
     var minDate = Date()
     var maxDate = Date()
     var toolBar = UIToolbar()
@@ -51,6 +68,9 @@ class TPLinkLogsTableViewController: UIViewController {
             self.maxDate = logs.max(by: { (log1, log2) -> Bool in
                 log1.formatterDate < log2.formatterDate
             })?.formatterDate ?? Date()
+            self.logs = self.logs.sorted(by: { (log1, log2) -> Bool in
+                log1.id < log2.id
+            })
             self.minDateButton.setTitle(self.formatter.string(from: self.minDate), for: .normal)
             self.maxDateButton.setTitle(self.formatter.string(from: self.maxDate), for: .normal)
             self.spreadsheetView.reloadData()
@@ -173,6 +193,10 @@ extension TPLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetV
             if indexPath.column == 9 {
                 cell.label.text = "Event"
             }
+            
+            if indexPath.column == sortedColumn {
+                cell.label.text = (cell.label.text ?? "") + sortedDirection.symbol
+            }
             return cell
         }
         
@@ -232,6 +256,92 @@ extension TPLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetV
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            if sortedColumn == indexPath.column {
+                if sortedDirection == .ascending {
+                    sortedDirection = .descending
+                } else {
+                    sortedDirection = .ascending
+                }
+            } else {
+                sortedColumn = indexPath.column
+                sortedDirection = .ascending
+            }
+            
+            if indexPath.column == 0 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.id < $1.id })
+                } else {
+                    logs = logs.sorted(by: { $0.id > $1.id })
+                }
+            }
+            if indexPath.column == 1 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.date < $1.date })
+                } else {
+                    logs = logs.sorted(by: { $0.date > $1.date })
+                }
+            }
+            if indexPath.column == 2 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.time < $1.time })
+                } else {
+                    logs = logs.sorted(by: { $0.time > $1.time })
+                }
+            }
+            if indexPath.column == 3 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.typeEvent < $1.typeEvent })
+                } else {
+                    logs = logs.sorted(by: { $0.typeEvent > $1.typeEvent })
+                }
+            }
+            if indexPath.column == 4 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.levelSignificance < $1.levelSignificance })
+                } else {
+                    logs = logs.sorted(by: { $0.levelSignificance > $1.levelSignificance })
+                }
+            }
+            if indexPath.column == 5 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.logContent < $1.logContent })
+                } else {
+                    logs = logs.sorted(by: { $0.logContent > $1.logContent })
+                }
+            }
+            if indexPath.column == 6 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.macAddress < $1.macAddress })
+                } else {
+                    logs = logs.sorted(by: { $0.macAddress > $1.macAddress })
+                }
+            }
+            if indexPath.column == 7 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.ipAddress < $1.ipAddress })
+                } else {
+                    logs = logs.sorted(by: { $0.ipAddress > $1.ipAddress })
+                }
+            }
+            if indexPath.column == 8 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.protocolNetwork < $1.protocolNetwork })
+                } else {
+                    logs = logs.sorted(by: { $0.protocolNetwork > $1.protocolNetwork })
+                }
+            }
+            if indexPath.column == 9 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.event < $1.event })
+                } else {
+                    logs = logs.sorted(by: { $0.event > $1.event })
+                }
+            }
+            
+            spreadsheetView.reloadData()
+        }
+        
         // IP address
         if indexPath.column == 7 && indexPath.row != 0 {
             let ip = logs[indexPath.row - 1].ipAddress

@@ -10,10 +10,27 @@ import UIKit
 import SpreadsheetView
 
 class DLinkLogsTableViewController: UIViewController {
+    
+    enum Sorting {
+        case ascending
+        case descending
+        
+        var symbol: String {
+            switch self {
+            case .ascending:
+                return "↑"
+            case .descending:
+                return "↓"
+            }
+        }
+    }
+    
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var spreadsheetView: SpreadsheetView!
     @IBOutlet weak var minDateButton: UIButton!
     @IBOutlet weak var maxDateButton: UIButton!
+    var sortedColumn = 0
+    var sortedDirection: Sorting = .ascending
     var minDate = Date()
     var maxDate = Date()
     var toolBar = UIToolbar()
@@ -51,6 +68,9 @@ class DLinkLogsTableViewController: UIViewController {
             self.maxDate = logs.max(by: { (log1, log2) -> Bool in
                 log1.formatterDate < log2.formatterDate
             })?.formatterDate ?? Date()
+            self.logs = self.logs.sorted(by: { (log1, log2) -> Bool in
+                log1.id < log2.id
+            })
             self.minDateButton.setTitle(self.formatter.string(from: self.minDate), for: .normal)
             self.maxDateButton.setTitle(self.formatter.string(from: self.maxDate), for: .normal)
             self.spreadsheetView.reloadData()
@@ -215,6 +235,10 @@ extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetVi
             if indexPath.column == 23 {
                 cell.label.text = "Connection Time"
             }
+            
+            if indexPath.column == sortedColumn {
+                cell.label.text = (cell.label.text ?? "") + sortedDirection.symbol
+            }
             return cell
         }
         
@@ -325,6 +349,189 @@ extension DLinkLogsTableViewController: SpreadsheetViewDataSource, SpreadsheetVi
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            if sortedColumn == indexPath.column {
+                if sortedDirection == .ascending {
+                    sortedDirection = .descending
+                } else {
+                    sortedDirection = .ascending
+                }
+            } else {
+                sortedColumn = indexPath.column
+                sortedDirection = .ascending
+            }
+            
+            if indexPath.column == 0 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.id < $1.id })
+                } else {
+                    logs = logs.sorted(by: { $0.id > $1.id })
+                }
+            }
+            if indexPath.column == 1 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.date < $1.date })
+                } else {
+                    logs = logs.sorted(by: { $0.date > $1.date })
+                }
+            }
+            if indexPath.column == 2 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.time < $1.time })
+                } else {
+                    logs = logs.sorted(by: { $0.time > $1.time })
+                }
+            }
+            if indexPath.column == 3 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.severity < $1.severity })
+                } else {
+                    logs = logs.sorted(by: { $0.severity > $1.severity })
+                }
+            }
+            if indexPath.column == 4 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.category < $1.category })
+                } else {
+                    logs = logs.sorted(by: { $0.category > $1.category })
+                }
+            }
+            if indexPath.column == 5 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.categoryID < $1.categoryID })
+                } else {
+                    logs = logs.sorted(by: { $0.categoryID > $1.categoryID })
+                }
+            }
+            if indexPath.column == 6 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.rule < $1.rule })
+                } else {
+                    logs = logs.sorted(by: { $0.rule > $1.rule })
+                }
+            }
+            if indexPath.column == 7 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.protocolNetwork < $1.protocolNetwork })
+                } else {
+                    logs = logs.sorted(by: { $0.protocolNetwork > $1.protocolNetwork })
+                }
+            }
+            if indexPath.column == 8 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.srcIf < $1.srcIf })
+                } else {
+                    logs = logs.sorted(by: { $0.srcIf > $1.srcIf })
+                }
+            }
+            if indexPath.column == 9 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.dstIf < $1.dstIf })
+                } else {
+                    logs = logs.sorted(by: { $0.dstIf > $1.dstIf })
+                }
+            }
+            if indexPath.column == 10 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.srcIP < $1.srcIP })
+                } else {
+                    logs = logs.sorted(by: { $0.srcIP > $1.srcIP })
+                }
+            }
+            if indexPath.column == 11 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.srcPort < $1.srcPort })
+                } else {
+                    logs = logs.sorted(by: { $0.srcPort > $1.srcPort })
+                }
+            }
+            if indexPath.column == 12 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.dstPort < $1.dstPort })
+                } else {
+                    logs = logs.sorted(by: { $0.dstPort > $1.dstPort })
+                }
+            }
+            if indexPath.column == 13 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.dstPort < $1.dstPort })
+                } else {
+                    logs = logs.sorted(by: { $0.dstPort > $1.dstPort })
+                }
+            }
+            if indexPath.column == 14 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.event < $1.event })
+                } else {
+                    logs = logs.sorted(by: { $0.event > $1.event })
+                }
+            }
+            if indexPath.column == 15 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.action < $1.action })
+                } else {
+                    logs = logs.sorted(by: { $0.action > $1.action })
+                }
+            }
+            if indexPath.column == 16 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.conn < $1.conn })
+                } else {
+                    logs = logs.sorted(by: { $0.conn > $1.conn })
+                }
+            }
+            if indexPath.column == 17 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.connNewSrcIP < $1.connNewSrcIP })
+                } else {
+                    logs = logs.sorted(by: { $0.connNewSrcIP > $1.connNewSrcIP })
+                }
+            }
+            if indexPath.column == 18 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.connNewSrcPort < $1.connNewSrcPort })
+                } else {
+                    logs = logs.sorted(by: { $0.connNewSrcPort > $1.connNewSrcPort })
+                }
+            }
+            if indexPath.column == 19 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.connNewDstIP < $1.connNewDstIP })
+                } else {
+                    logs = logs.sorted(by: { $0.connNewDstIP > $1.connNewDstIP })
+                }
+            }
+            if indexPath.column == 20 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.connNewDstPort < $1.connNewDstPort })
+                } else {
+                    logs = logs.sorted(by: { $0.connNewDstPort > $1.connNewDstPort })
+                }
+            }
+            if indexPath.column == 21 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.origSent < $1.origSent })
+                } else {
+                    logs = logs.sorted(by: { $0.origSent > $1.origSent })
+                }
+            }
+            if indexPath.column == 22 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.termSent < $1.termSent })
+                } else {
+                    logs = logs.sorted(by: { $0.termSent > $1.termSent })
+                }
+            }
+            if indexPath.column == 23 {
+                if sortedDirection == .ascending {
+                    logs = logs.sorted(by: { $0.connTime < $1.connTime })
+                } else {
+                    logs = logs.sorted(by: { $0.connTime > $1.connTime })
+                }
+            }
+            spreadsheetView.reloadData()
+        }
+        
         // IP address
         if indexPath.row != 0 {
             var ip = ""
