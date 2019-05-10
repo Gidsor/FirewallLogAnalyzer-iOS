@@ -37,6 +37,8 @@
 		C0991DB92249499600DF1CAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0991DB72249499600DF1CAE /* LaunchScreen.storyboard */; };
 		C0A33C13228587AA006C6186 /* ChartTPLinkSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C12228587AA006C6186 /* ChartTPLinkSelectTableViewController.swift */; };
 		C0A33C15228587BE006C6186 /* ChartTPLinkReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C14228587BE006C6186 /* ChartTPLinkReportTableViewController.swift */; };
+		C0A33C1722858BD8006C6186 /* ChartDLinkReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C1622858BD8006C6186 /* ChartDLinkReportTableViewController.swift */; };
+		C0A33C1922858BEA006C6186 /* ChartDLinkSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C1822858BEA006C6186 /* ChartDLinkSelectTableViewController.swift */; };
 		C0A86D19227B94900015DABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A86D18227B94900015DABE /* Main.storyboard */; };
 		C0C09E15226CF3E500C69B36 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09E14226CF3E500C69B36 /* UserDefaults.swift */; };
 		C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09E18226CF4AD00C69B36 /* KeyboardObserver.swift */; };
@@ -83,6 +85,8 @@
 		C0991DBA2249499600DF1CAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0A33C12228587AA006C6186 /* ChartTPLinkSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTPLinkSelectTableViewController.swift; sourceTree = "<group>"; };
 		C0A33C14228587BE006C6186 /* ChartTPLinkReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTPLinkReportTableViewController.swift; sourceTree = "<group>"; };
+		C0A33C1622858BD8006C6186 /* ChartDLinkReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDLinkReportTableViewController.swift; sourceTree = "<group>"; };
+		C0A33C1822858BEA006C6186 /* ChartDLinkSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDLinkSelectTableViewController.swift; sourceTree = "<group>"; };
 		C0A86D18227B94900015DABE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C0C09E14226CF3E500C69B36 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		C0C09E18226CF4AD00C69B36 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				C01960A12285682600CDCC7F /* ChartKasperskyReportTableViewController.swift */,
 				C0A33C12228587AA006C6186 /* ChartTPLinkSelectTableViewController.swift */,
 				C0A33C14228587BE006C6186 /* ChartTPLinkReportTableViewController.swift */,
+				C0A33C1822858BEA006C6186 /* ChartDLinkSelectTableViewController.swift */,
+				C0A33C1622858BD8006C6186 /* ChartDLinkReportTableViewController.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				C086E409227F6176003DFF6A /* Log.swift in Sources */,
 				C078C2A42280B95F002CC50F /* String+Validation.swift in Sources */,
 				C029B12A227A238200383533 /* DLinkLog.swift in Sources */,
+				C0A33C1922858BEA006C6186 /* ChartDLinkSelectTableViewController.swift in Sources */,
 				C0C09E15226CF3E500C69B36 /* UserDefaults.swift in Sources */,
 				C00E885A227CAF3300896ED8 /* ConnectServerViewController.swift in Sources */,
 				C00ADF372281E9C10032C98A /* BarChartView+Labels.swift in Sources */,
@@ -441,6 +448,7 @@
 				C0C66F2C227F04D1004381AA /* UITableView+Scroll.swift in Sources */,
 				C078C2AB2280C6DB002CC50F /* ChartsTableViewController.swift in Sources */,
 				C00E8855227CA41A00896ED8 /* DLinkLogsTableViewController.swift in Sources */,
+				C0A33C1722858BD8006C6186 /* ChartDLinkReportTableViewController.swift in Sources */,
 				C029B12E227B7E7A00383533 /* DashboardTableViewController.swift in Sources */,
 				C00E8853227C848D00896ED8 /* TPLinkLogsTableViewController.swift in Sources */,
 				C0A33C15228587BE006C6186 /* ChartTPLinkReportTableViewController.swift in Sources */,
