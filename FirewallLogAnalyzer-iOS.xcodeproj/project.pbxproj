@@ -35,6 +35,8 @@
 		C0991DAF2249499400DF1CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0991DAE2249499400DF1CAE /* AppDelegate.swift */; };
 		C0991DB62249499600DF1CAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0991DB52249499600DF1CAE /* Assets.xcassets */; };
 		C0991DB92249499600DF1CAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0991DB72249499600DF1CAE /* LaunchScreen.storyboard */; };
+		C0A33C13228587AA006C6186 /* ChartTPLinkSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C12228587AA006C6186 /* ChartTPLinkSelectTableViewController.swift */; };
+		C0A33C15228587BE006C6186 /* ChartTPLinkReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C14228587BE006C6186 /* ChartTPLinkReportTableViewController.swift */; };
 		C0A86D19227B94900015DABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A86D18227B94900015DABE /* Main.storyboard */; };
 		C0C09E15226CF3E500C69B36 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09E14226CF3E500C69B36 /* UserDefaults.swift */; };
 		C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09E18226CF4AD00C69B36 /* KeyboardObserver.swift */; };
@@ -79,6 +81,8 @@
 		C0991DB52249499600DF1CAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0991DB82249499600DF1CAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0991DBA2249499600DF1CAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0A33C12228587AA006C6186 /* ChartTPLinkSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTPLinkSelectTableViewController.swift; sourceTree = "<group>"; };
+		C0A33C14228587BE006C6186 /* ChartTPLinkReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTPLinkReportTableViewController.swift; sourceTree = "<group>"; };
 		C0A86D18227B94900015DABE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C0C09E14226CF3E500C69B36 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		C0C09E18226CF4AD00C69B36 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 			children = (
 				C019609F2285656F00CDCC7F /* ChartKasperskySelectTableViewController.swift */,
 				C01960A12285682600CDCC7F /* ChartKasperskyReportTableViewController.swift */,
+				C0A33C12228587AA006C6186 /* ChartTPLinkSelectTableViewController.swift */,
+				C0A33C14228587BE006C6186 /* ChartTPLinkReportTableViewController.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -413,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A33C13228587AA006C6186 /* ChartTPLinkSelectTableViewController.swift in Sources */,
 				C00E8858227CA6CD00896ED8 /* UIViewController+ActivityIndicator.swift in Sources */,
 				C01960A02285656F00CDCC7F /* ChartKasperskySelectTableViewController.swift in Sources */,
 				C01960A22285682600CDCC7F /* ChartKasperskyReportTableViewController.swift in Sources */,
@@ -436,6 +443,7 @@
 				C00E8855227CA41A00896ED8 /* DLinkLogsTableViewController.swift in Sources */,
 				C029B12E227B7E7A00383533 /* DashboardTableViewController.swift in Sources */,
 				C00E8853227C848D00896ED8 /* TPLinkLogsTableViewController.swift in Sources */,
+				C0A33C15228587BE006C6186 /* ChartTPLinkReportTableViewController.swift in Sources */,
 				C00B4663226F36AB0030DE5A /* NetworkManager.swift in Sources */,
 				C08CABE2226D013E009B276B /* MainTabBarController.swift in Sources */,
 				C078C2A92280C687002CC50F /* ReportsTableViewController.swift in Sources */,
