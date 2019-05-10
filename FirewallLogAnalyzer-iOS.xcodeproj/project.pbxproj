@@ -39,6 +39,12 @@
 		C0A33C15228587BE006C6186 /* ChartTPLinkReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C14228587BE006C6186 /* ChartTPLinkReportTableViewController.swift */; };
 		C0A33C1722858BD8006C6186 /* ChartDLinkReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C1622858BD8006C6186 /* ChartDLinkReportTableViewController.swift */; };
 		C0A33C1922858BEA006C6186 /* ChartDLinkSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C1822858BEA006C6186 /* ChartDLinkSelectTableViewController.swift */; };
+		C0A33C1D228591CC006C6186 /* SearchKasperskySelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C1C228591CC006C6186 /* SearchKasperskySelectTableViewController.swift */; };
+		C0A33C1F228591F9006C6186 /* SearchKasperskyReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C1E228591F9006C6186 /* SearchKasperskyReportTableViewController.swift */; };
+		C0A33C212285920E006C6186 /* SearchTPLinkSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C202285920E006C6186 /* SearchTPLinkSelectTableViewController.swift */; };
+		C0A33C2322859221006C6186 /* SearchTPLinkReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C2222859221006C6186 /* SearchTPLinkReportTableViewController.swift */; };
+		C0A33C2522859230006C6186 /* SearchDLinkSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C2422859230006C6186 /* SearchDLinkSelectTableViewController.swift */; };
+		C0A33C272285923C006C6186 /* SearchDLinkReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A33C262285923C006C6186 /* SearchDLinkReportTableViewController.swift */; };
 		C0A86D19227B94900015DABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A86D18227B94900015DABE /* Main.storyboard */; };
 		C0C09E15226CF3E500C69B36 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09E14226CF3E500C69B36 /* UserDefaults.swift */; };
 		C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C09E18226CF4AD00C69B36 /* KeyboardObserver.swift */; };
@@ -87,6 +93,12 @@
 		C0A33C14228587BE006C6186 /* ChartTPLinkReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTPLinkReportTableViewController.swift; sourceTree = "<group>"; };
 		C0A33C1622858BD8006C6186 /* ChartDLinkReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDLinkReportTableViewController.swift; sourceTree = "<group>"; };
 		C0A33C1822858BEA006C6186 /* ChartDLinkSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDLinkSelectTableViewController.swift; sourceTree = "<group>"; };
+		C0A33C1C228591CC006C6186 /* SearchKasperskySelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKasperskySelectTableViewController.swift; sourceTree = "<group>"; };
+		C0A33C1E228591F9006C6186 /* SearchKasperskyReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKasperskyReportTableViewController.swift; sourceTree = "<group>"; };
+		C0A33C202285920E006C6186 /* SearchTPLinkSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTPLinkSelectTableViewController.swift; sourceTree = "<group>"; };
+		C0A33C2222859221006C6186 /* SearchTPLinkReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTPLinkReportTableViewController.swift; sourceTree = "<group>"; };
+		C0A33C2422859230006C6186 /* SearchDLinkSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDLinkSelectTableViewController.swift; sourceTree = "<group>"; };
+		C0A33C262285923C006C6186 /* SearchDLinkReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDLinkReportTableViewController.swift; sourceTree = "<group>"; };
 		C0A86D18227B94900015DABE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C0C09E14226CF3E500C69B36 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		C0C09E18226CF4AD00C69B36 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
@@ -184,6 +196,19 @@
 				C0C09E0C226CF35E00C69B36 /* Support Files */,
 			);
 			path = "FirewallLogAnalyzer-iOS";
+			sourceTree = "<group>";
+		};
+		C0A33C1A22858F49006C6186 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				C0A33C1C228591CC006C6186 /* SearchKasperskySelectTableViewController.swift */,
+				C0A33C1E228591F9006C6186 /* SearchKasperskyReportTableViewController.swift */,
+				C0A33C202285920E006C6186 /* SearchTPLinkSelectTableViewController.swift */,
+				C0A33C2222859221006C6186 /* SearchTPLinkReportTableViewController.swift */,
+				C0A33C2422859230006C6186 /* SearchDLinkSelectTableViewController.swift */,
+				C0A33C262285923C006C6186 /* SearchDLinkReportTableViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		C0C09E0C226CF35E00C69B36 /* Support Files */ = {
@@ -287,6 +312,7 @@
 		C0E543902284BC3C006BD3F7 /* Reports */ = {
 			isa = PBXGroup;
 			children = (
+				C0A33C1A22858F49006C6186 /* Search */,
 				C019609E2285655200CDCC7F /* Charts */,
 			);
 			path = Reports;
@@ -442,11 +468,14 @@
 				C00ADF372281E9C10032C98A /* BarChartView+Labels.swift in Sources */,
 				C06CA30A227DF72C004C41FA /* IPGeolocationTableViewController.swift in Sources */,
 				C00E885F227CCD2900896ED8 /* SettingsTableViewController.swift in Sources */,
+				C0A33C2522859230006C6186 /* SearchDLinkSelectTableViewController.swift in Sources */,
 				C0486959227E0C8D00B6936B /* IPGeoLocation.swift in Sources */,
 				C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */,
 				C094856E2281D16A006E5AF7 /* LiveTrafficTableViewController.swift in Sources */,
+				C0A33C212285920E006C6186 /* SearchTPLinkSelectTableViewController.swift in Sources */,
 				C0C66F2C227F04D1004381AA /* UITableView+Scroll.swift in Sources */,
 				C078C2AB2280C6DB002CC50F /* ChartsTableViewController.swift in Sources */,
+				C0A33C2322859221006C6186 /* SearchTPLinkReportTableViewController.swift in Sources */,
 				C00E8855227CA41A00896ED8 /* DLinkLogsTableViewController.swift in Sources */,
 				C0A33C1722858BD8006C6186 /* ChartDLinkReportTableViewController.swift in Sources */,
 				C029B12E227B7E7A00383533 /* DashboardTableViewController.swift in Sources */,
@@ -454,8 +483,11 @@
 				C0A33C15228587BE006C6186 /* ChartTPLinkReportTableViewController.swift in Sources */,
 				C00B4663226F36AB0030DE5A /* NetworkManager.swift in Sources */,
 				C08CABE2226D013E009B276B /* MainTabBarController.swift in Sources */,
+				C0A33C272285923C006C6186 /* SearchDLinkReportTableViewController.swift in Sources */,
 				C078C2A92280C687002CC50F /* ReportsTableViewController.swift in Sources */,
 				C0CB982022802CAF0070C773 /* MostActiveIPAddressViewController.swift in Sources */,
+				C0A33C1F228591F9006C6186 /* SearchKasperskyReportTableViewController.swift in Sources */,
+				C0A33C1D228591CC006C6186 /* SearchKasperskySelectTableViewController.swift in Sources */,
 				C094856A2281A682006E5AF7 /* LiveTraffic24HoursTableViewController.swift in Sources */,
 				C0F43358228214610000646E /* ProtocolsTableViewController.swift in Sources */,
 				C0E5438F2284856F006BD3F7 /* SeverityLevelTableViewController.swift in Sources */,
