@@ -30,7 +30,9 @@ class DashboardTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         updateDashboard()
     }
     
