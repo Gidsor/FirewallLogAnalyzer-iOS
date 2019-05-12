@@ -329,29 +329,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="IP Address/URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wQq-Ul-oNx">
-                                <rect key="frame" x="30" y="94" width="354" height="30"/>
+                                <rect key="frame" x="30" y="194" width="354" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Port" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hP7-zS-a4K">
-                                <rect key="frame" x="30" y="154" width="354" height="30"/>
+                                <rect key="frame" x="30" y="254" width="354" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fwb-IC-Q7G">
-                                <rect key="frame" x="30" y="214" width="354" height="30"/>
+                                <rect key="frame" x="30" y="314" width="354" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forensic-science" translatesAutoresizingMaskIntoConstraints="NO" id="bfw-Go-v61">
+                                <rect key="frame" x="-305" y="84" width="1024" height="100.00000000000023"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="aoG-3e-97l"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wQq-Ul-oNx" firstAttribute="top" secondItem="GYL-4S-DqJ" secondAttribute="top" constant="30" id="2rI-JP-C5l"/>
+                            <constraint firstItem="bfw-Go-v61" firstAttribute="centerX" secondItem="GYL-4S-DqJ" secondAttribute="centerX" id="AAc-mP-giM"/>
+                            <constraint firstItem="bfw-Go-v61" firstAttribute="top" secondItem="GYL-4S-DqJ" secondAttribute="top" constant="20" id="CbE-1f-NAs"/>
                             <constraint firstItem="hP7-zS-a4K" firstAttribute="top" secondItem="wQq-Ul-oNx" secondAttribute="bottom" constant="30" id="G4P-oF-E2f"/>
                             <constraint firstItem="hP7-zS-a4K" firstAttribute="leading" secondItem="GYL-4S-DqJ" secondAttribute="leading" constant="30" id="Lxj-ge-wr9"/>
+                            <constraint firstItem="wQq-Ul-oNx" firstAttribute="top" secondItem="bfw-Go-v61" secondAttribute="bottom" constant="10" id="MI4-o4-67A"/>
                             <constraint firstItem="GYL-4S-DqJ" firstAttribute="trailing" secondItem="hP7-zS-a4K" secondAttribute="trailing" constant="30" id="Xge-8w-YLU"/>
                             <constraint firstItem="GYL-4S-DqJ" firstAttribute="trailing" secondItem="wQq-Ul-oNx" secondAttribute="trailing" constant="30" id="Yij-zh-547"/>
                             <constraint firstItem="Fwb-IC-Q7G" firstAttribute="leading" secondItem="GYL-4S-DqJ" secondAttribute="leading" constant="30" id="dZs-TU-6Ue"/>
@@ -376,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lX9-Sp-RCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1135" y="-2853"/>
+            <point key="canvasLocation" x="1134.7826086956522" y="-2853.2608695652175"/>
         </scene>
         <!--Kaspersky Logs-->
         <scene sceneID="YfE-pQ-Xtq">
@@ -5676,6 +5684,7 @@
         <image name="chart_8" width="100" height="100"/>
         <image name="dashboard" width="30" height="30"/>
         <image name="exit" width="30" height="30"/>
+        <image name="forensic-science" width="1024" height="996"/>
         <image name="json_json" width="48" height="48"/>
         <image name="json_quotes" width="48" height="48"/>
         <image name="json_sharp" width="48" height="48"/>
