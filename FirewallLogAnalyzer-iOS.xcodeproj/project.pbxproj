@@ -23,6 +23,7 @@
 		C029B12A227A238200383533 /* DLinkLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B129227A238200383533 /* DLinkLog.swift */; };
 		C029B12E227B7E7A00383533 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B12D227B7E7A00383533 /* DashboardTableViewController.swift */; };
 		C029B131227B8AEC00383533 /* KasperskyLogsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029B130227B8AEC00383533 /* KasperskyLogsTableViewController.swift */; };
+		C03D986B2289F0CA003F2957 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D986A2289F0CA003F2957 /* UIViewController+Alerts.swift */; };
 		C0486959227E0C8D00B6936B /* IPGeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0486958227E0C8D00B6936B /* IPGeoLocation.swift */; };
 		C06CA30A227DF72C004C41FA /* IPGeolocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06CA309227DF72C004C41FA /* IPGeolocationTableViewController.swift */; };
 		C078C2A42280B95F002CC50F /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C078C2A32280B95F002CC50F /* String+Validation.swift */; };
@@ -76,6 +77,7 @@
 		C029B129227A238200383533 /* DLinkLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLinkLog.swift; sourceTree = "<group>"; };
 		C029B12D227B7E7A00383533 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		C029B130227B8AEC00383533 /* KasperskyLogsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KasperskyLogsTableViewController.swift; sourceTree = "<group>"; };
+		C03D986A2289F0CA003F2957 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		C0486958227E0C8D00B6936B /* IPGeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPGeoLocation.swift; sourceTree = "<group>"; };
 		C06CA309227DF72C004C41FA /* IPGeolocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPGeolocationTableViewController.swift; sourceTree = "<group>"; };
 		C078C2A32280B95F002CC50F /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				C00E8857227CA6CD00896ED8 /* UIViewController+ActivityIndicator.swift */,
+				C03D986A2289F0CA003F2957 /* UIViewController+Alerts.swift */,
 				C0C66F2B227F04D1004381AA /* UITableView+Scroll.swift */,
 				C078C2A32280B95F002CC50F /* String+Validation.swift */,
 				C00ADF362281E9C10032C98A /* BarChartView+Labels.swift */,
@@ -473,6 +476,7 @@
 				C06CA30A227DF72C004C41FA /* IPGeolocationTableViewController.swift in Sources */,
 				C00E885F227CCD2900896ED8 /* SettingsTableViewController.swift in Sources */,
 				C0A33C2522859230006C6186 /* SearchDLinkSelectTableViewController.swift in Sources */,
+				C03D986B2289F0CA003F2957 /* UIViewController+Alerts.swift in Sources */,
 				C0486959227E0C8D00B6936B /* IPGeoLocation.swift in Sources */,
 				C0C09E19226CF4AD00C69B36 /* KeyboardObserver.swift in Sources */,
 				C094856E2281D16A006E5AF7 /* LiveTrafficTableViewController.swift in Sources */,

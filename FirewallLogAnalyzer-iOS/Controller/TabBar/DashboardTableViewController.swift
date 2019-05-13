@@ -45,6 +45,10 @@ class DashboardTableViewController: UITableViewController {
         
         showActivityIndicator(in: view)
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.kasperskyLogs = logs
             self.kasperskyCell.detailTextLabel?.text = "Logs count: \(logs.count)"
             self.findMoreActiveIPAddressForLastDay(logs: logs)
@@ -56,6 +60,10 @@ class DashboardTableViewController: UITableViewController {
         }
         
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.tplinkLogs = logs
             self.tplinkCell.detailTextLabel?.text = "Logs count: \(logs.count)"
             self.ipTPLinkButton.setTitle("None", for: .normal)
@@ -67,6 +75,10 @@ class DashboardTableViewController: UITableViewController {
         }
         
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.dlinkLogs = logs
             self.dlinkCell.detailTextLabel?.text = "Logs count: \(logs.count)"
             self.findMoreActiveIPAddressForLastDay(logs: logs)
