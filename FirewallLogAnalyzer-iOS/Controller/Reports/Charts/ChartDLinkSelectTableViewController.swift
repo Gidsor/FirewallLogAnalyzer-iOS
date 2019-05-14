@@ -52,6 +52,10 @@ class ChartDLinkSelectTableViewController: UITableViewController, UIPickerViewDe
         
         showActivityIndicator(in: view)
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.sourceDLinkLogs = logs
             self.dlinkLogs = logs
             self.ipDLink = logs.map { $0.srcIP }

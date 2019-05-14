@@ -45,6 +45,10 @@ class SearchKasperskySelectTableViewController: UITableViewController, UIPickerV
         
         showActivityIndicator(in: view)
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.sourceKasperskyLogs = logs
             self.kasperskyLogs = logs
             self.ipKaspersky = logs.map { $0.ipAddress }

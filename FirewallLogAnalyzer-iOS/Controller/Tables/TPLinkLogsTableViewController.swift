@@ -60,6 +60,10 @@ class TPLinkLogsTableViewController: UIViewController {
         
         showActivityIndicator(in: view)
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.sourceLogs = logs
             self.logs = logs
             self.minDate = logs.min(by: { (log1, log2) -> Bool in

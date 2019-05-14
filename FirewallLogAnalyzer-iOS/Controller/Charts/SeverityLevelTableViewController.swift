@@ -53,6 +53,10 @@ class SeverityLevelTableViewController: UITableViewController, UIPickerViewDataS
         showActivityIndicator(in: view)
         
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.sourceTPLinkLogs = logs
             self.tplinkLogs = logs
             self.ipTPLink = logs.map { $0.ipAddress }
@@ -66,6 +70,10 @@ class SeverityLevelTableViewController: UITableViewController, UIPickerViewDataS
         }
         
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.sourceDLinkLogs = logs
             self.dlinkLogs = logs
             self.ipDLink = logs.map { $0.srcIP }

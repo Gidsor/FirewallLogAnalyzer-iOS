@@ -45,6 +45,10 @@ class TrafficIPAddressTableViewController: UITableViewController, UIPickerViewDa
         
         showActivityIndicator(in: view)
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.sourceKasperskyLogs = logs
             self.kasperskyLogs = logs
             self.ipKaspersky = logs.map { $0.ipAddress }
@@ -58,6 +62,10 @@ class TrafficIPAddressTableViewController: UITableViewController, UIPickerViewDa
         }
         
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.sourceTPLinkLogs = logs
             self.tplinkLogs = logs
             self.ipTPLink = logs.map { $0.ipAddress }
@@ -71,6 +79,10 @@ class TrafficIPAddressTableViewController: UITableViewController, UIPickerViewDa
         }
         
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.sourceDLinkLogs = logs
             self.dlinkLogs = logs
             self.ipDLink = logs.map { $0.srcIP }

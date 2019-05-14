@@ -50,6 +50,10 @@ class MostActiveIPAddressViewController: UITableViewController {
         
         showActivityIndicator(in: view)
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.sourceKasperskyLogs = logs
             self.kasperskyLogs = logs
             kasperskyLoaded = true
@@ -60,6 +64,10 @@ class MostActiveIPAddressViewController: UITableViewController {
         }
         
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.sourceTPLinkLogs = logs
             self.tplinkLogs = logs
             tplinkLoaded = true
@@ -70,6 +78,10 @@ class MostActiveIPAddressViewController: UITableViewController {
         }
         
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.sourceDLinkLogs = logs
             self.dlinkLogs = logs
             dlinkLoaded = true

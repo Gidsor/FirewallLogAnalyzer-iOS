@@ -44,6 +44,10 @@ class SearchTPLinkSelectTableViewController: UITableViewController, UIPickerView
         
         showActivityIndicator(in: view)
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.sourceTPLinkLogs = logs
             self.tplinkLogs = logs
             self.ipTPLink = logs.map { $0.ipAddress }

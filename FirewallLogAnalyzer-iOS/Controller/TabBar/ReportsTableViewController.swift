@@ -24,6 +24,10 @@ class ReportsTableViewController: UITableViewController {
     @IBAction func showTopDlinkIPAddress(_ sender: Any) {
         showActivityIndicator(in: view)
         NetworkManager.shared.updateDLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.performSegue(withIdentifier: "ShowTopIPAddress", sender: logs)
             self.hideActivityIndicator(in: self.view)
         }
@@ -32,6 +36,10 @@ class ReportsTableViewController: UITableViewController {
     @IBAction func showTopTPLinkIPAddess(_ sender: Any) {
         showActivityIndicator(in: view)
         NetworkManager.shared.updateTPLinkLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.performSegue(withIdentifier: "ShowTopIPAddress", sender: logs)
             self.hideActivityIndicator(in: self.view)
         }
@@ -40,6 +48,10 @@ class ReportsTableViewController: UITableViewController {
     @IBAction func showKasperskyIPAddess(_ sender: Any) {
         showActivityIndicator(in: view)
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
+            if status == .unknown {
+                self.showAlert(type: .noInternetConnection)
+                return
+            }
             self.performSegue(withIdentifier: "ShowTopIPAddress", sender: logs)
             self.hideActivityIndicator(in: self.view)
         }
