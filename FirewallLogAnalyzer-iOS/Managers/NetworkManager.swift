@@ -108,7 +108,7 @@ class NetworkManager {
                         print("ERROR: Unable get json object from data. STATUS CODE: \(statusCode)")
                     }
                 case .failure(let error):
-                    if let data = responseData.data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? JSON {
+                    if let data = responseData.data, let json = ((try? JSONSerialization.jsonObject(with: data, options: []) as? JSON) as JSON??) {
                         response(statusCode, json)
                     } else {
                         response(statusCode, nil)

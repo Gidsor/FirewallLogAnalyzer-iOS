@@ -33,7 +33,7 @@ extension BarChartView {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: label)
+        let chartDataSet = BarChartDataSet(entries: dataEntries, label: label)
         chartDataSet.colors = ChartColorTemplates.material()
         let chartData = BarChartData(dataSet: chartDataSet)
         

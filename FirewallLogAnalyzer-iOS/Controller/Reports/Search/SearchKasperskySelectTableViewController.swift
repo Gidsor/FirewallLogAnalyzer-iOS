@@ -10,7 +10,6 @@ import UIKit
 
 class SearchKasperskySelectTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    
     @IBOutlet weak var minDateButton: UIButton!
     @IBOutlet weak var maxDateButton: UIButton!
     @IBOutlet weak var ipButton: UIButton!

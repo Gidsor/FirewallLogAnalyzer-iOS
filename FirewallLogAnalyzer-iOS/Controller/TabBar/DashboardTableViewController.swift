@@ -22,7 +22,6 @@ class DashboardTableViewController: UITableViewController {
     var kasperskyLogs: [KasperskyLog] = []
     var tplinkLogs: [TPLinkLog] = []
     var dlinkLogs: [DLinkLog] = []
-    
     var chartDataEntry: [ChartDataEntry] = []
     
     
@@ -39,9 +38,9 @@ class DashboardTableViewController: UITableViewController {
     
     func updateDashboard() {
         ipServerButton.setTitle(UserSettings.server, for: .normal)
-        var kasperskyLoaded = false
-        var tplinkLoaded = false
-        var dlinkLoaded = false
+        var isKasperskyLoaded = false
+        var isTPLinkLoaded = false
+        var isDlinkLoaded = false
         
         showActivityIndicator(in: view)
         NetworkManager.shared.updateKasperskyLogFiles { (status, logs) in
@@ -52,8 +51,8 @@ class DashboardTableViewController: UITableViewController {
             self.kasperskyLogs = logs
             self.kasperskyCell.detailTextLabel?.text = "Logs count: \(logs.count)"
             self.findMoreActiveIPAddressForLastDay(logs: logs)
-            kasperskyLoaded = true
-            if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
+            isKasperskyLoaded = true
+            if isKasperskyLoaded && isTPLinkLoaded && isDlinkLoaded {
                 self.hideActivityIndicator(in: self.view)
                 self.lineChartSetup()
             }
@@ -67,8 +66,8 @@ class DashboardTableViewController: UITableViewController {
             self.tplinkLogs = logs
             self.tplinkCell.detailTextLabel?.text = "Logs count: \(logs.count)"
             self.ipTPLinkButton.setTitle("None", for: .normal)
-            tplinkLoaded = true
-            if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
+            isTPLinkLoaded = true
+            if isKasperskyLoaded && isTPLinkLoaded && isDlinkLoaded {
                 self.hideActivityIndicator(in: self.view)
                 self.lineChartSetup()
             }
@@ -82,8 +81,8 @@ class DashboardTableViewController: UITableViewController {
             self.dlinkLogs = logs
             self.dlinkCell.detailTextLabel?.text = "Logs count: \(logs.count)"
             self.findMoreActiveIPAddressForLastDay(logs: logs)
-            dlinkLoaded = true
-            if kasperskyLoaded && tplinkLoaded && dlinkLoaded {
+            isDlinkLoaded = true
+            if isKasperskyLoaded && isTPLinkLoaded && isDlinkLoaded {
                 self.hideActivityIndicator(in: self.view)
                 self.lineChartSetup()
             }
@@ -212,7 +211,7 @@ class DashboardTableViewController: UITableViewController {
             value1.y < value2.y
         })!.y + 30)
         
-        let set1 = LineChartDataSet(values: chartDataEntry, label: "Kaspersky")
+        let set1 = LineChartDataSet(entries: chartDataEntry, label: "Kaspersky")
         set1.axisDependency = .left
         set1.setColor(.red)
         set1.setCircleColor(.red)
@@ -229,7 +228,7 @@ class DashboardTableViewController: UITableViewController {
             value1.y < value2.y
         })!.y + 30)
         
-        let set2 = LineChartDataSet(values: chartDataEntry, label: "TPLink")
+        let set2 = LineChartDataSet(entries: chartDataEntry, label: "TPLink")
         set2.axisDependency = .left
         set2.setColor(.green)
         set2.setCircleColor(.green)
@@ -246,7 +245,7 @@ class DashboardTableViewController: UITableViewController {
             value1.y < value2.y
         })!.y + 30)
         
-        let set3 = LineChartDataSet(values: chartDataEntry, label: "DLink")
+        let set3 = LineChartDataSet(entries: chartDataEntry, label: "DLink")
         set3.axisDependency = .left
         set3.setColor(.blue)
         set3.setCircleColor(.blue)

@@ -154,7 +154,7 @@ class ChartDLinkReportTableViewController: UITableViewController {
                                      label: kasperskySortedValues[i].key + " (\(kasperskySortedValues[i].value))")
         }
         
-        let set = PieChartDataSet(values: values, label: "")
+        let set = PieChartDataSet(entries: values, label: "")
         set.sliceSpace = 2
         
         
@@ -306,7 +306,7 @@ class ChartDLinkReportTableViewController: UITableViewController {
         leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, chartDataEntry.max(by: { (value1, value2) -> Bool in
             value1.y < value2.y
         })!.y + 30)
-        let set1 = LineChartDataSet(values: chartDataEntry, label: "Kaspersky")
+        let set1 = LineChartDataSet(entries: chartDataEntry, label: "Kaspersky")
         set1.axisDependency = .left
         set1.setColor(.red)
         set1.setCircleColor(.red)
@@ -485,7 +485,7 @@ class ChartDLinkReportTableViewController: UITableViewController {
                                      label: kasperskySortedValues[i].key + " (\(kasperskySortedValues[i].value))")
         }
         
-        let set = PieChartDataSet(values: values, label: "")
+        let set = PieChartDataSet(entries: values, label: "")
         set.sliceSpace = 2
         
         

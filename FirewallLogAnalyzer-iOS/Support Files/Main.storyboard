@@ -347,7 +347,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forensic-science" translatesAutoresizingMaskIntoConstraints="NO" id="bfw-Go-v61">
-                                <rect key="frame" x="-305" y="84" width="1024" height="100.00000000000023"/>
+                                <rect key="frame" x="199" y="84" width="16" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="aoG-3e-97l"/>
                                 </constraints>
@@ -2528,7 +2528,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_8" translatesAutoresizingMaskIntoConstraints="NO" id="o6r-WB-Y5s">
-                                                    <rect key="frame" x="10" y="10" width="100" height="69.666666666666671"/>
+                                                    <rect key="frame" x="10" y="10" width="16" height="69.666666666666671"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Most active IP address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Do-gB-PKd">
                                                     <rect key="frame" x="147" y="10.000000000000002" width="180" height="20.666666666666671"/>
@@ -2567,7 +2567,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_6" translatesAutoresizingMaskIntoConstraints="NO" id="nwU-1S-dFk">
-                                                    <rect key="frame" x="10" y="10" width="107.00000000000003" height="69.666666666666671"/>
+                                                    <rect key="frame" x="10" y="10" width="16" height="69.666666666666671"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Traffic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xoo-cm-LtO">
                                                     <rect key="frame" x="193" y="10.000000000000002" width="88" height="20.666666666666671"/>
@@ -2606,7 +2606,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_4" translatesAutoresizingMaskIntoConstraints="NO" id="uDo-1S-tGW">
-                                                    <rect key="frame" x="10" y="10" width="100" height="69.666666666666671"/>
+                                                    <rect key="frame" x="10" y="10" width="16" height="69.666666666666671"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Live Traffic (24 hours)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLm-dZ-ZbP">
                                                     <rect key="frame" x="148.66666666666666" y="10.000000000000002" width="176.99999999999997" height="20.666666666666671"/>
@@ -2645,7 +2645,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_3" translatesAutoresizingMaskIntoConstraints="NO" id="lXt-vw-ax6">
-                                                    <rect key="frame" x="10" y="10" width="100" height="69.666666666666671"/>
+                                                    <rect key="frame" x="10" y="10" width="16" height="69.666666666666671"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pm-mr-eZ9">
                                                     <rect key="frame" x="210" y="10.000000000000002" width="54" height="20.666666666666671"/>
@@ -2684,7 +2684,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_5" translatesAutoresizingMaskIntoConstraints="NO" id="55z-NL-lHt">
-                                                    <rect key="frame" x="10" y="10" width="100" height="69.666666666666671"/>
+                                                    <rect key="frame" x="10" y="10" width="16" height="69.666666666666671"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Severity Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMt-3u-LBE">
                                                     <rect key="frame" x="181.66666666666666" y="10.000000000000002" width="110.99999999999997" height="20.666666666666671"/>
@@ -2723,7 +2723,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_10" translatesAutoresizingMaskIntoConstraints="NO" id="3CM-yX-SYw">
-                                                    <rect key="frame" x="10" y="10" width="100" height="69.666666666666671"/>
+                                                    <rect key="frame" x="10" y="10" width="16" height="69.666666666666671"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Protocols" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0f2-h4-5nW">
                                                     <rect key="frame" x="199" y="10" width="76.333333333333314" height="21"/>
@@ -2762,7 +2762,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_2" translatesAutoresizingMaskIntoConstraints="NO" id="SgT-lG-iE1">
-                                                    <rect key="frame" x="10" y="10" width="101" height="69.666666666666671"/>
+                                                    <rect key="frame" x="10" y="10" width="16" height="69.666666666666671"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Traffic with specific IP address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xg8-L5-VGC">
                                                     <rect key="frame" x="114.66666666666669" y="10.000000000000002" width="245" height="20.666666666666671"/>

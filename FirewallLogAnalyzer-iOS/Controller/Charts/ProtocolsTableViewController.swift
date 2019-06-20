@@ -333,7 +333,7 @@ class ProtocolsTableViewController: UITableViewController, UIPickerViewDataSourc
             logsCountLabel.text = "Logs count: \(dlinkLogs.count)"
         }
         
-        let set = PieChartDataSet(values: values, label: "")
+        let set = PieChartDataSet(entries: values, label: "")
         set.sliceSpace = 2
         
         

@@ -298,7 +298,7 @@ class LiveTraffic24HoursTableViewController: UITableViewController, UIPickerView
             leftAxis.axisMaximum = Double.maximum(leftAxis.axisMaximum, chartDataEntry.max(by: { (value1, value2) -> Bool in
                 value1.y < value2.y
             })!.y + 30)
-            let set1 = LineChartDataSet(values: chartDataEntry, label: "Kaspersky")
+            let set1 = LineChartDataSet(entries: chartDataEntry, label: "Kaspersky")
             set1.axisDependency = .left
             set1.setColor(.red)
             set1.setCircleColor(.red)
@@ -315,7 +315,7 @@ class LiveTraffic24HoursTableViewController: UITableViewController, UIPickerView
                 value1.y < value2.y
             })!.y + 30)
             
-            let set2 = LineChartDataSet(values: chartDataEntry, label: "TPLink")
+            let set2 = LineChartDataSet(entries: chartDataEntry, label: "TPLink")
             set2.axisDependency = .left
             set2.setColor(.green)
             set2.setCircleColor(.green)
@@ -332,7 +332,7 @@ class LiveTraffic24HoursTableViewController: UITableViewController, UIPickerView
                 value1.y < value2.y
             })!.y + 30)
             
-            let set3 = LineChartDataSet(values: chartDataEntry, label: "DLink")
+            let set3 = LineChartDataSet(entries: chartDataEntry, label: "DLink")
             set3.axisDependency = .left
             set3.setColor(.blue)
             set3.setCircleColor(.blue)
